@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COREXION — Contact</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;color:#202226;background:#fff}
+a{text-decoration:none;color:inherit}
+
+:root {
+    --gold: #bd8628;
+    --dark: #202226;
+    --gray: #6d7177;
+}
+
+/* =========================
+   RTL support
+========================= */
+[dir="rtl"] {
+    text-align: right;
+}
+[dir="rtl"] .gold-line {
+    margin-right: 0;
+    margin-left: 0;
+}
+[dir="rtl"] .office-line {
+    margin-right: 0;
+    margin-left: 25px;
+}
+[dir="rtl"] .office {
+    border-left: none;
+    border-right: 1px solid #e1e1e1;
+}
+[dir="rtl"] .office:last-child {
+    border-right: none;
+}
+[dir="rtl"] .office-bar .office-title {
+    margin-right: 0;
+    margin-left: 10px;
+}
+@media(max-width:650px) {
+    [dir="rtl"] .nav-menu {
+        transform: translateX(-100%);
+    }
+    [dir="rtl"] .nav-menu.open {
+        transform: translateX(0);
+    }
+    [dir="rtl"] .nav-menu .dropdown-menu a {
+        padding: 8px 30px 8px 18px;
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{height:55px;border-bottom:1px solid #f0f0f0;background:#fff;display:flex;align-items:center;position:relative;z-index:1000}
+.nav-container{width:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;width:170px;min-width:170px;height:100%;text-decoration:none}
+.corexion-logo{display:block;width:170px;height:35px;object-fit:contain;object-position:left center}
+
+/* NAV MENU */
+.nav-menu{list-style:none;display:flex;align-items:center;gap:35px}
+.nav-menu>li{position:relative}
+.nav-menu a{font-size:9px;font-weight:600;letter-spacing:.25px;display:inline-block;padding-bottom:4px;position:relative}
+.nav-menu a::after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--gold);transition:.25s}
+.nav-menu a:hover::after, .nav-menu a.active::after{width:100%}
+.nav-menu a.active{color:var(--gold)}
+
+/* DROPDOWN */
+.dropdown-toggle{cursor:pointer;user-select:none}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:180px;box-shadow:0 8px 20px rgba(0,0,0,.1);border-radius:4px;padding:8px 0;z-index:200;margin-top:6px}
+.dropdown-menu.open{display:block}
+.dropdown-menu li{list-style:none;padding:0;border-bottom:none}
+.dropdown-menu a{display:block;padding:8px 18px;font-size:10px;font-weight:600;letter-spacing:.3px;color:#333;transition:background .2s,color .2s}
+.dropdown-menu a:hover{background:#f5f5f5;color:var(--gold)}
+.dropdown-menu a::after{display:none}
+.dropdown-menu.wide{min-width:200px}
+
+/* LANGUAGE */
+.language{display:flex;gap:8px;align-items:center;min-width:55px;justify-content:flex-end;font-size:9px}
+.language .active{color:var(--gold)}
+.language span{color:#777}
+.language a{cursor:pointer}
+
+.menu-button{display:none;border:0;background:none;cursor:pointer}
+.menu-button span{display:block;width:22px;height:1px;background:#222;margin:5px}
+
+/* =========================
+   HERO
+========================= */
+.contact-hero{display:grid;grid-template-columns:40.3% 59.7%;min-height:438px}
+.form-side{padding:12px 32px 25px;background:#fff}
+.hero-title{font-size:38px;line-height:.98;font-weight:300;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
+.gold-line{width:25px;height:3px;background:var(--gold);margin:0 0 9px}
+.description{font-size:12px;line-height:1.35;color:#72767a;max-width:320px;margin-bottom:13px}
+
+.contact-form{width:100%;max-width:320px}
+.field{margin-bottom:7px}
+.field label{display:block;font-size:7px;font-weight:600;letter-spacing:1px;margin-bottom:4px}
+.field input,.field select,.field textarea{width:100%;border:1px solid #d9d9d9;background:#fff;font-family:inherit;font-size:10px;color:#333;padding:0 7px;border-radius:0;outline:none}
+.field input,.field select{height:23px}
+.field textarea{height:47px;padding-top:6px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+
+.submit-btn{width:162px;height:25px;background:#c9820b;border:0;color:#fff;font-size:8px;font-weight:700;letter-spacing:.6px;cursor:pointer}
+.submit-btn:hover{background:#a96e08}
+
+.form-message{font-size:10px;margin-top:7px;display:none}
+.form-message.success{color:#66824a;display:block}
+.form-message.error{color:#a44b3d;display:block}
+
+.hero-image{min-height:438px;overflow:hidden}
+.hero-image img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+
+/* =========================
+   OFFICE BAR
+========================= */
+.office-bar{height:49px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;display:flex;align-items:center;padding:0 32px}
+.office-title{font-size:8px;font-weight:600;letter-spacing:.35px;min-width:95px}
+.office-line{width:22px;height:2px;background:var(--gold);margin-right:25px}
+.offices{display:flex;align-items:center;flex:1;height:100%}
+.office{height:100%;flex:1;display:flex;align-items:center;justify-content:center;border-left:1px solid #e1e1e1;font-size:8px;color:#555;cursor:pointer;transition:.2s}
+.office:hover,.office.active{color:var(--gold);background:#faf9f6}
+
+.office-details{padding:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:25px;background:#fafafa}
+.detail h3{font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:8px}
+.detail p{font-size:10px;line-height:1.7;color:#707477}
+.detail a{color:var(--gold)}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    background: #222428;
+    color: #fff;
+    padding: 55px 45px 22px;
+    margin-top: 0;
+}
+.footer-grid {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+.footer-logo {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+.footer-description {
+    max-width: 300px;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.7;
+}
+.footer h3 {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+}
+.footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer li a {
+    color: #aaa;
+    font-size: 11px;
+    transition: .2s;
+}
+.footer li a:hover {
+    color: #fff;
+}
+.footer-bottom {
+    max-width: 1400px;
+    margin: 40px auto 0;
+    padding-top: 17px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 9px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:900px){
+ .logo{width:170px;min-width:170px}.corexion-logo{width:170px;height:35px}
+ .nav-menu{gap:18px}
+ .contact-hero{grid-template-columns:1fr}
+ .form-side{padding:30px 25px}.hero-image{height:400px;min-height:0}
+ .office-bar{height:auto;min-height:55px;padding:12px 18px;flex-wrap:wrap}
+ .office-title{min-width:auto;margin-right:10px}.office-line{margin-right:10px}
+ .offices{width:100%;overflow:auto;margin-top:10px}
+ .office{min-width:120px;height:40px}
+}
+
+@media(max-width:650px){
+ .navbar{height:65px}.nav-container{padding:0 17px}
+ .logo{width:150px;min-width:150px}.corexion-logo{width:150px;height:31px}
+
+ .nav-menu{
+    position:fixed;top:65px;left:0;width:100%;height:calc(100vh - 65px);
+    background:#fff;flex-direction:column;align-items:flex-start;gap:0;
+    padding:20px 25px;transform:translateX(100%);transition:.3s ease;
+    overflow-y:auto;display:flex;box-shadow:none;z-index:999;
+ }
+ .nav-menu.open{transform:translateX(0)}
+ .nav-menu li{width:100%;padding:16px 0;border-bottom:1px solid #eee}
+ .nav-menu a{font-size:12px}
+
+ /* mobile dropdown reset */
+ .nav-menu .dropdown-menu{
+    position:static;box-shadow:none;padding:0;margin:8px 0 0 0;background:transparent;display:none;
+ }
+ .nav-menu .dropdown-menu.open{display:block}
+ .nav-menu .dropdown-menu li{padding:0;border-bottom:none}
+ .nav-menu .dropdown-menu a{padding:8px 18px 8px 30px;font-size:11px}
+
+ .language{margin-left:auto;margin-right:10px}
+ .menu-button{display:block}
+
+ .hero-title{font-size:35px}
+ .form-side{padding:28px 20px}
+ .contact-form{max-width:none}
+ .hero-image{height:300px}
+ .office-details{grid-template-columns:1fr;padding:22px 20px}
+
+ .footer{padding:50px 25px 25px}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:35px 25px}
+ .footer-brand{grid-column:1 / -1}
+ .footer-bottom{flex-direction:column;gap:10px}
+}
+@media(max-width:500px){
+ .logo{width:140px;min-width:140px}.corexion-logo{width:140px;height:29px}
+ .footer-grid{grid-template-columns:1fr}
+ .footer-brand{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+ <div class="nav-container">
+
+  <!-- CORRECT LOGO (using Base64 image from reference) -->
+  <a href="index.html" class="logo" aria-label="COREXION">
+   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAAAjCAIAAACLqwbFAAAfbklEQVR4nJV7aZAd13XeOff28tbZV2AGmBUQFoJYuEkkwAUkqIWkpMSWYlGi7FgqqZyS45QrZf9I4qosv+JKnFRkx4olkmVXJEVRRRYpUtxAUtxBrIMBCAKDweyYfX9b973n5Mft7tfvzYMsdxWJed19zz33rN859zaSJgQEAAYGhOhCQAaG2MXMgAjACAgM5mVzExEQIHgep1Ieaf6gYAQAAyACoDDvY8UgrBqKgBGNKvIMAZto5kaM34wIVvFlqAXEzdyGpyouOP4LgyWbuxE7ZkauGhwMr/kUQ1YiLhEr7hgJV6yBy2tnYMMxG12ENMvvx2dDQEA2DznQcqBBACSiOE+GRDW7wRpAa6W1Ng+FELZloSgvD2M6RMTIYMz7TIQCgSmchxGIWYCwQklX200NlkKVIFa/XMlqpSCwLPGy1d5ibI0rUHe1M1QYXC2Ct+LqVhNVEOFKzVWQClYVJ1ix5C3kETFmtMb1mAGs4HEonwo/AwAAIUSxUNzczOUL+UIhr5Qy5IVA13GTyWQmm0mnU0JIIopZMQAjMBMTMAOzsOyNydOrN04JCQyEwNrfyGw73Dh4IuSKAESFj1b74xYHrVr5b3JFbvSbD6p8+R83XS2R/oYTGZVstQAj/zjNCj+rSTYkHoUNRgAO1Q+hOTNzNBUR5/O5ubm5tdU1pRQxCSFQCCGEANbEq2qViGzbTqVT7R3tDfUNlmVF5AwNZCbWCLA28c7Yr572NuctiSgEskq3DaZu64u9DL/GQ4Lfv1aMtd/BWGCMeUa11+KWnIExW6k50a+9s1XlQegNHTGu7CDmx1MAwlaea6wuxixEWaxy1vLU8WcEDIxEeqs1AYDv+5OTU1PTU8VCwbIsx3Edx5VSWlIKFChAa1JKa9JaaV8rRGhuau7q6qqrq0NECMyIgRlYrY6/P/Hes35+U1qOtC0ilWkb6L7zq05TPxABIgoRi2aIWFZPlZ6YGQ3ciAmuLAOulFG03i2CLlMIM9c/yq1rMlBO6rVIMTAyVo0N0jxWh/0yz5W6R8RoCVtniVthIDqu5KcSACExYeh+0UuFQmF4eHh+bl5Iadu2lELGLiEEMxOHmJFZK02klVKOm+jv72tvbyfSTMRElm2tjL07/s6zpdyasGyBQutionHbwNFvJ9t2I4d2K6ThALasKq6nKqBXlnj5QcWogFSllBgq0jZs0VYcc1ST2spVJUArK+BWsQQAGasdunIRUSI2IgGMxYYasLbaPSrkE0XE+MBw9nLwjyJwLp87e+bs3Nx8NpuxpSWkVKQRMZPJ1NfXp1IpFJK0yuXz62vrpVIxBNsoLbtYKFwavgzMra0tpJW07dWJD0be+J6fX0fL1b7PrEWyvve+b6ba9gAwCGHmjcwAtlxxpF1dj8Tj85asCaGLGH1HOfiWEK+SZqWKytxURBQE49AxKYZGEwtRZcpxClU/4+/UYCeas3aIClZ6iwAWAf6qFywm5hjTpZJ3cejizdmbmVRaIGomrailuaVz27aGhnrXdaWU5k3fV8VScXl5eXFhMV/Im5VLy1KKPKUYSCAtXH119M3ve7k1tBLIJSKw69p3P/DNbMd+Ur7xeRP2A9EFRlC5YqqQixCiemFbHZoDsZbrBfOOwLgxQa2aBQAM1IriSnUqCSOlAVth0bIl90eZHqBKZRVJPUBkYdquCvhcroqIKVQiRDxHKjc/I+FECjWVXbkerjJIIuLwklIODQ0NDV10bDuVSggh3WSir7e/s7PDdd0qMZkhxFwsFqanb87PzSIxSLlj586O9lYpaPaj16698QM/t4qWiyiBPZlu/sSD32rfdR+HtQaCgKowtSWc1ryq4na1FuO5szwmwNDxaFkzEpTr6Qg3RZqofC9WTgb6q5FHsPxm7YIzsrT401h1zsCVuB4xJqUIHsEtCppbwWkELAd/RFxZXT179pzWWiD6vnIT1t49ezs7O9kUb1slxYAASTfZ39dn29bY6PX+nt2dHe2WY89e+dXFl/+GS6uIFvsaoVjSfOTR320bvJeIhRSB4m+FtiIzj9sb1FicCXrVWqxJlStEFv1RA8ZzMF2F78Y0HYacuJcaRWHZj03gYAMIKhmpUDOCgYRYqb0tqTp4uNUKa5pyHENsiUDRm1b0g4jefffd1dXVVCrtKcWF0oEDB9vb28kgcyyPIQIARgCBIqpPdu7YkclkGhrqpYSFkQ/Ov/BdtbkmpSQgALJSdUce+YPt+45HzhoQQ6ztVdEfWOt+qLZQTTXEURWoqpZ9iwmqJPcPFAIotr7CENV18BuSMcPCTFEzSHDIaNh45RjyrywBEMsjqtgNas74I8v0apj55uzNkZHrxKy12tgsHTl4uLu7y4yLMgYCQqC5so2bmkVK2drSTMqfuvzW8Kvf1xuLti2NNDCR2fPQt7v2P8IAAgNGfp0oAMpVLwTYiiPn4CA314xHoQwqcFC8zIMgbZmJghI1htcgjLggwr+q8CYxBa9ytWrLmgiDSyimaHYMbm6JOHCL1BCXCwMAsVFkzbi1FdtXPK2oDhABLJO/EWB8fKJYKLquUywWmpub9+3fazkWaQ7b/AjMjHHfRWZgJmAKQDvi9OXXh1/+nvA3hSWQGYUoeP6BR76+bd+DmhSiRBQosGK11TAnQCnxBRATE4OJN7HlEIXmDxW1lME7QohIQJooDDeIiEIg3LIZZyyCFLNAYTwylp4rbQ6rujiVbBhtBOET0aybOISKHBpWGNeNUVaE2sBYmYkBBCIKjIw79H7AmFi2gqE41ondj5q+RAWvNDU5BcACoeSrwcGBbDbLxszDwia05Ap4YiTFgAJx9sp7Qy/+FXibxv4Fylx+c++DT+089BigRCYGYkSECugeyRFCAUCVpxIxMwqhtVakQhEFw6QUgUrCQSaeEVOpVPK8khDCNKwgtBIjB6MQrbXn+VujCCJKKRmYmQUisVEVaGV2PUI3AhZhamRmy7LCvidrrwgmRgmJ0gZmjiToF5gVgwBAYSVMcBUCtdZEZFkWClHR/mcSQiitPd/3lSJNjmNbliWlNDaASMa8mIGZfd8HANu2K8ofAADQREwkhRRSMLPFzAS8uZlbXl0BACJ23URn5zYphVJh2yjwR2P8kegZGRAFS6GVN3Xl3fM//wt/cw0lkiIphQLqv/dLu49+VUgbABkEBpqtgj4B9SpMHv9/Lpf7+Nq1G2Nj6+vrvq+Mh0ghEfGOO47s3bsXTSYGFkIUS8XR0RuTk5NLS0teqQSAiUSipbV1YKB/R3c3SmQmRBRCAMPE5OTPfvbzVCqltQY2nknAbFl2d3f3wdsPtLW3hZtiIKU8f+HCpeFLlmUR6bL/CUQA3/MHBncdO3YUAIBpfuSd+Yuvge+7DR09n/qyU9du5i3MfTT+7tOClC+TnQe/1LDzdmYGFETwy5deWVpcOnTw9v237TeUpZSA4Pv+2NjYjbHxxcWFfK6gtE4mE01NTTu6u/r6+uuyWVO+AaCU8saNsXfefgcADx85uGfPJ4Axqv0Q8fXX35iZmbn9wIEDB24z6gcELBaK+VwBAJSmhmw2m81y5ITlwiyuL2AOpgSE9cXp86/+bWljAcHyS0oKmS+Udh/9rX0PfB2ETVoJIVDIAHrULH6YOUARUWIOYvjS0tILL7xw+aMrxWKRGVFIFAgMTFQsFHfu2MF7CBFMZtlY33j51VeGh4e9kucmHMd2mblU8q5cuXrh/IU77jh83333OY4TEsd8Pn/5oyvpVJqVZmFsnZSntVZD54cuXrz41a9+pbW1LbKY5aXl66NjrmuHTYoA3SOA9lUimWEAJs3E2dbeGSqtXn9PCkur3K6H/0CmGv3cwsib38uNnULLadr/eKatl4mIGQUQwejYxNzMzZ6eHmbSOtCZV/Leee+dc2fP5/M5RCGFhRIX5r3rI9cvDV/q7u5+8MEHtm/fRsQAhAgrKyvXro24tu0rz7Htnr4+0gTAxuCvXP5odGysa/t2Eycs0y3I5/N+yUcE5fvJZDKZTDJxCBYrPTVoHgWhz2SDdENrZ/+hK5PDjgVaE5O2bdt1E0LagMCsiTHoFoVIOEaY4+AowmXMTForrV977eSZMxey2Uxf7/bBXbvq6jNColZ6aWmJNRw+cggxyH2lUum55547f2GosaGxr7e3f2CwtbUFmBcXF69evTYzPfvSS6/4Sj18/LhpXhFTS3PLo4+esKQUAqW0jDUrz19YWBi6MDR6ffS1117/2teeLBaLZsjtt9/e0dmpSWutwexwhohaIGYydWCyFelEw7a9n/nO6dU5b3H05oWfo53oO/bk9Pm/X5u6YAmR7jrYc+/XrVQDESGTkUl9tq7YkEunUgCCWRt/PX/h/OkPz2iizs5tu3fvamlpsWx7c2Nj9MboyLWRibHxF1548ctf/lJdXZ3WpodDjuswkSr6b7zx1iOO3bW9i4iEQIHY3tGutKqvq0cEYrAMgMzn8l6p6CRsX6mwn8VQUTdWVTAmd0pmACbHTR88/lU/tzp27mWBkEhaDdnE5Ic/tW0xcPQpIZ0QEgearm4/BOTD4jm4SEhrYmzsysdXXdft7el9/PHPtba1CkEAZrtBMIAOYjAiwsjIyOXLVxobmu6888jRY0dd1zET7Nq1a//+/a++dvLjKx+fO3uur7e3v7/fhJbGpsYvfP4xCKBs2R61Uk8rdeb0mZszswgYoci2ttbm5ibzE0MxVZUVKCQCMmg73XHgiT8++3//o16bnPrwp6gXpy+fAr8Iddt23PcNp66DGQSgOQcBxMmEm0omEQERDIZYWVm+OHwxkUj09fbef//9dfV1EXbbt2/fB6dOXTh3YWVl5aMrV+6844iBYZpJK8Wa19bXE0n3nbffPf7wQx0dHcZj3aSbzWRs10ZEEbR9mC1baq19D0olr1AoGCsKV8UxCwA2W/gAiJjLbW6sb7S0tFi2ZbnZg49+g7zCyo1TdXUJUr7ryuvv/cRK1vfd+UVGi0GhQERZ5fdxGBXVSwBAzI4lZ2Zurq2uNtQ3PPjA/c0tzb7vScESNAOCkAwSQKBAJlJKTU/PKK07O9sPHz7kOLbWmg3qBshkMnfdeWRsdNTzvamp6d7eXiISQiAAaTLlTxjhAACVUulMUkiRcN3IIgFgeXl5Zno2mXSFlI5tK61LJW/bto5MOhMeS0GtkVgKAESdbv3Erod+/+NX/7ox5diljXQqK9I7dj/6L+u3HwSmoAow0FGQ49iO4wgpjQSEEOPj46Wi39ra8tDxh9LpNLPJFYyIlm3fd++9q8srN2duLswt+EoZJOjYNgKms+kjRw5d+fjqzZnZkyffeOj4gx3tHcysfVUqlYCC/GoZuWcyGWmLQrHo+/7a6qrv+alUKt4uhsrmCSLkcrmrV68ur6wN9Pft6O4WQriZ5ttO/O7llzZKC1elEEopwXDltb9JNbR37D7GxMgVpzni3aw4IEDGoM8I4JVKyvfrstmW1hZiMhUboBCIIASboyNEgKi1zhcKWuv6xvpsXdZ4JwMQs0QEgPr6hobGhvHxiXw+r7U2U62trY+MjGqtmEkIswGJzDA5NfHB+6cEwG237WMItkUQcWN9Y/jSpdXVtXy+iEie7+c2cydOPPLJT95laiwKEX5ICtsG7rFpPjd5wS+qzoHBhv5j9V1HwhBHQRcEEQFt27YsS0izCUIAsLmZY+Jstt5xHAy7+uFQkpbV1t62vLLsKZ+J0UJmTqVTqXQqlUweuO1AU0vzGyffuDkz88pLL336s59raWkpeSXP88IjW2wZvSaTyUQyubGxiQJXVlZX19YaGhvDzZZyQA51j57nXbt2bW19M5VKTUxOOY5j+oPpxh27jj518Rf/2c8vKcVKk/K94Ze+l6xvr+vcC1HLD8IOyz90oUCtaX1jo1AspDMpImaBhIIREISI182IKFAplc/nfd+3LIsoPMESGBjncjnPU7Gagm/O3vzRj3+EwKRJkWZNwrKkwEKhmE4mjxw+fNc9d2utLSnNkOaW5paW5qnJaVPF29JOuomZ6ZlCvpBIJFAAAkhpygcEAIEytzQ5Pfx+aeWmIpnMJqfnTt7Rda+TaoVYNjUhR2utlNJKx2ItbGxsLi0taq3LBWcMhG/m8hsbuWQyjQgCERBtaVuWhQiaad++fbnNzTNnzi4uLL/z1lvHHz6ufO37PjGZyS1EZIZsNtvc3LS8uOQ4drFQmpiY7OnZGXl8Va7O53JXr11dWl6R0vJ9n4kWF5dbWpoFMjM0dh/Y/dC3Lrz4Xc+fJ81a8+LU9XPP/c9P/rN/49a1EhEapCwkAJeRYGUWMEUgEbW0tiaTyZs3Z099cOrEoyccx9SQkUOapgAxsyVlfbZOE02MT4yOju7ZsxcAiMgIhTRd/uijqalpIWRDfb0QkkgDs9ZaKS/hJjra2xOJhBCy6JUW5udJ6yN33fGFJx5PJBNR05CZMpn04cMH29pabdu2pGWCUSLhOq4jpYg1/EwDS/j5xbPPfXf20jsscfu+u0dHri7MX1jZ9B948s/SDe0okIiBCFAy8crq2uLikud5iME+eFNTU7HkjY6OX716bc+ePYigtTY1CALO3pwZGhqan1vs6++3bcfwqZQqlgpSCmlJy7IOHjpUKpYuDl+ampg6d+5cMumm0qko1FqmBZZKp/t6+ybGJ13HFkJevnzpyOFDyVTSxH8OG+wCcXNz8+rHV5eWly3LZiLNnE6lurq3SyENWCXG9t1HB9bXz734XfLWSQExXDvzNsj/dt9X/rV060ynDjQDoojgVoQuGQQigGBkrXTPjh1d3dsvnB965dVXGfiee+5OpVKIAgGUVoVCsbHRnDBDKWVPz04nYc3MzL7wixdJU19vr7QtAvCVGr44/MuXX15bW+/oaO/p6THQ1USFQr7oWPaDDzzQN9AvBBYKheef/8Wbb/7qwrnz+/ftu23//qgYQYRS0bMsq6enmziMiEwAmNvcRCHchJNwXGNYKIT2Ns/8/X+dGn4btFe37faDT/zph8//r/Gxn46ceTNR/5f3/pM/tt00hT6ttZqfn52bm/M8D5iVUsy8c+fOpub6sdHxH//wx49+9tHBgcFEIiGEUFpNTU394vnnJ6dm0qn0nj17LEuaHqjS/urKGnPgTq7r3vOpT24W8peGhi+cHbJsixk83y+r31TjA4MD77//ARElk8npyanhi5fuuvvOqA/DzELKYqEwfPny2sqqbTnApDQnk4m9e/ek0ylmBpRSCAYmpXoOnVhbnDz30tOusJRPjm2devGH6abWO574NrAFCEQgAFgACrNpHmx9IbLpIRrxNjY0fuYznx69PrK+tvajH/7o+V+82Nzc5NgWCpHL5RYXF7/+1FPHjh015URvb+8Tjz32zDPPjoyM/Pmff7Rj547urk5N+vro2OTUtOsmkgn3M5/9XOe2TmUCLAMpVSoUC65tuXY2mxZC1tfXP/7EY2fOnB29Mf5/fvKTzm2dzU1NBitIKT88ffrD06cTyQQwlvzSxvp6oZjXSpHSRHTgwMEnn/xK0AvQ/kdv/N3Vd37mOmy3dB998j+kmnoOPvx714bObMxNDp18rqFt4NDDv0NMTIQIWqvl5dXV1TWlFAMrrZjBdd1Pf/rE099/Zn5h4bv/4y9b29o729ttx55fWBifmHBdx5LW5x57rLu7SyltOtme76+vrwshA4QOYFnWoydOTE9MDw1dciyr5Hs9vX0mcFoY9H9x+7btAwN9Fy5cdGwnnUmfPne6tb2lp6fHtDwBIJ/LXxq+tLK0Yts2sWbixqam3bsH06m0QdFKqampqYbGxvq6OiL9ift+e3l28qN3n3csm8jPNNZ98MIzyfrmPce+BAHqNo33qLMYfSeAUVIgpt27d//hH/3Ryy+/PDE+sbGxvjA/ZzKSlCLhuAsLi76vEgnXZPljR49Z0nrttTcWFxdnZmauXx9lZjfhtre2d2/veuTE8YMHDyitpBQmpBGz0goYbWkLYQGQUqq5ueWb3/z9Hzz9zMi10b/9u//9rW9+w7JMwSI2NtYX5hfT6ZTWejO3ubq8Uip5zKSVr5VqaW5nBtt2AHjk7CtnT/5YWGDVtd/9xT/NtveT0vUdPQ9++Ts//+t/r0rFt376Pbe+ffDQMUCBKJjJ80teqeD7xAxCSESQUuzetfvrv/fUcz9/fnxsfG1leW5mRjNblsxmMp3t244/8tA999zNpDUAs7Asyyv5SvmayOyvoRAShSb6/Bc/v7axceXKFeWrQr4QxLPouAcAz83NP/vss8VCqbGxIZlM1TfU33X3XT07d5pAsba+MX5jLF8oKK2AobWlpXtHVzKZNOCgUChcGr40PTXT1tF++Mgh13WZKLc8ffLZPxu7+C6iTcxa+Zn6xhP//N/1HDxBpAElgAj6Jsjmk4EI1MQBGgMU8oWZmZmlpeVSqYTmuCNDfX39zp07Ghsb47sgRLS0vDw3Pz83O7++to5CZDOZ1raWbZ3bGhsbTGM4yjjz8/OnTp1OuIkjRw43NTWBOcOIiIiXLl2emJwiorvuurO1pZmZpZSjN0ZHb4y7jktE2vc931daMzFpjcBdO7oPHTqIKJj06PCvVqevIRVauvZ07T2KwiYgYGbtj5w/OTcxykSp5u5D9z9uimHS6s233l5dWb/94IGBoC3BKNAc+lhdWxsfn5idnV1eXiGm+rq6jo72ru1drW2tRkim/ySlvDk7c/78UCqVuvOuO9KpNJcvmJqeujh8WSs9ONC/Z89uIkIiitCTlPKDDz54/eQb2Ww2mUw6riulPHBg/+DgoDnto7WmMNuZY5/GQRcXl0598OHS4lImk/Y8tWNH1+HDh23HZtaF5bEX/upPZkavCGGRJtSl1o7tn/nOf2nccTsTAchgx0qUFQ8hAgzBAJsdPzRgofLUCyIiCmO/ZiQxkaagi2M2Cs2bplMlMD6LMRdAkEJifAOfmYJeAAphTqYDIwQ92lvszQZbCSZjahUC53CTM4SrTBSd6RRSBvt/gKQ1BNt6Nc5sBXWsprgFmwLEJLJoI9js1WEQX2vsoYiApdhhLwPwvFLp5Ouvj1y7XleftaRt2ZbneS3NzbsG+9va2t1EQsqgb6M1eV5pc3Pz6rVrF4aGvWKxtbXVdRwprZWlpfsfOLZ79yCxZsbZK2+/+ux/Km0suW7Cti2vlO/s2/up3/m3mdZes9cVdBJABJunUUGAQTMw3A8NzTgm7sA/tlzMrDVF6hRCikjlEGxlMQBDsJUcnWGMB56o82HafFF0iewz+i+cRZRP25EO1IAChQwWghxMycEJRiFM5C/vcRgrD1FXYLuBGxBFe9nx7exAaBgz6Mr97siGot1OIQSg+cir8hTU2tra+++9Pz4x4Tiu7dgSRckvaaVS6XQ2m00mE0JIrXShUFheXl5aXsrlcgKFbTupZCqRSDiuMzjQf+D2A+lUMuBGl66+9/9O/ey/OwgMAoTQyu87cvzOL/wrK9UMTIhCSBltWkfVZrmEqmQxviSMtrS3OCSHJsThpwFh3QxQ/oc5flYOo5uxuYLOfvluRbOy/E45qITQxXQlyi2OiiVUsBFxXKPS5upVI0bajgfL6N1wCy3qr1SKh6O7SJqCgwyhgJm5WCwOXRwaHr6kPN9xXUD2PV8pZToLRKS1Jk2e55nPBEwnn5TO1td96t57b9u/NwwSDMBMRKp08bUfDL30jERgFIACAfc/8LWDj/+L4Nu/IABUROZ/xFWO/aEMyp9cVL9XdZak6iqPq/g4KPYcyn4Wl2aNN6ofByOMakK5Bf9wGOiq6ZVNqEy+FtNByzl2TgTCnFA+H1HlIkikDfmydTAQk5Ryenr61KkPx8ZGladtx7ETtu3YUkiJyICsta/8UrHk+apULCLA9u1dDz70UHd3lyaSUiICETFpYEJEabtvPvMnN07/UiIQI7MQ6Nz9T/9w8OhvA0rTYUQUIETZdSCIaeUQi0FqCBvGDBz73jUKkzHdlztrsTNbcZc1B5miCaPbEH6DEuaCyqeVZrVVIRHVUD2xeSNzDY7ScJyRWxlnlUVxpSWXuSqfkgtkEk4BFf5vXiCtIZJnODbkEk0tNzJyfWlpuVgsEGnLsoUwtWKQZpi5ublpcHBXX3+f41jGAGPYioJsK0RuaeL6hy9qr2hyDmrlJJMDn/ytRH07M0FwaCnI0Vu+Ztki3Wi55g4DlBWMFQ5aKdFIBeXEEVNMDElw/HRKTP012IkJtTa/0dh4jmKOUcPwINUt9B9L9DGuqtRfQ2rVvHHZsGMfeG+9ONyJUUoVCoVCoZDP50qlkukuWZZlO47rOq7tpDNp13UjnVSKFcJgDAQMwbkUc5MRAIUFYY+zxkZAOSSF6okRjy+rMlvWBOZxidQAEFUpNvzUK5y8lkoiMZpfW1M+VOq4GlsEN6EqzISJoRIwVK2y+nunYEyZSDhjkHAAgBlj/GJN9cftKMLAAS0hKow39qjq45vYUqPlBrgZOJoRQaBAGVUuccFEJyzjq4xgWlV0RyjjRIjZSi1YV+OqaS0YuSOUXc48KI+q8N9YhK+eK2Y+YVyqmKlsNbHb4ZSxbB6zuErQV+30FbEqtqPCoWQBACo/8IbwMzCMPiM182zZ843YNimuKoeaBB0de+XoU1NElPHD8bVRTHwhAZF4zDSrvdVnkluIRBYQN4VbXlFSjCXEGKfmdwCnogmMLKLRZbRSCREjz682jhC3YoVoylNuzS0V46tj2dYFcTmQlHMNAMD/B1jw3UzuXLagAAAAAElFTkSuQmCC" alt="COREXION" class="corexion-logo">
+  </a>
+
+  <ul class="nav-menu" id="navMenu">
+
+   <!-- WHO WE ARE – DROPDOWN -->
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleWho" data-i18n="who_we_are">WHO WE ARE</a>
+    <ul class="dropdown-menu" id="dropdownMenuWho">
+     <li><a href="leadership.html" data-i18n="leadership">Leadership</a></li>
+     <li><a href="our-approach.html" data-i18n="our_approach">Our Approach</a></li>
+     <li><a href="global-presence.html" data-i18n="global_presence">Global Presence</a></li>
+    </ul>
+   </li>
+
+   <!-- EXPERTISE – DROPDOWN -->
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise" data-i18n="expertise">EXPERTISE</a>
+    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+     <li><a href="project-management.html" data-i18n="project_management">Project Management</a></li>
+     <li><a href="consulting-engineering.html" data-i18n="consulting_engineering">Consulting Engineering</a></li>
+     <li><a href="design.html" data-i18n="design">Design</a></li>
+     <li><a href="cost-management.html" data-i18n="cost_management">Cost Management</a></li>
+     <li><a href="post-contract.html" data-i18n="post_contract">Post Contract</a></li>
+     <li><a href="tender-management.html" data-i18n="tender_management">Tender Management</a></li>
+     <li><a href="cost-management2.html" data-i18n="cost_management2">Cost Management 2</a></li>
+     <li><a href="value-engineering.html" data-i18n="value_engineering">Value Engineering</a></li>
+     <li><a href="schedule-management.html" data-i18n="schedule_management">Schedule Management</a></li>
+     <li><a href="construction-project.html" data-i18n="construction_project">Construction Project</a></li>
+     <li><a href="contracts-arbitration.html" data-i18n="contracts_arbitration">Contracts &amp; Arbitration</a></li>
+    </ul>
+   </li>
+
+   <li><a href="vision-mission.html" data-i18n="vision_mission">VISION &amp; MISSION</a></li>
+   <li><a href="sectors.html" data-i18n="sectors">SECTORS</a></li>
+   <li><a href="insights.html" data-i18n="insights">INSIGHTS</a></li>
+   <li><a href="contact.html" class="active" data-i18n="contact">CONTACT</a></li>
+
+  </ul>
+
+  <div class="language" id="languageSwitcher">
+   <a class="active" data-lang="en">EN</a><span>|</span><a data-lang="ar">AR</a>
+  </div>
+
+  <button class="menu-button" id="menuButton" aria-label="Open menu">
+   <span></span><span></span><span></span>
+  </button>
+ </div>
+</header>
+
+<main>
+
+<section class="contact-hero">
+
+ <div class="form-side">
+  <h1 class="hero-title" data-i18n="hero_title">LET’S BUILD<br>WHAT’S NEXT.</h1>
+  <div class="gold-line"></div>
+  <p class="description" data-i18n="hero_desc">
+   Start a conversation with our project,<br>
+   engineering and design experts.
+  </p>
+
+  <form class="contact-form" id="contactForm">
+
+   <div class="field">
+    <label for="name" data-i18n="label_name">NAME</label>
+    <input type="text" id="name" name="name" required>
+   </div>
+
+   <div class="field">
+    <label for="company" data-i18n="label_company">COMPANY</label>
+    <input type="text" id="company" name="company">
+   </div>
+
+   <div class="field">
+    <label for="email" data-i18n="label_email">EMAIL</label>
+    <input type="email" id="email" name="email" required>
+   </div>
+
+   <div class="field">
+    <label for="interest" data-i18n="label_interest">AREA OF INTEREST</label>
+    <select id="interest" name="interest">
+     <option data-i18n="option_pm">PROJECT MANAGEMENT</option>
+     <option data-i18n="option_ce">CONSULTING ENGINEERING</option>
+     <option data-i18n="option_design">DESIGN</option>
+     <option data-i18n="option_other">OTHER</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="message" data-i18n="label_message">MESSAGE</label>
+    <textarea id="message" name="message" required></textarea>
+   </div>
+
+   <button class="submit-btn" type="submit" data-i18n="submit_btn">SEND ENQUIRY</button>
+   <div class="form-message" id="formMessage"></div>
+
+  </form>
+ </div>
+
+ <div class="hero-image">
+  <img src="https://images.unsplash.com/photo-1652565501255-1b9e7d88822f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNvbnN1bHRpbmctZW5naW5lZXJpbmclMjBjb250YWN0fGVufDB8fDB8fHww" alt="COREXION office meeting room">
+ </div>
+
+</section>
+
+<section class="office-bar">
+ <div class="office-title" data-i18n="office_title">SELECT AN OFFICE</div>
+ <div class="office-line"></div>
+
+ <div class="offices">
+  <div class="office active" data-office="United Kingdom" data-i18n="office_uk">UNITED KINGDOM</div>
+  <div class="office" data-office="USA" data-i18n="office_usa">USA</div>
+  <div class="office" data-office="Canada" data-i18n="office_canada">CANADA</div>
+  <div class="office" data-office="Malaysia" data-i18n="office_malaysia">MALAYSIA</div>
+  <div class="office" data-office="Saudi Arabia" data-i18n="office_saudi">SAUDI ARABIA</div>
+  <div class="office" data-office="Egypt" data-i18n="office_egypt">EGYPT</div>
+ </div>
+</section>
+
+<section class="office-details" id="officeDetails">
+ <div class="detail">
+  <h3 id="officeName" data-i18n="office_name_uk">COREXION — UNITED KINGDOM</h3>
+  <p id="officeAddress" data-i18n="office_addr_uk">United Kingdom office<br>Contact our team for project enquiries.</p>
+ </div>
+ <div class="detail">
+  <h3 data-i18n="office_email_label">EMAIL</h3>
+  <p><a href="mailto:info@corexion.com">info@corexion.com</a></p>
+ </div>
+ <div class="detail">
+  <h3 data-i18n="office_conversation_label">START A CONVERSATION</h3>
+  <p data-i18n="office_conversation_text">Tell us about your project and our experts will get back to you.</p>
+ </div>
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer class="footer">
+ <div class="footer-grid">
+  <div class="footer-brand">
+   <div class="footer-logo">COREXION</div>
+   <p class="footer-description" data-i18n="footer_desc">
+    Integrated expertise in project management, consulting engineering and design.
+   </p>
+  </div>
+  <div>
+   <h3 data-i18n="footer_expertise">EXPERTISE</h3>
+   <ul>
+    <li><a href="project-management.html" data-i18n="project_management">Project Management</a></li>
+    <li><a href="consulting-engineering.html" data-i18n="consulting_engineering">Consulting Engineering</a></li>
+    <li><a href="design.html" data-i18n="design">Design</a></li>
+   </ul>
+  </div>
+  <div>
+   <h3 data-i18n="footer_company">COMPANY</h3>
+   <ul>
+    <li><a href="who-we-are.html" data-i18n="who_we_are">Who We Are</a></li>
+    <li><a href="vision-mission-values.html" data-i18n="vision_mission">Vision &amp; Mission</a></li>
+    <li><a href="leadership.html" data-i18n="leadership">Leadership</a></li>
+    <li><a href="sectors.html" data-i18n="sectors">Sectors</a></li>
+   </ul>
+  </div>
+  <div>
+   <h3 data-i18n="footer_contact">CONTACT</h3>
+   <ul>
+    <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
+    <li><a href="insights.html" data-i18n="insights">Insights</a></li>
+   </ul>
+  </div>
+ </div>
+ <div class="footer-bottom">
+  <span data-i18n="footer_copyright">© 2026 COREXION. All Rights Reserved.</span>
+  <span data-i18n="footer_privacy">Privacy Policy</span>
+ </div>
+</footer>
+
+</main>
+
+<script>
+// ============================================================
+// 1. TRANSLATION DICTIONARY
+// ============================================================
+const translations = {
+    en: {
+        // Navbar
+        who_we_are: "WHO WE ARE",
+        expertise: "EXPERTISE",
+        vision_mission: "VISION & MISSION",
+        sectors: "SECTORS",
+        insights: "INSIGHTS",
+        contact: "CONTACT",
+        leadership: "Leadership",
+        our_approach: "Our Approach",
+        global_presence: "Global Presence",
+        project_management: "Project Management",
+        consulting_engineering: "Consulting Engineering",
+        design: "Design",
+        cost_management: "Cost Management",
+        post_contract: "Post Contract",
+        tender_management: "Tender Management",
+        cost_management2: "Cost Management 2",
+        value_engineering: "Value Engineering",
+        schedule_management: "Schedule Management",
+        construction_project: "Construction Project",
+        contracts_arbitration: "Contracts & Arbitration",
+        // Hero
+        hero_title: "LET’S BUILD<br>WHAT’S NEXT.",
+        hero_desc: "Start a conversation with our project,<br>engineering and design experts.",
+        // Form labels
+        label_name: "NAME",
+        label_company: "COMPANY",
+        label_email: "EMAIL",
+        label_interest: "AREA OF INTEREST",
+        option_pm: "PROJECT MANAGEMENT",
+        option_ce: "CONSULTING ENGINEERING",
+        option_design: "DESIGN",
+        option_other: "OTHER",
+        label_message: "MESSAGE",
+        submit_btn: "SEND ENQUIRY",
+        // Office bar
+        office_title: "SELECT AN OFFICE",
+        office_uk: "UNITED KINGDOM",
+        office_usa: "USA",
+        office_canada: "CANADA",
+        office_malaysia: "MALAYSIA",
+        office_saudi: "SAUDI ARABIA",
+        office_egypt: "EGYPT",
+        // Office details (dynamic)
+        office_name_uk: "COREXION — UNITED KINGDOM",
+        office_addr_uk: "United Kingdom office<br>Contact our team for project enquiries.",
+        office_name_usa: "COREXION — USA",
+        office_addr_usa: "USA office<br>Contact our team for project enquiries.",
+        office_name_canada: "COREXION — CANADA",
+        office_addr_canada: "Canada office<br>Contact our team for project enquiries.",
+        office_name_malaysia: "COREXION ASIA PACIFIC — MALAYSIA",
+        office_addr_malaysia: "Malaysia office<br>Contact our team for project enquiries.",
+        office_name_saudi: "COREXION MIDDLE EAST — SAUDI ARABIA",
+        office_addr_saudi: "Saudi Arabia office<br>Contact our team for project enquiries.",
+        office_name_egypt: "COREXION — EGYPT",
+        office_addr_egypt: "Egypt office<br>Contact our team for project enquiries.",
+        office_email_label: "EMAIL",
+        office_conversation_label: "START A CONVERSATION",
+        office_conversation_text: "Tell us about your project and our experts will get back to you.",
+        // Footer
+        footer_desc: "Integrated expertise in project management, consulting engineering and design.",
+        footer_expertise: "EXPERTISE",
+        footer_company: "COMPANY",
+        footer_contact: "CONTACT",
+        footer_copyright: "© 2026 COREXION. All Rights Reserved.",
+        footer_privacy: "Privacy Policy"
+    },
+    ar: {
+        // Navbar
+        who_we_are: "من نحن",
+        expertise: "الخبرات",
+        vision_mission: "الرؤية والرسالة",
+        sectors: "القطاعات",
+        insights: "الأفكار",
+        contact: "اتصل بنا",
+        leadership: "القيادة",
+        our_approach: "نهجنا",
+        global_presence: "التواجد العالمي",
+        project_management: "إدارة المشاريع",
+        consulting_engineering: "الهندسة الاستشارية",
+        design: "التصميم",
+        cost_management: "إدارة التكاليف",
+        post_contract: "ما بعد العقد",
+        tender_management: "إدارة المناقصات",
+        cost_management2: "إدارة التكاليف 2",
+        value_engineering: "الهندسة القيمية",
+        schedule_management: "إدارة الجداول الزمنية",
+        construction_project: "مشروع البناء",
+        contracts_arbitration: "العقود والتحكيم",
+        // Hero
+        hero_title: "لنبني<br>ما هو قادم.",
+        hero_desc: "ابدأ محادثة مع خبرائنا في المشاريع<br>والهندسة والتصميم.",
+        // Form labels
+        label_name: "الاسم",
+        label_company: "الشركة",
+        label_email: "البريد الإلكتروني",
+        label_interest: "مجال الاهتمام",
+        option_pm: "إدارة المشاريع",
+        option_ce: "الهندسة الاستشارية",
+        option_design: "التصميم",
+        option_other: "أخرى",
+        label_message: "الرسالة",
+        submit_btn: "إرسال الاستفسار",
+        // Office bar
+        office_title: "اختر مكتباً",
+        office_uk: "المملكة المتحدة",
+        office_usa: "الولايات المتحدة",
+        office_canada: "كندا",
+        office_malaysia: "ماليزيا",
+        office_saudi: "المملكة العربية السعودية",
+        office_egypt: "مصر",
+        // Office details (dynamic)
+        office_name_uk: "كوركسيون — المملكة المتحدة",
+        office_addr_uk: "مكتب المملكة المتحدة<br>تواصل مع فريقنا لاستفسارات المشاريع.",
+        office_name_usa: "كوركسيون — الولايات المتحدة",
+        office_addr_usa: "مكتب الولايات المتحدة<br>تواصل مع فريقنا لاستفسارات المشاريع.",
+        office_name_canada: "كوركسيون — كندا",
+        office_addr_canada: "مكتب كندا<br>تواصل مع فريقنا لاستفسارات المشاريع.",
+        office_name_malaysia: "كوركسيون آسيا والمحيط الهادئ — ماليزيا",
+        office_addr_malaysia: "مكتب ماليزيا<br>تواصل مع فريقنا لاستفسارات المشاريع.",
+        office_name_saudi: "كوركسيون الشرق الأوسط — المملكة العربية السعودية",
+        office_addr_saudi: "مكتب السعودية<br>تواصل مع فريقنا لاستفسارات المشاريع.",
+        office_name_egypt: "كوركسيون — مصر",
+        office_addr_egypt: "مكتب مصر<br>تواصل مع فريقنا لاستفسارات المشاريع.",
+        office_email_label: "البريد الإلكتروني",
+        office_conversation_label: "ابدأ محادثة",
+        office_conversation_text: "أخبرنا عن مشروعك وسيعود إليك خبراؤنا.",
+        // Footer
+        footer_desc: "خبرات متكاملة في إدارة المشاريع والهندسة الاستشارية والتصميم.",
+        footer_expertise: "الخبرات",
+        footer_company: "الشركة",
+        footer_contact: "اتصل بنا",
+        footer_copyright: "© 2026 كوركسيون. جميع الحقوق محفوظة.",
+        footer_privacy: "سياسة الخصوصية"
+    }
+};
+
+// ============================================================
+// 2. LANGUAGE SWITCHING LOGIC
+// ============================================================
+let currentLang = 'en';
+
+function setLanguage(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+
+    // Update static elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key] !== undefined) {
+            // For elements that may contain HTML (like hero_title, office_addr_*)
+            if (el.tagName === 'H1' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'A' || el.tagName === 'DIV' || el.tagName === 'OPTION') {
+                el.innerHTML = translations[lang][key];
+            } else {
+                el.textContent = translations[lang][key];
+            }
+        }
+    });
+
+    // Update dynamic office details based on currently active office
+    updateOfficeDetails(lang);
+
+    // Update active state on language switcher
+    document.querySelectorAll('.language a[data-lang]').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-lang') === lang);
+    });
+
+    // Set direction and language attribute
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+
+    // Store preference
+    localStorage.setItem('corexion-lang', lang);
+}
+
+// ============================================================
+// 3. OFFICE DETAILS UPDATE (dynamic)
+// ============================================================
+function updateOfficeDetails(lang) {
+    const activeOffice = document.querySelector('.office.active');
+    if (!activeOffice) return;
+    const officeKey = activeOffice.dataset.office; // e.g., "United Kingdom"
+    // Map office key to translation keys
+    const map = {
+        "United Kingdom": { name: "office_name_uk", addr: "office_addr_uk" },
+        "USA": { name: "office_name_usa", addr: "office_addr_usa" },
+        "Canada": { name: "office_name_canada", addr: "office_addr_canada" },
+        "Malaysia": { name: "office_name_malaysia", addr: "office_addr_malaysia" },
+        "Saudi Arabia": { name: "office_name_saudi", addr: "office_addr_saudi" },
+        "Egypt": { name: "office_name_egypt", addr: "office_addr_egypt" }
+    };
+    const keys = map[officeKey];
+    if (!keys) return;
+    const officeName = document.getElementById('officeName');
+    const officeAddress = document.getElementById('officeAddress');
+    officeName.innerHTML = translations[lang][keys.name] || officeName.innerHTML;
+    officeAddress.innerHTML = translations[lang][keys.addr] || officeAddress.innerHTML;
+}
+
+// ============================================================
+// 4. DROPDOWN TOGGLES (same as before, but with translation support)
+// ============================================================
+const toggleWho = document.getElementById('dropdownToggleWho');
+const menuWho = document.getElementById('dropdownMenuWho');
+const toggleExpertise = document.getElementById('dropdownToggleExpertise');
+const menuExpertise = document.getElementById('dropdownMenuExpertise');
+
+const isMobile = () => window.innerWidth <= 650;
+
+toggleWho.addEventListener('click', function(e) {
+    e.preventDefault();
+    menuWho.classList.toggle('open');
+    menuExpertise.classList.remove('open');
+});
+menuWho.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menuWho.classList.remove('open'));
+});
+
+toggleExpertise.addEventListener('click', function(e) {
+    e.preventDefault();
+    menuExpertise.classList.toggle('open');
+    menuWho.classList.remove('open');
+});
+menuExpertise.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menuExpertise.classList.remove('open'));
+});
+
+// Close dropdowns on outside click
+document.addEventListener('click', function(e) {
+    if (isMobile()) return;
+    const isInsideWho = toggleWho.contains(e.target) || menuWho.contains(e.target);
+    const isInsideExpertise = toggleExpertise.contains(e.target) || menuExpertise.contains(e.target);
+    if (!isInsideWho) menuWho.classList.remove('open');
+    if (!isInsideExpertise) menuExpertise.classList.remove('open');
+});
+
+// ============================================================
+// 5. MOBILE MENU TOGGLE
+// ============================================================
+const menuButton = document.getElementById('menuButton');
+const navMenu = document.getElementById('navMenu');
+
+menuButton.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    if (isMobile()) {
+        menuWho.classList.remove('open');
+        menuExpertise.classList.remove('open');
+    }
+});
+
+document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)').forEach(link => {
+    link.addEventListener('click', function() {
+        if (isMobile()) navMenu.classList.remove('open');
+    });
+});
+
+window.addEventListener('resize', function() {
+    if (!isMobile()) {
+        navMenu.classList.remove('open');
+        menuWho.classList.remove('open');
+        menuExpertise.classList.remove('open');
+    }
+});
+
+// ============================================================
+// 6. OFFICE SELECTION (with translation update)
+// ============================================================
+const offices = document.querySelectorAll('.office');
+
+offices.forEach(office => {
+    office.addEventListener('click', function() {
+        offices.forEach(o => o.classList.remove('active'));
+        this.classList.add('active');
+        // Update office details with current language
+        updateOfficeDetails(currentLang);
+    });
+});
+
+// ============================================================
+// 7. CONTACT FORM
+// ============================================================
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const message = document.getElementById('formMessage');
+    message.className = 'form-message success';
+    // Show success message in current language
+    if (currentLang === 'ar') {
+        message.textContent = 'شكراً لك. تم إعداد استفسارك بنجاح.';
+    } else {
+        message.textContent = 'Thank you. Your enquiry has been prepared successfully.';
+    }
+    this.reset();
+});
+
+// ============================================================
+// 8. LANGUAGE SWITCHER EVENT & INIT
+// ============================================================
+document.querySelectorAll('.language a[data-lang]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const lang = this.getAttribute('data-lang');
+        setLanguage(lang);
+    });
+});
+
+// Restore saved language preference or default to 'en'
+const savedLang = localStorage.getItem('corexion-lang');
+if (savedLang && translations[savedLang]) {
+    setLanguage(savedLang);
+} else {
+    setLanguage('en');
+}
+</script>
+
+</body>
+</html>
