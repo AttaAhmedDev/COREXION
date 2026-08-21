@@ -21,7 +21,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #222;
+            color: #1a1a2e;
             background: #fff;
         }
 
@@ -31,9 +31,9 @@
         }
 
         :root {
-            --gold: #c58a25;
-            --dark: #202328;
-            --gray: #6d737a;
+            --gold: #c98516;
+            --dark: #1a1a2e;
+            --gray: #2d2d44;
             --border: #e5e5e5;
         }
 
@@ -169,7 +169,7 @@
         .logo {
             display: flex;
             align-items: center;
-            width: 170px;
+            width: 220px;
             min-width: 170px;
             height: 100%;
             text-decoration: none;
@@ -177,8 +177,8 @@
 
         .corexion-logo {
             display: block;
-            width: 170px;
-            height: 35px;
+            width: 220px;
+            height: 66px;
             object-fit: contain;
             object-position: left center;
         }
@@ -201,12 +201,12 @@
         .nav-menu a {
             position: relative;
 
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 700;
 
             letter-spacing: .5px;
 
-            color: #222;
+            color: #1a1a2e;
 
             display: inline-block;
             padding-bottom: 4px;
@@ -234,6 +234,10 @@
         }
 
         .nav-menu a.active {
+            color: var(--gold);
+        }
+
+        .nav-menu a:hover {
             color: var(--gold);
         }
 
@@ -275,7 +279,7 @@
             font-size: 10px;
             font-weight: 600;
             letter-spacing: .3px;
-            color: #333;
+            color: #1a1a2e;
             transition: background .2s, color .2s;
         }
 
@@ -290,34 +294,6 @@
 
         .dropdown-menu.wide {
             min-width: 200px;
-        }
-
-
-        /* LANGUAGE */
-
-        .language {
-            display: flex;
-            align-items: center;
-
-            gap: 8px;
-
-            min-width: 70px;
-
-            justify-content: flex-end;
-        }
-
-        .language a {
-            font-size: 10px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .language .active {
-            color: var(--gold);
-        }
-
-        .language span {
-            color: #777;
         }
 
 
@@ -344,7 +320,7 @@
 
             margin: 5px auto;
 
-            background: #222;
+            background: #1a1a2e;
             transition: transform .28s ease, opacity .2s ease;
         }
 
@@ -416,11 +392,11 @@
         }
 
         .breadcrumb span {
-            font-size: 9px;
+            font-size: 10px;
 
             letter-spacing: .3px;
 
-            color: #6d737a;
+            color: #2d2d44;
 
             font-weight: 500;
         }
@@ -438,7 +414,7 @@
         /* TITLE */
 
         .hero-title {
-            font-size: clamp(40px, 4vw, 57px);
+            font-size: clamp(44px, 4.5vw, 60px);
 
             line-height: 1.08;
 
@@ -446,7 +422,7 @@
 
             letter-spacing: 1.5px;
 
-            color: #202328;
+            color: #1a1a2e;
         }
 
         .gold-line {
@@ -460,13 +436,13 @@
         }
 
         .hero-description {
-            color: var(--gray);
+            color: #2d2d44;
 
-            font-size: 13px;
+            font-size: 14px;
 
-            line-height: 1.45;
+            line-height: 1.5;
 
-            max-width: 260px;
+            max-width: 280px;
         }
 
 
@@ -483,7 +459,7 @@
 
             color: var(--gold);
 
-            font-size: 11px;
+            font-size: 12px;
 
             font-weight: 600;
 
@@ -491,7 +467,7 @@
         }
 
         .explore-arrow {
-            font-size: 21px;
+            font-size: 22px;
 
             line-height: 10px;
 
@@ -546,9 +522,9 @@
         }
 
         .service-card {
-            min-height: 190px;
+            min-height: 210px;
 
-            padding: 18px 24px 20px;
+            padding: 22px 24px 24px;
 
             border-right: 1px solid var(--border);
 
@@ -562,80 +538,74 @@
 
         /* ICON */
 
-        .service-icon {
-            width: 43px;
-            height: 43px;
+       .service-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 12px;
+    display: block;
+}
 
-            margin-bottom: 10px;
-
-            position: relative;
-
-            color: var(--gold);
-        }
-
-        .service-icon::before,
-        .service-icon::after {
-            content: "";
-
-            position: absolute;
-
-            border: 1.5px solid var(--gold);
-        }
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 
 
         /* ICON 1 */
 
         .icon-programme::before {
-            width: 27px;
-            height: 27px;
+            width: 30px;
+            height: 30px;
 
-            top: 7px;
-            left: 7px;
+            top: 8px;
+            left: 8px;
 
             border-radius: 50%;
         }
 
         .icon-programme::after {
-            width: 9px;
-            height: 9px;
+            width: 10px;
+            height: 10px;
 
-            top: 16px;
-            left: 16px;
+            top: 18px;
+            left: 18px;
 
             border-radius: 50%;
 
             box-shadow:
-                0 -16px 0 -3px #fff,
-                0 16px 0 -3px #fff,
-                16px 0 0 -3px #fff,
-                -16px 0 0 -3px #fff;
+                0 -18px 0 -3px #fff,
+                0 18px 0 -3px #fff,
+                18px 0 0 -3px #fff,
+                -18px 0 0 -3px #fff;
         }
 
 
         /* ICON 2 */
 
         .icon-controls::before {
-            width: 31px;
+            width: 34px;
             height: 2px;
 
-            left: 3px;
-            top: 10px;
+            left: 4px;
+            top: 11px;
 
             border: none;
 
             background: var(--gold);
 
             box-shadow:
-                0 10px 0 var(--gold),
-                0 20px 0 var(--gold);
+                0 11px 0 var(--gold),
+                0 22px 0 var(--gold);
         }
 
         .icon-controls::after {
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
 
-            left: 24px;
-            top: 7px;
+            left: 26px;
+            top: 8px;
 
             border-radius: 50%;
 
@@ -646,11 +616,11 @@
         /* ICON 3 */
 
         .icon-risk::before {
-            width: 31px;
-            height: 35px;
+            width: 34px;
+            height: 38px;
 
-            left: 5px;
-            top: 3px;
+            left: 6px;
+            top: 4px;
 
             transform: rotate(45deg);
 
@@ -662,10 +632,10 @@
 
             border: none;
 
-            left: 14px;
-            top: 8px;
+            left: 15px;
+            top: 9px;
 
-            font-size: 20px;
+            font-size: 22px;
 
             color: var(--gold);
         }
@@ -674,11 +644,11 @@
         /* ICON 4 */
 
         .icon-commercial::before {
-            width: 30px;
-            height: 30px;
+            width: 33px;
+            height: 33px;
 
-            left: 5px;
-            top: 5px;
+            left: 6px;
+            top: 6px;
 
             border-radius: 50%;
         }
@@ -688,10 +658,10 @@
 
             border: none;
 
-            left: 13px;
-            top: 8px;
+            left: 14px;
+            top: 9px;
 
-            font-size: 23px;
+            font-size: 25px;
 
             color: var(--gold);
         }
@@ -700,11 +670,11 @@
         /* ICON 5 */
 
         .icon-delivery::before {
-            width: 31px;
-            height: 31px;
+            width: 34px;
+            height: 34px;
 
-            left: 5px;
-            top: 5px;
+            left: 6px;
+            top: 6px;
 
             border-radius: 2px;
         }
@@ -714,10 +684,10 @@
 
             border: none;
 
-            left: 12px;
-            top: 7px;
+            left: 13px;
+            top: 8px;
 
-            font-size: 21px;
+            font-size: 23px;
 
             color: var(--gold);
         }
@@ -736,129 +706,97 @@
         }
 
         .service-card h2 {
-            font-size: 12px;
+            font-size: 13px;
 
             line-height: 1.35;
 
-            font-weight: 500;
+            font-weight: 600;
 
             letter-spacing: .5px;
 
-            color: #202328;
+            color: #1a1a2e;
         }
 
         .service-line {
-            width: 18px;
+            width: 20px;
             height: 2px;
 
             background: var(--gold);
 
             margin-top: 9px;
 
-            margin-bottom: 9px;
+            margin-bottom: 10px;
         }
 
         .service-card p {
-            color: #69717b;
+            color: #2d2d44;
 
-            font-size: 10px;
+            font-size: 11px;
 
-            line-height: 1.55;
+            line-height: 1.6;
 
-            max-width: 190px;
+            max-width: 200px;
         }
 
 
         /* ================================
-           FOOTER
+           FOOTER (زي الأول بالظبط)
         ================================= */
 
         .footer {
-            background: #222428;
-
-            color: #fff;
-
-            padding: 60px 45px 25px;
+            background: #17181a;
+            color: white;
+            padding: 85px 85px 85px;
         }
 
-        .footer-grid {
+        .footer-container {
             max-width: 1400px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-
-            gap: 50px;
-        }
-
-        .footer-logo {
-            font-size: 20px;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 15px;
-        }
-
-        .footer-description {
-            max-width: 300px;
-
-            color: #aaa;
-
-            font-size: 12px;
-
-            line-height: 1.7;
-        }
-
-        .footer h3 {
-            color: var(--gold);
-
-            font-size: 10px;
-
-            letter-spacing: 1.5px;
-
-            margin-bottom: 16px;
-        }
-
-        .footer ul {
-            list-style: none;
-
+            margin: 0 auto;
             display: flex;
-
-            flex-direction: column;
-
-            gap: 10px;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .footer li a {
-            color: #aaa;
-
-            font-size: 11px;
-
-            transition: .2s;
+        .footer-logo-img {
+            width: 180px;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
 
-        .footer li a:hover {
-            color: #fff;
+        .footer-right {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 70px;
+        }
+
+        .footer-links-grid a {
+            color: #bcbcbc;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.25s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .footer-links-grid a:hover {
+            color: white;
         }
 
         .footer-bottom {
             max-width: 1400px;
-
-            margin: 40px auto 0;
-
-            padding-top: 17px;
-
-            border-top: 1px solid rgba(255,255,255,.12);
-
+            margin: 18px auto 0;
             display: flex;
-
             justify-content: space-between;
-
-            color: #777;
-
-            font-size: 9px;
+            color: #777777;
+            font-size: 12px;
         }
 
 
@@ -869,12 +807,12 @@
         @media (max-width: 1100px) {
 
             .logo {
-                width: 170px;
+                width: 220px;
                 min-width: 170px;
             }
             .corexion-logo {
-                width: 170px;
-                height: 35px;
+                width: 220px;
+                height: 66px;
             }
 
             .nav-menu {
@@ -902,12 +840,12 @@
             }
 
             .logo {
-                width: 150px;
+                width: 220px;
                 min-width: 150px;
             }
             .corexion-logo {
-                width: 150px;
-                height: 31px;
+                width: 220px;
+                height: 66px;
             }
 
 
@@ -964,6 +902,7 @@
                 padding: 16px 25px;
                 font-size: 13px;
                 letter-spacing: .8px;
+                color: #1a1a2e;
             }
 
             .nav-menu > li > a::after {
@@ -1023,7 +962,7 @@
                 padding: 12px 25px 12px 38px;
                 font-size: 11.5px;
                 font-weight: 600;
-                color: #555;
+                color: #1a1a2e;
                 position: relative;
             }
 
@@ -1042,11 +981,6 @@
 
             body.nav-open {
                 overflow: hidden;
-            }
-
-            .language {
-                margin-left: auto;
-                margin-right: 15px;
             }
 
             .menu-button {
@@ -1100,26 +1034,26 @@
             }
 
 
-            /* FOOTER */
+            /* FOOTER RESPONSIVE */
 
             .footer {
-                padding: 55px 25px 25px;
+                padding: 40px 25px 20px;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-
-                gap: 35px 25px;
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
             }
 
-            .footer-brand {
-                grid-column: 1 / -1;
+            .footer-links-grid {
+                gap: 10px 30px;
             }
 
             .footer-bottom {
                 flex-direction: column;
-
-                gap: 10px;
+                gap: 8px;
+                text-align: center;
             }
         }
 
@@ -1127,12 +1061,12 @@
         @media (max-width: 500px) {
 
             .logo {
-                width: 140px;
-                min-width: 140px;
+                width: 220px;
+                min-width: 150px;
             }
             .corexion-logo {
-                width: 140px;
-                height: 29px;
+                width: 220px;
+                height: 66px;
             }
 
             .services {
@@ -1143,12 +1077,17 @@
                 border-right: none;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
+            .footer-links-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px 20px;
             }
 
-            .footer-brand {
-                grid-column: auto;
+            .footer-links-grid a {
+                font-size: 10px;
+            }
+
+            .footer-logo-img {
+                width: 140px;
             }
         }
 
@@ -1190,7 +1129,7 @@
             <!-- LOGO -->
 
             <a href="index.html" class="logo" aria-label="COREXION">
-                <img src="data:image/png;base64,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" alt="COREXION" class="corexion-logo">
+                <img src="img/888888888.jpg" alt="COREXION" class="corexion-logo">
             </a>
 
 
@@ -1200,47 +1139,38 @@
 
                 <!-- WHO WE ARE – DROPDOWN -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="dropdownToggleWho" data-i18n="who_we_are">WHO WE ARE</a>
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">WHO WE ARE</a>
                     <ul class="dropdown-menu" id="dropdownMenuWho">
-                        <li><a href="leadership.html" data-i18n="leadership">Leadership</a></li>
-                        <li><a href="our-approach.html" data-i18n="our_approach">Our Approach</a></li>
-                        <li><a href="global-presence.html" data-i18n="global_presence">Global Presence</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="our-approach.html">Our Approach</a></li>
+                        <li><a href="global-presence.html">Global Presence</a></li>
                     </ul>
                 </li>
 
                 <!-- EXPERTISE – DROPDOWN -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise" data-i18n="expertise">EXPERTISE</a>
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">EXPERTISE</a>
                     <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
-                        <li><a href="project-management.html" data-i18n="project_management">Project Management</a></li>
-                        <li><a href="consulting-engineering.html" data-i18n="consulting_engineering">Consulting Engineering</a></li>
-                        <li><a href="design.html" data-i18n="design">Design</a></li>
-                        <li><a href="cost-management.html" data-i18n="cost_management">Cost Management</a></li>
-                        <li><a href="post-contract.html" data-i18n="post_contract">Post Contract</a></li>
-                        <li><a href="tender-management.html" data-i18n="tender_management">Tender Management</a></li>
-                        <li><a href="cost-management2.html" data-i18n="cost_management2">Cost Management 2</a></li>
-                        <li><a href="value-engineering.html" data-i18n="value_engineering">Value Engineering</a></li>
-                        <li><a href="schedule-management.html" data-i18n="schedule_management">Schedule Management</a></li>
-                        <li><a href="construction-project.html" data-i18n="construction_project">Construction Project</a></li>
-                        <li><a href="contracts-arbitration.html" data-i18n="contracts_arbitration">Contracts &amp; Arbitration</a></li>
+                        <li><a href="project-management.html" class="active">Project Management</a></li>
+                        <li><a href="consulting-engineering.html">Consulting Engineering</a></li>
+                        <li><a href="design.html">Design</a></li>
+                        <li><a href="cost-management.html">Cost Management</a></li>
+                        <li><a href="post-contract.html">Post Contract</a></li>
+                        <li><a href="tender-management.html">Tender Management</a></li>
+                        <li><a href="cost-management2.html">Cost Management 2</a></li>
+                        <li><a href="value-engineering.html">Value Engineering</a></li>
+                        <li><a href="schedule-management.html">Schedule Management</a></li>
+                        <li><a href="construction-project.html">Construction Project</a></li>
+                        <li><a href="contracts-arbitration.html">Contracts &amp; Arbitration</a></li>
                     </ul>
                 </li>
 
-                <li><a href="vision-mission.html" data-i18n="vision_mission">VISION &amp; MISSION</a></li>
-                <li><a href="sectors.html" data-i18n="sectors">SECTORS</a></li>
-                <li><a href="insights.html" data-i18n="insights">INSIGHTS</a></li>
-                <li><a href="contact.html" data-i18n="contact">CONTACT</a></li>
+                <li><a href="vision-mission.html">VISION &amp; MISSION</a></li>
+                <li><a href="sectors.html">SECTORS</a></li>
+                <li><a href="insights.html">INSIGHTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
 
             </ul>
-
-
-            <!-- LANGUAGE -->
-
-            <div class="language" id="languageSwitcher">
-                <a class="active" data-lang="en">EN</a>
-                <span>|</span>
-                <a data-lang="ar">AR</a>
-            </div>
 
 
             <!-- MOBILE -->
@@ -1281,18 +1211,18 @@
 
                 <div class="breadcrumb">
 
-                    <span class="first" data-i18n="expertise_breadcrumb">EXPERTISE</span>
+                    <span class="first">EXPERTISE</span>
 
                     <span class="slash">/</span>
 
-                    <span data-i18n="project_management_breadcrumb">PROJECT MANAGEMENT</span>
+                    <span>PROJECT MANAGEMENT</span>
 
                 </div>
 
 
                 <!-- TITLE -->
 
-                <h1 class="hero-title" data-i18n="hero_title">
+                <h1 class="hero-title">
                     CONTROL<br>
                     COMPLEXITY.<br>
                     DELIVER<br>
@@ -1303,13 +1233,13 @@
                 <div class="gold-line"></div>
 
 
-                <p class="hero-description" data-i18n="hero_desc">
+                <p class="hero-description">
                     Leadership, governance and
                     control across every stage.
                 </p>
 
 
-                <a href="#services" class="explore-link" data-i18n="explore_link">
+                <a href="#services" class="explore-link">
 
                     <span>Explore project management</span>
 
@@ -1324,7 +1254,7 @@
 
             <div class="hero-image">
 
-                <img src="https://images.pexels.com/photos/15764116/pexels-photo-15764116.jpeg" alt="Project Management">
+                <img src="img/project.gif" alt="Project Management">
 
             </div>
 
@@ -1335,286 +1265,96 @@
         <!-- =====================================
              SERVICES
         ====================================== -->
+<section class="services" id="services">
 
-        <section class="services" id="services">
+    <!-- PROGRAMME LEADERSHIP -->
+    <article class="service-card">
+        <div class="service-icon">
+            <img src="img/icon6.gif" alt="Programme Leadership">
+        </div>
+        <div class="service-title">
+            <h2>PROGRAMME<br>LEADERSHIP</h2>
+        </div>
+        <div class="service-line"></div>
+        <p>Strategic oversight and unified leadership to align stakeholders, objectives and delivery.</p>
+    </article>
 
+    <!-- PROJECT CONTROLS -->
+    <article class="service-card">
+        <div class="service-icon">
+            <img src="img/icon7.gif" alt="Project Controls">
+        </div>
+        <div class="service-title">
+            <h2>PROJECT<br>CONTROLS</h2>
+        </div>
+        <div class="service-line"></div>
+        <p>Integrated planning, monitoring and reporting to keep every work stream on track.</p>
+    </article>
 
-            <!-- PROGRAMME LEADERSHIP -->
+    <!-- RISK MANAGEMENT -->
+    <article class="service-card">
+        <div class="service-icon">
+            <img src="img/fgfgfgfg.gif" alt="Risk Management">
+        </div>
+        <div class="service-title">
+            <h2>RISK<br>MANAGEMENT</h2>
+        </div>
+        <div class="service-line"></div>
+        <p>Proactive identification and management of risks to protect outcomes and continuity.</p>
+    </article>
 
-            <article class="service-card">
+    <!-- COMMERCIAL MANAGEMENT -->
+    <article class="service-card">
+        <div class="service-icon">
+            <img src="img/icon9.gif" alt="Commercial Management">
+        </div>
+        <div class="service-title">
+            <h2>COMMERCIAL<br>MANAGEMENT</h2>
+        </div>
+        <div class="service-line"></div>
+        <p>Sound commercial strategy and disciplined management driving value and certainty.</p>
+    </article>
 
-                <div class="service-icon icon-programme"></div>
+    <!-- DELIVERY ASSURANCE -->
+    <article class="service-card">
+        <div class="service-icon">
+            <img src="img/icon10.gif" alt="Delivery Assurance">
+        </div>
+        <div class="service-title">
+            <h2>DELIVERY<br>ASSURANCE</h2>
+        </div>
+        <div class="service-line"></div>
+        <p>Independent assurance to validate performance, quality and successful delivery.</p>
+    </article>
 
-                <div class="service-title">
-
-                    <h2 data-i18n="card1_title">
-                        PROGRAMME<br>
-                        LEADERSHIP
-                    </h2>
-
-                </div>
-
-                <div class="service-line"></div>
-
-                <p data-i18n="card1_desc">
-                    Strategic oversight and unified
-                    leadership to align stakeholders,
-                    objectives and delivery.
-                </p>
-
-            </article>
-
-
-
-            <!-- PROJECT CONTROLS -->
-
-            <article class="service-card">
-
-                <div class="service-icon icon-controls"></div>
-
-                <div class="service-title">
-
-                    <h2 data-i18n="card2_title">
-                        PROJECT<br>
-                        CONTROLS
-                    </h2>
-
-                </div>
-
-                <div class="service-line"></div>
-
-                <p data-i18n="card2_desc">
-                    Integrated planning, monitoring
-                    and reporting to keep every work
-                    stream on track.
-                </p>
-
-            </article>
-
-
-
-            <!-- RISK MANAGEMENT -->
-
-            <article class="service-card">
-
-                <div class="service-icon icon-risk"></div>
-
-                <div class="service-title">
-
-                    <h2 data-i18n="card3_title">
-                        RISK<br>
-                        MANAGEMENT
-                    </h2>
-
-                </div>
-
-                <div class="service-line"></div>
-
-                <p data-i18n="card3_desc">
-                    Proactive identification and
-                    management of risks to protect
-                    outcomes and continuity.
-                </p>
-
-            </article>
-
-
-
-            <!-- COMMERCIAL MANAGEMENT -->
-
-            <article class="service-card">
-
-                <div class="service-icon icon-commercial"></div>
-
-                <div class="service-title">
-
-                    <h2 data-i18n="card4_title">
-                        COMMERCIAL<br>
-                        MANAGEMENT
-                    </h2>
-
-                </div>
-
-                <div class="service-line"></div>
-
-                <p data-i18n="card4_desc">
-                    Sound commercial strategy
-                    and disciplined management
-                    driving value and certainty.
-                </p>
-
-            </article>
-
-
-
-            <!-- DELIVERY ASSURANCE -->
-
-            <article class="service-card">
-
-                <div class="service-icon icon-delivery"></div>
-
-                <div class="service-title">
-
-                    <h2 data-i18n="card5_title">
-                        DELIVERY<br>
-                        ASSURANCE
-                    </h2>
-
-                </div>
-
-                <div class="service-line"></div>
-
-                <p data-i18n="card5_desc">
-                    Independent assurance to validate
-                    performance, quality and successful
-                    delivery.
-                </p>
-
-            </article>
-
-        </section>
-
-
+</section>
 
         <!-- =====================================
-             FOOTER
+             FOOTER (زي الأول بالظبط)
         ====================================== -->
 
         <footer class="footer">
+            <div class="footer-container">
+                <!-- الشعار -->
+                <div class="footer-logo">
+                    <img src="img/888888888.jpg" alt="COREXION" class="footer-logo-img">
+                </div>
 
-            <div class="footer-grid">
-
-
-                <!-- BRAND -->
-
-                <div class="footer-brand">
-
-                    <div class="footer-logo">
-                        COREXION
+                <!-- الروابط (شبكة 2x2) -->
+                <div class="footer-right">
+                    <div class="footer-links-grid">
+                        <a href="company.html">Company</a>
+                        <a href="insights.html">Insights</a>
+                        <a href="expertise.html">Expertise</a>
+                        <a href="contact.html">Contact</a>
                     </div>
-
-                    <p class="footer-description" data-i18n="footer_desc">
-                        Integrated expertise in project
-                        management, consulting engineering
-                        and design.
-                    </p>
-
                 </div>
-
-
-                <!-- EXPERTISE -->
-
-                <div>
-
-                    <h3 data-i18n="footer_expertise">
-                        EXPERTISE
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            <a href="project-management.html" data-i18n="project_management">
-                                Project Management
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="consulting-engineering.html" data-i18n="consulting_engineering">
-                                Consulting Engineering
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="design.html" data-i18n="design">
-                                Design
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- COMPANY -->
-
-                <div>
-
-                    <h3 data-i18n="footer_company">
-                        COMPANY
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            <a href="leadership.html" data-i18n="who_we_are">
-                                Who We Are
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="vision-mission.html" data-i18n="vision_mission">
-                                Vision &amp; Mission
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="sectors.html" data-i18n="sectors">
-                                Sectors
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="insights.html" data-i18n="insights">
-                                Insights
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- CONTACT -->
-
-                <div>
-
-                    <h3 data-i18n="footer_contact">
-                        CONTACT
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            <a href="contact.html" data-i18n="contact">
-                                Contact Us
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="global-presence.html" data-i18n="global_presence">
-                                Global Presence
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
             </div>
 
-
+            <!-- الجزء السفلي -->
             <div class="footer-bottom">
-
-                <span data-i18n="footer_copyright">
-                    © 2026 COREXION. All Rights Reserved.
-                </span>
-
-                <span data-i18n="footer_privacy">
-                    Privacy Policy
-                </span>
-
+                <span>© 2026 COREXION. All rights reserved.</span>
             </div>
-
         </footer>
 
     </main>
@@ -1628,144 +1368,7 @@
     <script>
 
         // ============================================================
-        // 1. TRANSLATION DICTIONARY
-        // ============================================================
-        const translations = {
-            en: {
-                // Navbar
-                who_we_are: "WHO WE ARE",
-                expertise: "EXPERTISE",
-                vision_mission: "VISION & MISSION",
-                sectors: "SECTORS",
-                insights: "INSIGHTS",
-                contact: "CONTACT",
-                leadership: "Leadership",
-                our_approach: "Our Approach",
-                global_presence: "Global Presence",
-                project_management: "Project Management",
-                consulting_engineering: "Consulting Engineering",
-                design: "Design",
-                cost_management: "Cost Management",
-                post_contract: "Post Contract",
-                tender_management: "Tender Management",
-                cost_management2: "Cost Management 2",
-                value_engineering: "Value Engineering",
-                schedule_management: "Schedule Management",
-                construction_project: "Construction Project",
-                contracts_arbitration: "Contracts & Arbitration",
-                // Breadcrumb
-                expertise_breadcrumb: "EXPERTISE",
-                project_management_breadcrumb: "PROJECT MANAGEMENT",
-                // Hero
-                hero_title: "CONTROL<br>COMPLEXITY.<br>DELIVER<br>CERTAINTY.",
-                hero_desc: "Leadership, governance and control across every stage.",
-                explore_link: "Explore project management",
-                // Cards
-                card1_title: "PROGRAMME<br>LEADERSHIP",
-                card1_desc: "Strategic oversight and unified leadership to align stakeholders, objectives and delivery.",
-                card2_title: "PROJECT<br>CONTROLS",
-                card2_desc: "Integrated planning, monitoring and reporting to keep every work stream on track.",
-                card3_title: "RISK<br>MANAGEMENT",
-                card3_desc: "Proactive identification and management of risks to protect outcomes and continuity.",
-                card4_title: "COMMERCIAL<br>MANAGEMENT",
-                card4_desc: "Sound commercial strategy and disciplined management driving value and certainty.",
-                card5_title: "DELIVERY<br>ASSURANCE",
-                card5_desc: "Independent assurance to validate performance, quality and successful delivery.",
-                // Footer
-                footer_desc: "Integrated expertise in project management, consulting engineering and design.",
-                footer_expertise: "EXPERTISE",
-                footer_company: "COMPANY",
-                footer_contact: "CONTACT",
-                footer_copyright: "© 2026 COREXION. All Rights Reserved.",
-                footer_privacy: "Privacy Policy"
-            },
-            ar: {
-                // Navbar
-                who_we_are: "من نحن",
-                expertise: "الخبرات",
-                vision_mission: "الرؤية والرسالة",
-                sectors: "القطاعات",
-                insights: "الأفكار",
-                contact: "اتصل بنا",
-                leadership: "القيادة",
-                our_approach: "نهجنا",
-                global_presence: "التواجد العالمي",
-                project_management: "إدارة المشاريع",
-                consulting_engineering: "الهندسة الاستشارية",
-                design: "التصميم",
-                cost_management: "إدارة التكاليف",
-                post_contract: "ما بعد العقد",
-                tender_management: "إدارة المناقصات",
-                cost_management2: "إدارة التكاليف 2",
-                value_engineering: "الهندسة القيمية",
-                schedule_management: "إدارة الجداول الزمنية",
-                construction_project: "مشروع البناء",
-                contracts_arbitration: "العقود والتحكيم",
-                // Breadcrumb
-                expertise_breadcrumb: "الخبرات",
-                project_management_breadcrumb: "إدارة المشاريع",
-                // Hero
-                hero_title: "تحكم<br>في التعقيد.<br>سلم<br>باليقين.",
-                hero_desc: "قيادة وحوكمة وتحكم في كل مرحلة.",
-                explore_link: "استكشف إدارة المشاريع",
-                // Cards
-                card1_title: "قيادة<br>البرنامج",
-                card1_desc: "إشراف استراتيجي وقيادة موحدة لمواءمة أصحاب المصلحة والأهداف والتسليم.",
-                card2_title: "الرقابة<br>على المشروع",
-                card2_desc: "تخطيط ومراقبة وتقارير متكاملة للحفاظ على سير كل مسار عمل.",
-                card3_title: "إدارة<br>المخاطر",
-                card3_desc: "تحديد وإدارة استباقية للمخاطر لحماية النتائج واستمرارية العمل.",
-                card4_title: "الإدارة<br>التجارية",
-                card4_desc: "استراتيجية تجارية سليمة وإدارة منضبطة تدفع القيمة واليقين.",
-                card5_title: "ضمان<br>التسليم",
-                card5_desc: "ضمان مستقل للتحقق من الأداء والجودة والتسليم الناجح.",
-                // Footer
-                footer_desc: "خبرات متكاملة في إدارة المشاريع والهندسة الاستشارية والتصميم.",
-                footer_expertise: "الخبرات",
-                footer_company: "الشركة",
-                footer_contact: "اتصل بنا",
-                footer_copyright: "© 2026 كوركسيون. جميع الحقوق محفوظة.",
-                footer_privacy: "سياسة الخصوصية"
-            }
-        };
-
-        // ============================================================
-        // 2. LANGUAGE SWITCHING LOGIC
-        // ============================================================
-        let currentLang = 'en';
-
-        function setLanguage(lang) {
-            if (!translations[lang]) return;
-            currentLang = lang;
-
-            // Update all elements with data-i18n attribute
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key] !== undefined) {
-                    // For elements that may contain HTML (like hero_title with <br>), use innerHTML
-                    if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'A' || el.tagName === 'LI' || el.tagName === 'SPAN' || el.tagName === 'DIV') {
-                        el.innerHTML = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
-                }
-            });
-
-            // Update active state on language switcher links
-            document.querySelectorAll('.language a[data-lang]').forEach(link => {
-                link.classList.toggle('active', link.getAttribute('data-lang') === lang);
-            });
-
-            // Set dir attribute for RTL support
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang;
-
-            // Store preference
-            localStorage.setItem('corexion-lang', lang);
-        }
-
-        // ============================================================
-        // 3. DROPDOWN TOGGLES
+        // 1. DROPDOWN TOGGLES
         // ============================================================
         const toggleWho = document.getElementById('dropdownToggleWho');
         const menuWho = document.getElementById('dropdownMenuWho');
@@ -1816,7 +1419,7 @@
         });
 
         // ============================================================
-        // 4. MOBILE MENU TOGGLE
+        // 2. MOBILE MENU TOGGLE
         // ============================================================
         const menuButton = document.getElementById('menuButton');
         const navMenu = document.getElementById('navMenu');
@@ -1862,25 +1465,6 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeMobileMenu();
         });
-
-        // ============================================================
-        // 5. LANGUAGE SWITCHER EVENT & INIT
-        // ============================================================
-        document.querySelectorAll('.language a[data-lang]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
-            });
-        });
-
-        // Restore saved language preference or default to 'en'
-        const savedLang = localStorage.getItem('corexion-lang');
-        if (savedLang && translations[savedLang]) {
-            setLanguage(savedLang);
-        } else {
-            setLanguage('en');
-        }
 
     </script>
 
