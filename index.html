@@ -4,52 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>COREXION — We Raise Standards</title>
-
     <style>
-
         /* =====================================================
            RESET
         ===================================================== */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #ffffff;
-            color: #222428;
+            color: #1a1a2e;
         }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         button {
             font-family: inherit;
         }
 
-
         /* =====================================================
            VARIABLES
         ===================================================== */
-
         :root {
             --white: #ffffff;
             --off-white: #fafafa;
-            --black: #222428;
-            --grey: #69717b;
-            --light-grey: #d9d9d9;
+            --black: #1a1a2e;
+            --navy: #1a1a2e;
             --gold: #c98516;
+            --gold-light: #d4a030;
+            --grey: #2d2d44;
+            --light-grey: #d9d9d9;
         }
 
         /* =====================================================
@@ -101,7 +93,6 @@
             left: auto;
             right: 0;
         }
-
         @media (max-width: 850px) {
             [dir="rtl"] .nav-menu {
                 transform: translateX(100%);
@@ -118,133 +109,87 @@
                 border-right: none;
                 border-top: 1px solid #dddddd;
             }
-            [dir="rtl"] .language {
-                right: auto;
-                left: 75px;
-            }
-        }
-        @media (max-width: 500px) {
-            [dir="rtl"] .language {
-                left: 65px;
-            }
         }
 
         /* =====================================================
            NAVBAR
         ===================================================== */
-
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
-            height: 68px;
-
+            height: 78px;
             background: rgba(255, 255, 255, 0.97);
-
             display: flex;
             align-items: center;
-
             z-index: 1000;
-
             border-bottom: 1px solid #eeeeee;
         }
-
         .nav-container {
             width: 100%;
             height: 100%;
-
             padding: 0 32px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-
-        /* =====================================================
-           LOGO
-        ===================================================== */
-
+        /* LOGO */
         .logo {
             display: flex;
             align-items: center;
-            width: 170px;
-            min-width: 170px;
+            width: 250px;
+            min-width: 250px;
             height: 100%;
             text-decoration: none;
         }
         .corexion-logo {
             display: block;
-            width: 170px;
-            height: 35px;
+            width: 250px;
+            height: 70px;
             object-fit: contain;
             object-position: left center;
         }
 
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
+        /* NAVIGATION */
         .nav-menu {
             height: 100%;
-
             display: flex;
             align-items: center;
-
             list-style: none;
-
             gap: 38px;
         }
-
         .nav-menu li {
             height: 100%;
-
             display: flex;
             align-items: center;
             position: relative;
         }
-
         .nav-menu a {
             position: relative;
-
-            font-size: 10px;
-
+            font-size: 12px;
             font-weight: 700;
-
             letter-spacing: 0.7px;
-
-            color: #252525;
-
+            color: #1a1a2e;
             white-space: nowrap;
-
             transition: color 0.25s ease;
             display: inline-block;
             padding-bottom: 4px;
         }
-
         .nav-menu a::after {
             content: "";
-
             position: absolute;
-
             left: 0;
             bottom: -8px;
-
             width: 0;
             height: 2px;
-
             background: var(--gold);
-
             transition: width 0.25s ease;
         }
-
         .nav-menu a:hover {
             color: var(--gold);
         }
-
         .nav-menu a:hover::after {
             width: 100%;
         }
@@ -254,120 +199,68 @@
             cursor: pointer;
             user-select: none;
         }
-
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
             background: #fff;
-            min-width: 180px;
+            min-width: 200px;
             box-shadow: 0 8px 20px rgba(0,0,0,.1);
             border-radius: 4px;
             padding: 8px 0;
             z-index: 200;
             margin-top: 6px;
         }
-
         .dropdown-menu.open {
             display: block;
         }
-
         .dropdown-menu li {
             height: auto;
             padding: 0;
             border-bottom: none;
             display: block;
         }
-
         .dropdown-menu a {
             display: block;
-            padding: 8px 18px;
-            font-size: 10px;
+            padding: 10px 20px;
+            font-size: 13px;
             font-weight: 600;
             letter-spacing: .3px;
-            color: #333;
+            color: #1a1a2e;
             transition: background .2s, color .2s;
             height: auto;
         }
-
         .dropdown-menu a:hover {
             background: #f5f5f5;
             color: var(--gold);
         }
-
         .dropdown-menu a::after {
             display: none;
         }
-
         .dropdown-menu.wide {
-            min-width: 200px;
+            min-width: 220px;
         }
 
-
-        /* =====================================================
-           LANGUAGE
-        ===================================================== */
-
-        .language {
-            min-width: 90px;
-
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            gap: 8px;
-        }
-
-        .language a {
-            font-size: 10px;
-
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .language .active {
-            color: var(--gold);
-        }
-
-        .language .divider {
-            color: #888888;
-        }
-
-
-        /* =====================================================
-           MOBILE BUTTON
-        ===================================================== */
-
+        /* MOBILE BUTTON */
         .menu-button {
             display: none;
-
             width: 42px;
             height: 42px;
-
             border: none;
-
             background: transparent;
-
             cursor: pointer;
-
             position: relative;
             z-index: 1200;
         }
-
         .menu-button span {
             display: block;
-
             width: 24px;
             height: 2px;
-
             margin: 5px auto;
-
-            background: var(--black);
-
+            background: #1a1a2e;
             transition: transform 0.28s ease, opacity 0.2s ease;
         }
-
         .menu-button.active span:nth-child(1) {
             transform: translateY(7px) rotate(45deg);
         }
@@ -377,12 +270,11 @@
         .menu-button.active span:nth-child(3) {
             transform: translateY(-7px) rotate(-45deg);
         }
-
         .nav-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            top: 68px;
+            top: 78px;
             background: rgba(0,0,0,.35);
             z-index: 900;
             opacity: 0;
@@ -393,573 +285,481 @@
             opacity: 1;
         }
 
-
         /* =====================================================
            HERO
         ===================================================== */
-
         .hero {
             width: 100%;
             min-height: 100vh;
-
-            padding-top: 68px;
-
+            padding-top: 78px;
             display: grid;
-
             grid-template-columns: 35% 65%;
         }
 
-
-        /* =====================================================
-           HERO LEFT
-        ===================================================== */
-
+        /* HERO LEFT */
         .hero-left {
             background: #ffffff;
-
             padding: 58px 50px 35px;
-
             display: flex;
             flex-direction: column;
-
             min-width: 0;
         }
 
-
-        /* =====================================================
-           HERO TITLE
-        ===================================================== */
-
+        /* HERO TITLE */
         .hero-title {
-            font-size: clamp(45px, 4vw, 62px);
-
+            font-size: clamp(52px, 5vw, 72px);
             line-height: 0.98;
-
             font-weight: 300;
-
             letter-spacing: 1px;
-
-            color: #222222;
-
+            color: #1a1a2e;
             margin-bottom: 16px;
         }
-
         .gold-line {
-            width: 28px;
+            width: 35px;
             height: 3px;
-
             background: var(--gold);
-
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-
         .hero-description {
-            max-width: 250px;
-
-            color: #69717b;
-
-            font-size: 15px;
-
-            line-height: 1.35;
-
-            margin-bottom: 22px;
+            max-width: 300px;
+            color: #2d2d44;
+            font-size: 18px;
+            line-height: 1.45;
+            margin-bottom: 26px;
         }
 
-
-        /* =====================================================
-           SERVICES
-        ===================================================== */
-
+        /* SERVICES */
         .services {
             display: flex;
             flex-direction: column;
-
-            gap: 10px;
-
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 22px;
         }
-
         .service {
             display: grid;
-
-            grid-template-columns: 28px 30px 1fr 20px;
-
+            grid-template-columns: 32px 30px 1fr 24px;
             align-items: center;
-
             width: 100%;
-
             cursor: pointer;
-
             transition: 0.25s ease;
         }
-
         .service-number {
-            font-size: 16px;
-
+            font-size: 18px;
             color: #a7a7a7;
-
             font-weight: 400;
         }
-
         .service.active .service-number {
             color: var(--gold);
         }
-
         .service-line {
             width: 25px;
             height: 1px;
-
             background: #cccccc;
         }
-
         .service.active .service-line {
             background: var(--gold);
         }
-
         .service-name {
-            font-size: 12px;
-
-            color: #666666;
-
+            font-size: 16px;
+            color: #2d2d44;
             font-weight: 600;
-
             transition: 0.25s ease;
         }
-
         .service.active .service-name {
-            color: #222222;
+            color: #1a1a2e;
         }
-
         .service-arrow {
-            font-size: 19px;
-
+            font-size: 22px;
             color: #aaaaaa;
-
             transition: 0.25s ease;
         }
-
         .service.active .service-arrow {
             color: var(--gold);
         }
-
         .service:hover .service-name {
             color: var(--gold);
         }
-
         .service:hover .service-arrow {
             transform: translateX(4px);
             color: var(--gold);
         }
 
-
-        /* =====================================================
-           EXPLORE CAPABILITIES
-        ===================================================== */
-
+        /* EXPLORE CAPABILITIES */
         .explore {
             display: flex;
             align-items: center;
-
-            gap: 10px;
-
+            gap: 12px;
             margin-top: 3px;
-
-            margin-bottom: 20px;
-
+            margin-bottom: 22px;
             width: fit-content;
-
-            color: #222222;
-
-            font-size: 11px;
-
+            color: #1a1a2e;
+            font-size: 14px;
             font-weight: 700;
         }
-
         .explore-mark {
-            width: 16px;
-            height: 16px;
-
+            width: 18px;
+            height: 18px;
             border-left: 2px solid var(--gold);
-
             position: relative;
         }
-
         .explore-mark::after {
             content: "";
-
             position: absolute;
-
             left: 0;
-            top: 7px;
-
-            width: 12px;
+            top: 8px;
+            width: 14px;
             height: 1px;
-
             background: var(--gold);
         }
-
         .explore-arrow {
             color: var(--gold);
-
-            font-size: 19px;
-
+            font-size: 22px;
             transition: transform 0.25s ease;
         }
-
         .explore:hover .explore-arrow {
             transform: translateX(5px);
         }
 
-
-        /* =====================================================
-           GLOBAL PRESENCE
-        ===================================================== */
-
+        /* GLOBAL PRESENCE */
         .global {
             border-top: 1px solid #dddddd;
-
-            padding-top: 12px;
-
+            padding-top: 14px;
             margin-top: auto;
         }
-
         .global-title {
-            font-size: 10px;
-
+            font-size: 12px;
             font-weight: 700;
-
             letter-spacing: 0.5px;
-
             color: var(--gold);
-
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-
         .locations {
             display: flex;
             flex-direction: column;
-
-            gap: 6px;
+            gap: 8px;
         }
-
         .location {
             display: flex;
             align-items: center;
-
-            gap: 9px;
-
-            color: #666666;
-
-            font-size: 9.5px;
-
-            line-height: 1.2;
+            gap: 10px;
+            color: #2d2d44;
+            font-size: 11px;
+            line-height: 1.3;
         }
-
         .location-icon {
             position: relative;
-
-            width: 10px;
-            height: 13px;
-
+            width: 12px;
+            height: 15px;
             border: 1.5px solid var(--gold);
-
             border-radius: 8px 8px 8px 8px;
-
             flex-shrink: 0;
         }
-
         .location-icon::after {
             content: "";
-
             position: absolute;
-
-            width: 3px;
-            height: 3px;
-
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
-
             background: var(--gold);
-
-            left: 2px;
-            top: 3px;
+            left: 3px;
+            top: 4px;
         }
 
-
-        /* =====================================================
-           HERO IMAGE
-        ===================================================== */
-
+        /* HERO IMAGE */
         .hero-right {
             position: relative;
-
-            min-height: calc(100vh - 68px);
-
+            min-height: calc(100vh - 78px);
             overflow: hidden;
-
             background: #eeeeee;
         }
-
         .hero-image {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
             display: block;
-
             transition: transform 1.2s ease;
         }
-
         .hero-right:hover .hero-image {
             transform: scale(1.015);
         }
 
-
-        /* =====================================================
-           IMAGE OVERLAY
-        ===================================================== */
-
+        /* IMAGE OVERLAY */
         .hero-overlay {
             position: absolute;
-
             inset: 0;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.04),
-                    rgba(0,0,0,0)
-                );
-
+            background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(0,0,0,0));
             pointer-events: none;
         }
 
+        /* =====================================================
+           SECTION 02 — EXPERTISE INTRO
+        ===================================================== */
+        .expertise-intro {
+            width: 100%;
+            background: #ffffff;
+            padding: 0 0 45px;
+        }
+
+        /* TOP */
+        .expertise-top {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 35% 65%;
+            align-items: stretch;
+        }
+
+        /* LEFT CONTENT */
+        .expertise-heading {
+            padding: 48px 50px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .expertise-heading h2 {
+            font-size: clamp(48px, 5vw, 64px);
+            line-height: 1.08;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #1a1a2e;
+            margin: 0 0 15px;
+        }
+        .expertise-gold-line {
+            width: 35px;
+            height: 3px;
+            background: #c98516;
+            margin-bottom: 16px;
+        }
+        .expertise-heading p {
+            max-width: 320px;
+            color: #2d2d44;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* IMAGE */
+        .expertise-image {
+            width: 100%;
+            height: 430px;
+            overflow: hidden;
+            background: #eeeeee;
+        }
+        .expertise-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+        }
+        .expertise-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* VALUES */
+        .expertise-values {
+            width: 100%;
+            padding: 40px 50px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* VALUE ITEM */
+        .value-item {
+            display: grid;
+            grid-template-columns: 75px 1fr;
+            gap: 25px;
+            padding: 0 38px;
+            min-height: 100px;
+            align-items: center;
+        }
+        .value-item + .value-item {
+            border-left: 1px solid #dddddd;
+        }
+
+        /* ICON */
+        .value-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .value-icon svg {
+            width: 62px;
+            height: 62px;
+            fill: none;
+            stroke: #c98516;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* TEXT */
+        .value-content h3 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #1a1a2e;
+        }
+        .value-content p {
+            color: #2d2d44;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 280px;
+        }
 
         /* =====================================================
            FOOTER
         ===================================================== */
-
         .footer {
-            background: #222428;
-
+            background: #17181a;
             color: white;
-
-            padding: 70px 50px 25px;
+            padding: 85px 85px 85px;
         }
-
-        .footer-grid {
-            display: grid;
-
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-
-            gap: 50px;
-
+        .footer-container {
             max-width: 1400px;
-
-            margin: auto;
-        }
-
-        .footer-logo {
-            font-size: 22px;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 18px;
-        }
-
-        .footer-description {
-            max-width: 330px;
-
-            color: #a9a9a9;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-        }
-
-        .footer h4 {
-            color: var(--gold);
-
-            font-size: 10px;
-
-            letter-spacing: 1.5px;
-
-            margin-bottom: 18px;
-        }
-
-        .footer ul {
-            list-style: none;
-
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-
-            gap: 10px;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .footer li a {
+        /* 👇 ده الكلاس المهم للوجو */
+        .footer-logo-img {
+            width: 180px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 70px;
+        }
+        .footer-links-grid a {
             color: #bcbcbc;
-
-            font-size: 12px;
-
-            transition: 0.25s ease;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.25s ease;
+            font-weight: 500;
+            white-space: nowrap;
         }
-
-        .footer li a:hover {
+        .footer-links-grid a:hover {
             color: white;
-            padding-left: 4px;
         }
-
         .footer-bottom {
             max-width: 1400px;
-
-            margin: 50px auto 0;
-
-            padding-top: 20px;
-
-            border-top: 1px solid rgba(255,255,255,0.12);
-
+            margin: 18px auto 0;
             display: flex;
-
             justify-content: space-between;
-
             color: #777777;
-
-            font-size: 10px;
+            font-size: 12px;
         }
 
-
         /* =====================================================
-           TABLET
+           RESPONSIVE
         ===================================================== */
-
         @media (max-width: 1100px) {
-
             .nav-container {
                 padding: 0 22px;
             }
-
             .logo {
-                width: 170px;
-                min-width: 170px;
+                width: 200px;
+                min-width: 200px;
             }
             .corexion-logo {
-                width: 170px;
-                height: 35px;
+                width: 200px;
+                height: 50px;
             }
-
             .nav-menu {
-                gap: 20px;
+                gap: 24px;
             }
-
             .nav-menu a {
-                font-size: 9px;
+                font-size: 12px;
             }
-
             .hero {
                 grid-template-columns: 40% 60%;
             }
-
             .hero-left {
                 padding-left: 35px;
                 padding-right: 30px;
             }
-
             .hero-title {
-                font-size: 45px;
+                font-size: 48px;
             }
         }
 
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
         @media (max-width: 850px) {
-
             .navbar {
                 height: 70px;
             }
-
             .nav-container {
                 padding: 0 20px;
             }
-
             .logo {
-                width: 150px;
-                min-width: 150px;
+                width: 160px;
+                min-width: 160px;
             }
             .corexion-logo {
-                width: 150px;
-                height: 31px;
+                width: 160px;
+                height: 40px;
             }
-
             .nav-menu {
                 position: fixed;
-
                 top: 70px;
                 right: 0;
                 left: auto;
-
                 width: min(78%, 340px);
                 max-width: 340px;
-
                 height: calc(100vh - 70px);
-
                 background: white;
-
                 display: flex;
-
                 flex-direction: column;
-
                 align-items: stretch;
-
                 padding: 10px 0 30px;
-
                 gap: 0;
-
                 transform: translateX(100%);
-
                 transition: transform 0.35s ease;
-
                 overflow-y: auto;
-
                 box-shadow: -6px 0 24px rgba(0,0,0,.12);
                 z-index: 950;
             }
-
             .nav-menu.active {
                 transform: translateX(0);
             }
-
             .nav-menu li {
                 width: 100%;
-
                 height: auto;
-
                 padding: 0;
-
                 border-bottom: 1px solid #eeeeee;
                 display: block;
             }
-
             .nav-menu > li > a {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
                 padding: 16px 25px;
-                font-size: 13px;
+                font-size: 14px;
                 letter-spacing: .8px;
             }
-
             .nav-menu > li > a::after {
                 display: none;
             }
-
             .nav-menu > li > a.active {
                 background: #faf6ee;
             }
-
             .nav-menu .dropdown-toggle::before {
                 content: "";
                 width: 8px;
@@ -971,13 +771,10 @@
                 margin-left: 10px;
                 flex-shrink: 0;
             }
-
             .nav-menu .dropdown-toggle.open::before {
                 transform: rotate(-135deg);
                 border-color: var(--gold);
             }
-
-            /* mobile dropdown reset */
             .nav-menu .dropdown-menu {
                 position: static;
                 box-shadow: none;
@@ -990,1356 +787,776 @@
                 overflow: hidden;
                 transition: max-height .3s ease;
             }
-
             .nav-menu .dropdown-menu.open {
                 display: block;
                 max-height: 600px;
             }
-
             .nav-menu .dropdown-menu li {
                 padding: 0;
                 border-bottom: 1px solid #efece4;
             }
-
             .nav-menu .dropdown-menu li:last-child {
                 border-bottom: none;
             }
-
             .nav-menu .dropdown-menu a {
                 padding: 12px 25px 12px 38px;
-                font-size: 11.5px;
+                font-size: 13px;
                 font-weight: 600;
-                color: #555;
+                color: #1a1a2e;
                 position: relative;
             }
-
             .nav-menu .dropdown-menu a::before {
                 content: "–";
                 position: absolute;
                 left: 25px;
                 color: var(--gold);
             }
-
             .nav-menu .dropdown-menu a:hover,
             .nav-menu .dropdown-menu a.active {
                 color: var(--gold);
                 background: #f3ecdd;
             }
-
             body.nav-open {
                 overflow: hidden;
             }
-
-            .language {
-                position: static;
-                margin-left: auto;
-                margin-right: 15px;
-                min-width: auto;
-            }
-
             .menu-button {
                 display: block;
             }
 
-
-            /* HERO MOBILE */
-
             .hero {
                 padding-top: 70px;
-
                 display: flex;
-
                 flex-direction: column;
             }
-
             .hero-left {
                 min-height: auto;
-
-                padding: 50px 25px 35px;
+                padding: 45px 25px 30px;
             }
-
             .hero-title {
                 font-size: clamp(48px, 14vw, 70px);
             }
-
             .hero-description {
-                font-size: 15px;
+                font-size: 16px;
+                max-width: 100%;
             }
-
             .hero-right {
-                min-height: 55vh;
-
-                height: 55vh;
+                min-height: 50vh;
+                height: 50vh;
             }
-
             .global {
                 margin-top: 15px;
             }
 
-
-            /* FOOTER */
+            .expertise-top {
+                display: flex;
+                flex-direction: column;
+            }
+            .expertise-heading {
+                padding: 40px 25px 30px;
+            }
+            .expertise-heading h2 {
+                font-size: clamp(44px, 12vw, 62px);
+            }
+            .expertise-heading p {
+                max-width: 100%;
+                font-size: 16px;
+            }
+            .expertise-image {
+                height: 55vw;
+                min-height: 280px;
+            }
+            .expertise-values {
+                display: flex;
+                flex-direction: column;
+                padding: 30px 25px 0;
+            }
+            .value-item {
+                padding: 25px 0;
+                grid-template-columns: 70px 1fr;
+            }
+            .value-item + .value-item {
+                border-left: none;
+                border-top: 1px solid #dddddd;
+            }
+            .value-content p {
+                max-width: 100%;
+            }
 
             .footer {
-                padding: 55px 25px 25px;
+                padding: 40px 25px 20px;
             }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-
-                gap: 40px 25px;
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
             }
-
-            .footer-brand {
-                grid-column: 1 / -1;
+            .footer-links-grid {
+                gap: 10px 30px;
             }
-
             .footer-bottom {
                 flex-direction: column;
-
-                gap: 10px;
+                gap: 8px;
+                text-align: center;
             }
         }
 
-
         @media (max-width: 500px) {
-
             .logo {
                 width: 140px;
                 min-width: 140px;
             }
             .corexion-logo {
                 width: 140px;
-                height: 29px;
+                height: 35px;
+            }
+            .hero-left {
+                padding: 35px 18px 25px;
+            }
+            .hero-title {
+                font-size: 42px;
+            }
+            .service-name {
+                font-size: 13px;
+            }
+            .location {
+                font-size: 10px;
+            }
+            .expertise-heading {
+                padding: 30px 18px 25px;
+            }
+            .expertise-heading h2 {
+                font-size: 38px;
+            }
+            .expertise-values {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+            .value-item {
+                grid-template-columns: 55px 1fr;
+                gap: 15px;
+            }
+            .value-icon {
+                width: 50px;
+                height: 50px;
+            }
+            .value-icon svg {
+                width: 48px;
+                height: 48px;
+            }
+            .value-content h3 {
+                font-size: 14px;
+            }
+            .value-content p {
+                font-size: 12px;
+            }
+            .explore {
+                font-size: 13px;
             }
 
-            .language {
+            .footer-links-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px 20px;
+            }
+            .footer-links-grid a {
+                font-size: 10px;
+            }
+            .footer-logo-img {
+                width: 140px;
+            }
+        }
+
+       @media (prefers-reduced-motion: reduce) {
+    :not(#loader):not(#loader *),
+    :not(#loader)::before,
+    :not(#loader)::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+        /* RTL mobile overrides */
+        [dir="rtl"] .nav-menu .dropdown-menu a::before {
+            content: "–";
+            left: auto;
+            right: 25px;
+        }
+        [dir="rtl"] .nav-menu .dropdown-menu a {
+            padding: 12px 38px 12px 25px;
+        }
+        @media (max-width: 850px) {
+            [dir="rtl"] .nav-menu .dropdown-menu a {
+                padding: 12px 38px 12px 25px;
+            }
+            [dir="rtl"] .nav-menu .dropdown-toggle::before {
+                margin-left: 0;
                 margin-right: 10px;
             }
-
-            .hero-left {
-                padding: 40px 22px 30px;
-            }
-
-            .hero-title {
-                font-size: 50px;
-            }
-
-            .service-name {
-                font-size: 11px;
-            }
-
-            .location {
-                font-size: 9px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-brand {
-                grid-column: auto;
-            }
         }
-
-
-        /* =====================================================
-           REDUCED MOTION
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
-        /* =====================================================
-   SECTION 02 — EXPERTISE INTRO
-===================================================== */
-
-.expertise-intro {
-    width: 100%;
-
-    background: #ffffff;
-
-    padding: 0 0 45px;
-}
-
-
-/* =====================================================
-   TOP
-===================================================== */
-
-.expertise-top {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 35% 65%;
-
-    align-items: stretch;
-}
-
-
-/* =====================================================
-   LEFT CONTENT
-===================================================== */
-
-.expertise-heading {
-    padding: 48px 50px 35px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-}
-
-.expertise-heading h2 {
-    font-size: clamp(42px, 4vw, 58px);
-
-    line-height: 1.08;
-
-    font-weight: 300;
-
-    letter-spacing: 1px;
-
-    color: #222428;
-
-    margin: 0 0 15px;
-}
-
-.expertise-gold-line {
-    width: 30px;
-
-    height: 3px;
-
-    background: #c98516;
-
-    margin-bottom: 14px;
-}
-
-.expertise-heading p {
-    max-width: 285px;
-
-    color: #69717b;
-
-    font-size: 15px;
-
-    line-height: 1.55;
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.expertise-image {
-    width: 100%;
-
-    height: 430px;
-
-    overflow: hidden;
-
-    background: #eeeeee;
-}
-
-.expertise-image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    transition: transform 0.7s ease;
-}
-
-.expertise-image:hover img {
-    transform: scale(1.02);
-}
-
-
-/* =====================================================
-   VALUES
-===================================================== */
-
-.expertise-values {
-    width: 100%;
-
-    padding: 35px 50px 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-}
-
-
-/* =====================================================
-   VALUE ITEM
-===================================================== */
-
-.value-item {
-    display: grid;
-
-    grid-template-columns: 75px 1fr;
-
-    gap: 25px;
-
-    padding: 0 38px;
-
-    min-height: 100px;
-
-    align-items: center;
-}
-
-.value-item + .value-item {
-    border-left: 1px solid #dddddd;
-}
-
-
-/* =====================================================
-   ICON
-===================================================== */
-
-.value-icon {
-    width: 65px;
-
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.value-icon svg {
-    width: 62px;
-
-    height: 62px;
-
-    fill: none;
-
-    stroke: #c98516;
-
-    stroke-width: 1.4;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-}
-
-
-/* =====================================================
-   TEXT
-===================================================== */
-
-.value-content h3 {
-    margin-bottom: 7px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.5px;
-
-    color: #222428;
-}
-
-.value-content p {
-    color: #69717b;
-
-    font-size: 11px;
-
-    line-height: 1.65;
-
-    max-width: 260px;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1100px) {
-
-    .expertise-top {
-        grid-template-columns: 40% 60%;
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Cinzel:wght@500;600&display=swap');
+
+  :root{
+    --gold-1:#fff7d6;
+    --gold-2:#ffd66b;
+    --gold-3:#e8a933;
+    --gold-4:#8a5a12;
+    --bg-0:#020202;
+    --bg-1:#0a0704;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    height:100%;
+    background:var(--bg-0);
+  }
+
+  body{
+    position:relative;
+    min-height:100vh;
+  }
+
+  /* ===== LOADER OVERLAY ===== */
+  #loader{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    font-family:'Cormorant Garamond', serif;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(232,169,51,0.10) 0%, rgba(232,169,51,0.0) 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(138,90,18,0.18) 0%, rgba(0,0,0,0) 60%),
+      linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    opacity:1;
+    visibility:visible;
+  }
+
+  #loader.loader-hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+  /* subtle vignette */
+  #loader::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+    pointer-events:none;
+    z-index:5;
+  }
+
+  /* ===== PAGE CONTENT BEHIND THE LOADER ===== */
+  #page-content{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg-1);
+    color:var(--gold-2);
+    font-family:'Cinzel', serif;
+    letter-spacing:0.15em;
+    text-align:center;
+    padding:40px;
+  }
+
+  /* floating gold dust */
+  .dust{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+  }
+  .dust span{
+    position:absolute;
+    bottom:-10px;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:var(--gold-2);
+    box-shadow:0 0 6px 1px rgba(255,214,107,0.9);
+    opacity:0;
+    animation:rise linear infinite;
+  }
+  @keyframes rise{
+    0%{ transform:translateY(0) translateX(0); opacity:0; }
+    10%{ opacity:.9; }
+    90%{ opacity:.4; }
+    100%{ transform:translateY(-115vh) translateX(var(--drift,20px)); opacity:0; }
+  }
+
+  .stage{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:28px;
+  }
+
+  /* ring around the X */
+  .ring-wrap{
+    position:relative;
+    width:300px;
+    height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .ring-wrap svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    transform:rotate(-90deg);
+    filter:drop-shadow(0 0 6px rgba(255,214,107,0.55));
+  }
+
+  .ring-track{
+    fill:none;
+    stroke:rgba(232,169,51,0.12);
+    stroke-width:2;
+  }
+
+  .ring-progress{
+    fill:none;
+    stroke:url(#ringGrad);
+    stroke-width:2.4;
+    stroke-linecap:round;
+    stroke-dasharray:753;
+    stroke-dashoffset:753;
+    animation:ringSweep 2s cubic-bezier(.65,0,.35,1) infinite;
+  }
+
+  @keyframes ringSweep{
+    0%{ stroke-dashoffset:753; opacity:.3; }
+    50%{ stroke-dashoffset:0; opacity:1; }
+    100%{ stroke-dashoffset:-753; opacity:.3; }
+  }
+
+  /* the X letter itself */
+  .x-letter{
+    position:relative;
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:180px;
+    line-height:1;
+    user-select:none;
+    -webkit-user-select:none;
+  }
+
+  .x-base{
+    color:transparent;
+    -webkit-text-stroke:1.5px rgba(232,169,51,0.35);
+    filter:drop-shadow(0 0 10px rgba(138,90,18,0.35));
+  }
+
+  .x-fill{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, var(--gold-1) 0%, var(--gold-2) 35%, var(--gold-3) 65%, var(--gold-4) 100%);
+    background-size:100% 220%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:
+      drop-shadow(0 0 6px rgba(255,214,107,0.85))
+      drop-shadow(0 0 18px rgba(255,193,66,0.65))
+      drop-shadow(0 0 38px rgba(232,169,51,0.45));
+    clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);
+    animation:
+      fillUp 3.2s cubic-bezier(.65,0,.35,1) forwards,
+      shimmerMove 3.2s cubic-bezier(.65,0,.35,1) forwards,
+      breatheGlow 1.4s ease-in-out infinite;
+  }
+
+  /* liquid gold rising with a slightly wavy top edge */
+  @keyframes fillUp{
+    0%{
+      clip-path:polygon(0% 101%,100% 101%,100% 101%,0% 101%);
     }
-
-    .expertise-heading {
-        padding: 40px 35px;
+    12%{
+      clip-path:polygon(0% 100%,100% 100%,100% 96%,0% 98%);
     }
-
-    .expertise-heading h2 {
-        font-size: 44px;
+    45%{
+      clip-path:polygon(0% 55%,100% 58%,100% 46%,0% 50%);
     }
-
-    .expertise-values {
-        padding-left: 25px;
-        padding-right: 25px;
+    75%{
+      clip-path:polygon(0% 18%,100% 15%,100% 8%,0% 11%);
     }
-
-    .value-item {
-        padding: 0 20px;
-
-        grid-template-columns: 60px 1fr;
-
-        gap: 15px;
+    88%{
+      clip-path:polygon(0% -2%,100% -4%,100% -8%,0% -6%);
     }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 850px) {
-
-    .expertise-top {
-        display: flex;
-
-        flex-direction: column;
+    100%{
+      clip-path:polygon(0% -10%,100% -10%,100% -10%,0% -10%);
     }
+  }
 
-    .expertise-heading {
-        padding: 50px 25px 35px;
-    }
+  @keyframes shimmerMove{
+    0%{ background-position:0% 100%; }
+    100%{ background-position:0% -40%; }
+  }
 
-    .expertise-heading h2 {
-        font-size: clamp(44px, 12vw, 62px);
-    }
+  @keyframes breatheGlow{
+    0%,100%{ filter:
+      drop-shadow(0 0 4px rgba(255,214,107,0.6))
+      drop-shadow(0 0 14px rgba(255,193,66,0.45))
+      drop-shadow(0 0 30px rgba(232,169,51,0.3)); }
+    50%{ filter:
+      drop-shadow(0 0 10px rgba(255,214,107,1))
+      drop-shadow(0 0 26px rgba(255,193,66,0.85))
+      drop-shadow(0 0 55px rgba(232,169,51,0.6)); }
+  }
 
-    .expertise-heading p {
-        max-width: 320px;
-    }
+  /* diagonal sweeping shine across the whole letter */
+  .x-shine{
+    position:absolute;
+    inset:0;
+    color:transparent;
+    background:linear-gradient(115deg,
+      transparent 30%,
+      rgba(255,255,255,0.75) 48%,
+      rgba(255,255,255,0.95) 50%,
+      rgba(255,255,255,0.75) 52%,
+      transparent 70%);
+    background-size:300% 300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    mix-blend-mode:screen;
+    background-position:130% 0%;
+    animation:sweep 2.6s ease-in-out infinite;
+  }
+  @keyframes sweep{
+    0%{ background-position:160% 0%; opacity:0; }
+    35%{ opacity:0; }
+    45%{ opacity:.9; }
+    60%{ opacity:0; }
+    100%{ background-position:-60% 0%; opacity:0; }
+  }
 
-    .expertise-image {
-        height: 55vw;
+  /* name */
+  .name-block{
+    text-align:center;
+    opacity:0;
+    animation:nameIn 1.4s ease-out 0.4s forwards;
+  }
 
-        min-height: 280px;
-    }
+  @keyframes nameIn{
+    0%{ opacity:0; transform:translateY(14px) scale(.98); letter-spacing:0.5em; }
+    100%{ opacity:1; transform:translateY(0) scale(1); letter-spacing:0.32em; }
+  }
 
-    .expertise-values {
-        display: flex;
+  .name-title{
+    font-family:'Cinzel', serif;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    background:linear-gradient(90deg, var(--gold-4), var(--gold-1) 45%, var(--gold-2) 55%, var(--gold-4));
+    background-size:220% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:nameShimmer 4s linear infinite;
+    text-shadow:0 0 22px rgba(232,169,51,0.25);
+  }
 
-        flex-direction: column;
+  @keyframes nameShimmer{
+    0%{ background-position:0% 0%; }
+    100%{ background-position:220% 0%; }
+  }
 
-        padding: 35px 25px 0;
-    }
+  .name-sub{
+    margin-top:10px;
+    font-size:12.5px;
+    letter-spacing:0.5em;
+    text-transform:uppercase;
+    color:rgba(232,169,51,0.5);
+    font-family:'Cinzel', serif;
+  }
 
-    .value-item {
-        padding: 25px 0;
+  .name-sub span{
+    display:inline-block;
+    animation:dotPulse 1.4s ease-in-out infinite;
+  }
+  .name-sub span:nth-child(1){ animation-delay:0s; }
+  .name-sub span:nth-child(2){ animation-delay:.2s; }
+  .name-sub span:nth-child(3){ animation-delay:.4s; }
 
-        grid-template-columns: 70px 1fr;
-    }
+  @keyframes dotPulse{
+    0%,100%{ opacity:.25; }
+    50%{ opacity:1; }
+  }
 
-    .value-item + .value-item {
-        border-left: none;
+  @media (max-width:520px){
+    .ring-wrap{ width:220px; height:220px; }
+    .x-letter{ font-size:120px; }
+    .name-title{ font-size:16px; letter-spacing:0.22em; }
+  }
 
-        border-top: 1px solid #dddddd;
-    }
-
-    .value-content p {
-        max-width: 500px;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 500px) {
-
-    .expertise-heading {
-        padding: 40px 22px 30px;
-    }
-
-    .expertise-image {
-        height: 65vw;
-    }
-
-    .expertise-values {
-        padding-left: 22px;
-        padding-right: 22px;
-    }
-
-    .value-item {
-        grid-template-columns: 60px 1fr;
-
-        gap: 15px;
-    }
-
-    .value-icon {
-        width: 55px;
-        height: 55px;
-    }
-
-    .value-icon svg {
-        width: 52px;
-        height: 52px;
-    }
-
-}
-
-/* override for RTL on mobile */
-[dir="rtl"] .nav-menu .dropdown-menu a::before {
-    content: "–";
-    left: auto;
-    right: 25px;
-}
-[dir="rtl"] .nav-menu .dropdown-menu a {
-    padding: 12px 38px 12px 25px;
-}
-@media (max-width: 850px) {
-    [dir="rtl"] .nav-menu .dropdown-menu a {
-        padding: 12px 38px 12px 25px;
-    }
-    [dir="rtl"] .nav-menu .dropdown-toggle::before {
-        margin-left: 0;
-        margin-right: 10px;
-    }
-}
     </style>
 </head>
 
-
 <body>
+  <!-- ===== اللودر نفسه ===== -->
+  <div id="loader">
+    <div class="dust" id="dust"></div>
 
+    <div class="stage">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 260 260">
+          <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff7d6"/>
+              <stop offset="50%" stop-color="#ffd66b"/>
+              <stop offset="100%" stop-color="#8a5a12"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-track" cx="130" cy="130" r="120"></circle>
+          <circle class="ring-progress" cx="130" cy="130" r="120"></circle>
+        </svg>
+
+        <div class="x-letter">
+          <div class="x-base">X</div>
+          <div class="x-fill">X</div>
+          <div class="x-shine">X</div>
+        </div>
+      </div>
+
+      <div class="name-block">
+        <div class="name-title">Mahmmoud Almammblouk</div>
+        <div class="name-sub"><span>●</span> <span>●</span> <span>●</span> Loading</div>
+      </div>
+    </div>
+  </div>
 
     <!-- =====================================================
          NAVBAR
     ===================================================== -->
-
-  <header class="navbar">
-
-    <div class="nav-container">
-
-        <!-- LOGO -->
-        <a href="index.html" class="logo" aria-label="COREXION">
-            <img src="data:image/png;base64,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" alt="COREXION" class="corexion-logo">
-        </a>
-
-
-        <!-- NAVIGATION -->
-        <ul class="nav-menu" id="navMenu">
-
-            <!-- WHO WE ARE – DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" id="dropdownToggleWho" data-i18n="who_we_are">WHO WE ARE</a>
-                <ul class="dropdown-menu" id="dropdownMenuWho">
-                    <li><a href="leadership.html" data-i18n="leadership">Leadership</a></li>
-                    <li><a href="our-approach.html" data-i18n="our_approach">Our Approach</a></li>
-                    <li><a href="global-presence.html" data-i18n="global_presence">Global Presence</a></li>
-                </ul>
-            </li>
-
-            <!-- EXPERTISE – DROPDOWN -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise" data-i18n="expertise">EXPERTISE</a>
-                <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
-                    <li><a href="project-management.html" data-i18n="project_management">Project Management</a></li>
-                    <li><a href="consulting-engineering.html" data-i18n="consulting_engineering">Consulting Engineering</a></li>
-                    <li><a href="design.html" data-i18n="design">Design</a></li>
-                    <li><a href="cost-management.html" data-i18n="cost_management">Cost Management</a></li>
-                    <li><a href="post-contract.html" data-i18n="post_contract">Post Contract</a></li>
-                    <li><a href="tender-management.html" data-i18n="tender_management">Tender Management</a></li>
-                    <li><a href="cost-management2.html" data-i18n="cost_management2">Cost Management 2</a></li>
-                    <li><a href="value-engineering.html" data-i18n="value_engineering">Value Engineering</a></li>
-                    <li><a href="schedule-management.html" data-i18n="schedule_management">Schedule Management</a></li>
-                    <li><a href="construction-project.html" data-i18n="construction_project">Construction Project</a></li>
-                    <li><a href="contracts-arbitration.html" data-i18n="contracts_arbitration">Contracts &amp; Arbitration</a></li>
-                </ul>
-            </li>
-
-            <li><a href="vision-mission.html" data-i18n="vision_mission">VISION &amp; MISSION</a></li>
-            <li><a href="sectors.html" data-i18n="sectors">SECTORS</a></li>
-            <li><a href="insights.html" data-i18n="insights">INSIGHTS</a></li>
-            <li><a href="contact.html" data-i18n="contact">CONTACT</a></li>
-
-        </ul>
-
-
-        <!-- LANGUAGE -->
-        <div class="language" id="languageSwitcher">
-            <a class="active" data-lang="en">EN</a>
-            <span class="divider">|</span>
-            <a data-lang="ar">AR</a>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="COREXION">
+                <img src="img/888888888.jpg" alt="COREXION" class="corexion-logo">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">WHO WE ARE</a>
+                    <ul class="dropdown-menu" id="dropdownMenuWho">
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="our-approach.html">Our Approach</a></li>
+                        <li><a href="global-presence.html">Global Presence</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">EXPERTISE</a>
+                    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+                        <li><a href="project-management.html">Project Management</a></li>
+                        <li><a href="consulting-engineering.html">Consulting Engineering</a></li>
+                        <li><a href="design.html">Design</a></li>
+                        <li><a href="cost-management.html">Cost Management</a></li>
+                        <li><a href="post-contract.html">Post Contract</a></li>
+                        <li><a href="tender-management.html">Tender Management</a></li>
+                        <li><a href="cost-management2.html">Cost Management 2</a></li>
+                        <li><a href="value-engineering.html">Value Engineering</a></li>
+                        <li><a href="schedule-management.html">Schedule Management</a></li>
+                        <li><a href="construction-project.html">Construction Project</a></li>
+                        <li><a href="contracts-arbitration.html">Contracts &amp; Arbitration</a></li>
+                    </ul>
+                </li>
+                <li><a href="vision-mission.html">VISION &amp; MISSION</a></li>
+                <li><a href="sectors.html">SECTORS</a></li>
+                <li><a href="insights.html">INSIGHTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-
-
-        <!-- MOBILE BUTTON -->
-        <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-    </div>
-    <div class="nav-overlay" id="navOverlay"></div>
-
-</header>
-
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
 
     <!-- =====================================================
          HOME HERO
     ===================================================== -->
-
     <main>
-
         <section class="hero">
-
-
-            <!-- =================================================
-                 LEFT CONTENT
-            ================================================= -->
-
             <div class="hero-left">
-
-
-                <!-- TITLE -->
-
-                <h1 class="hero-title" data-i18n="hero_title">
-
-                    WE RAISE<br>
-                    STANDARDS
-
-                </h1>
-
-
-                <!-- GOLD LINE -->
-
+                <h1 class="hero-title">WE RAISE<br>STANDARDS</h1>
                 <div class="gold-line"></div>
-
-
-                <!-- DESCRIPTION -->
-
-                <p class="hero-description" data-i18n="hero_desc">
-
-                    Integrated expertise for
-                    ambitious places.
-
-                </p>
-
-
-                <!-- SERVICES -->
+                <p class="hero-description">Integrated expertise for ambitious places.</p>
 
                 <div class="services">
-
-
-                    <!-- PROJECT MANAGEMENT -->
-
                     <a href="project-management.html" class="service active">
-
-                        <span class="service-number">
-                            01
-                        </span>
-
+                        <span class="service-number">01</span>
                         <span class="service-line"></span>
-
-                        <span class="service-name" data-i18n="service_pm">
-                            Project Management
-                        </span>
-
-                        <span class="service-arrow">
-                            →
-                        </span>
-
+                        <span class="service-name">Project Management</span>
+                        <span class="service-arrow">→</span>
                     </a>
-
-
-                    <!-- CONSULTING ENGINEERING -->
-
                     <a href="consulting-engineering.html" class="service">
-
-                        <span class="service-number">
-                            02
-                        </span>
-
+                        <span class="service-number">02</span>
                         <span class="service-line"></span>
-
-                        <span class="service-name" data-i18n="service_ce">
-                            Consulting Engineering
-                        </span>
-
-                        <span class="service-arrow">
-                            →
-                        </span>
-
+                        <span class="service-name">Consulting Engineering</span>
+                        <span class="service-arrow">→</span>
                     </a>
-
-
-                    <!-- DESIGN -->
-
                     <a href="design.html" class="service">
-
-                        <span class="service-number">
-                            03
-                        </span>
-
+                        <span class="service-number">03</span>
                         <span class="service-line"></span>
-
-                        <span class="service-name" data-i18n="service_design">
-                            Design
-                        </span>
-
-                        <span class="service-arrow">
-                            →
-                        </span>
-
+                        <span class="service-name">Design</span>
+                        <span class="service-arrow">→</span>
                     </a>
-
                 </div>
 
-
-                <!-- EXPLORE -->
-
-                <a href="expertise.html" class="explore" data-i18n="explore_link">
-
+                <a href="expertise.html" class="explore">
                     <span class="explore-mark"></span>
-
-                    <span>
-                        Explore our capabilities
-                    </span>
-
-                    <span class="explore-arrow">
-                        →
-                    </span>
-
+                    <span>Explore our capabilities</span>
+                    <span class="explore-arrow">→</span>
                 </a>
 
-
-                <!-- GLOBAL PRESENCE -->
-
                 <div class="global">
-
-                    <h2 class="global-title" data-i18n="global_title">
-                        GLOBAL PRESENCE
-                    </h2>
-
-
+                    <h2 class="global-title">GLOBAL PRESENCE</h2>
                     <div class="locations">
-
-
                         <div class="location">
-
                             <span class="location-icon"></span>
-
-                            <span data-i18n="location_uk">
-                                COREXION — UNITED KINGDOM
-                            </span>
-
+                            <span>COREXION — UNITED KINGDOM</span>
                         </div>
-
-
                         <div class="location">
-
                             <span class="location-icon"></span>
-
-                            <span data-i18n="location_usa">
-                                COREXION — USA
-                            </span>
-
+                            <span>COREXION — USA</span>
                         </div>
-
-
                         <div class="location">
-
                             <span class="location-icon"></span>
-
-                            <span data-i18n="location_canada">
-                                COREXION — CANADA
-                            </span>
-
+                            <span>COREXION — CANADA</span>
                         </div>
-
-
                         <div class="location">
-
                             <span class="location-icon"></span>
-
-                            <span data-i18n="location_malaysia">
-                                COREXION ASIA PACIFIC — MALAYSIA
-                            </span>
-
+                            <span>COREXION ASIA PACIFIC — MALAYSIA</span>
                         </div>
-
-
                         <div class="location">
-
                             <span class="location-icon"></span>
-
-                            <span data-i18n="location_saudi">
-                                COREXION MIDDLE EAST — SAUDI ARABIA
-                            </span>
-
+                            <span>COREXION MIDDLE EAST — SAUDI ARABIA</span>
                         </div>
-
-
                         <div class="location">
-
                             <span class="location-icon"></span>
-
-                            <span data-i18n="location_egypt">
-                                COREXION — EGYPT
-                            </span>
-
+                            <span>COREXION — EGYPT</span>
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
-            <!-- =================================================
-                 RIGHT IMAGE
-            ================================================= -->
 
             <div class="hero-right">
-
-                <img
-                    src="https://images.pexels.com/photos/6689140/pexels-photo-6689140.jpeg"
-                    alt="COREXION Architecture"
-                    class="hero-image">
-
+                <img src="img/home.gif" alt="COREXION Architecture" class="hero-image">
                 <div class="hero-overlay"></div>
-
             </div>
-
-
         </section>
 
-<!-- =====================================================
-     SECTION 02 — BUILT ON EXPERTISE
-===================================================== -->
-
-<section class="expertise-intro">
-
-    <!-- TOP CONTENT -->
-
-    <div class="expertise-top">
-
-        <!-- LEFT -->
-
-        <div class="expertise-heading">
-
-            <h2 data-i18n="expertise_title">
-                BUILT ON<br>
-                EXPERTISE.<br>
-                DRIVEN BY<br>
-                PURPOSE.
-            </h2>
-
-            <div class="expertise-gold-line"></div>
-
-            <p data-i18n="expertise_desc">
-                We bring project leadership,
-                engineering insight and design
-                intelligence together.
-            </p>
-
-        </div>
-
-
-        <!-- RIGHT IMAGE -->
-
-        <div class="expertise-image">
-
-            <img
-                src="https://images.pexels.com/photos/14108402/pexels-photo-14108402.jpeg"
-                alt="COREXION project team">
-
-        </div>
-
-    </div>
-
-
-    <!-- BOTTOM VALUES -->
-
-    <div class="expertise-values">
-
-
-        <!-- 01 -->
-
-        <div class="value-item">
-
-            <div class="value-icon">
-
-                <svg
-                    viewBox="0 0 80 80"
-                    xmlns="http://www.w3.org/2000/svg">
-
-                    <circle
-                        cx="40"
-                        cy="20"
-                        r="8"/>
-
-                    <circle
-                        cx="18"
-                        cy="31"
-                        r="7"/>
-
-                    <circle
-                        cx="62"
-                        cy="31"
-                        r="7"/>
-
-                    <path
-                        d="M28 57
-                           C28 43 33 36 40 36
-                           C47 36 52 43 52 57"/>
-
-                    <path
-                        d="M7 57
-                           C7 45 12 39 18 39
-                           C24 39 28 44 28 52"/>
-
-                    <path
-                        d="M52 52
-                           C52 44 56 39 62 39
-                           C68 39 73 45 73 57"/>
-
-                    <path
-                        d="M14 57 H66"/>
-
-                </svg>
-
+        <!-- =====================================================
+             SECTION 02 — BUILT ON EXPERTISE
+        ===================================================== -->
+        <section class="expertise-intro">
+            <div class="expertise-top">
+                <div class="expertise-heading">
+                    <h2>BUILT ON<br>EXPERTISE.<br>DRIVEN BY<br>PURPOSE.</h2>
+                    <div class="expertise-gold-line"></div>
+                    <p>We bring project leadership, engineering insight and design intelligence together.</p>
+                </div>
+                <div class="expertise-image">
+                    <img src="img/home side.gif" alt="COREXION project team">
+                </div>
             </div>
 
-
-            <div class="value-content">
-
-                <h3 data-i18n="value1_title">
-                    CONNECTED EXPERTISE
-                </h3>
-
-                <p data-i18n="value1_desc">
-                    Collaborative by nature, we unite
-                    project management, engineering
-                    and design under one integrated
-                    approach.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 02 -->
-
-        <div class="value-item">
-
-            <div class="value-icon">
-
-                <svg
-                    viewBox="0 0 80 80"
-                    xmlns="http://www.w3.org/2000/svg">
-
-                    <path d="M40 8 L58 19 L40 30 L22 19 Z"/>
-
-                    <path d="M22 19 V41 L40 52 V30"/>
-
-                    <path d="M58 19 V41 L40 52"/>
-
-                    <path d="M40 52 V72"/>
-
-                    <path d="M40 52 L58 41 L74 51 L58 62 Z"/>
-
-                    <path d="M22 41 L6 51 L22 62 L40 52 Z"/>
-
-                </svg>
-
-            </div>
-
-
-            <div class="value-content">
-
-                <h3 data-i18n="value2_title">
-                    SHARED PURPOSE
-                </h3>
-
-                <p data-i18n="value2_desc">
-                    We listen, challenge and co-create
-                    solutions that are grounded in
-                    context and tailored to each
-                    project's ambitions.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 03 -->
-
-        <div class="value-item">
-
-            <div class="value-icon">
-
-                <svg
-                    viewBox="0 0 80 80"
-                    xmlns="http://www.w3.org/2000/svg">
-
-                    <path d="M12 68 H70"/>
-
-                    <path d="M18 68 V35 L42 23 V68"/>
-
-                    <path d="M42 68 V15 L64 25 V68"/>
-
-                    <path d="M27 43 H34"/>
-
-                    <path d="M27 51 H34"/>
-
-                    <path d="M49 34 H57"/>
-
-                    <path d="M49 43 H57"/>
-
-                    <path d="M49 52 H57"/>
-
-                </svg>
-
-            </div>
-
-
-            <div class="value-content">
-
-                <h3 data-i18n="value3_title">
-                    ENDURING VALUE
-                </h3>
-
-                <p data-i18n="value3_desc">
-                    We design and deliver with
-                    precision and care—creating
-                    outcomes that perform today and
-                    endure tomorrow.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-        <!-- =================================================
-             FOOTER
-        ================================================= -->
-
-        <footer class="footer">
-
-            <div class="footer-grid">
-
-
-                <div class="footer-brand">
-
-                    <div class="footer-logo">
-                        COREXION
+            <div class="expertise-values">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="20" r="8"/>
+                            <circle cx="18" cy="31" r="7"/>
+                            <circle cx="62" cy="31" r="7"/>
+                            <path d="M28 57 C28 43 33 36 40 36 C47 36 52 43 52 57"/>
+                            <path d="M7 57 C7 45 12 39 18 39 C24 39 28 44 28 52"/>
+                            <path d="M52 52 C52 44 56 39 62 39 C68 39 73 45 73 57"/>
+                            <path d="M14 57 H66"/>
+                        </svg>
                     </div>
-
-                    <p class="footer-description" data-i18n="footer_desc">
-
-                        Integrated expertise in project
-                        management, consulting engineering
-                        and design.
-
-                    </p>
-
+                    <div class="value-content">
+                        <h3>CONNECTED EXPERTISE</h3>
+                        <p>Collaborative by nature, we unite project management, engineering and design under one integrated approach.</p>
+                    </div>
                 </div>
 
-
-                <div>
-
-                    <h4 data-i18n="footer_expertise">
-                        EXPERTISE
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            <a href="project-management.html" data-i18n="project_management">
-                                Project Management
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="consulting-engineering.html" data-i18n="consulting_engineering">
-                                Consulting Engineering
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="design.html" data-i18n="design">
-                                Design
-                            </a>
-                        </li>
-
-                    </ul>
-
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 8 L58 19 L40 30 L22 19 Z"/>
+                            <path d="M22 19 V41 L40 52 V30"/>
+                            <path d="M58 19 V41 L40 52"/>
+                            <path d="M40 52 V72"/>
+                            <path d="M40 52 L58 41 L74 51 L58 62 Z"/>
+                            <path d="M22 41 L6 51 L22 62 L40 52 Z"/>
+                        </svg>
+                    </div>
+                    <div class="value-content">
+                        <h3>SHARED PURPOSE</h3>
+                        <p>We listen, challenge and co-create solutions that are grounded in context and tailored to each project's ambitions.</p>
+                    </div>
                 </div>
 
-
-                <div>
-
-                    <h4 data-i18n="footer_company">
-                        COMPANY
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            <a href="leadership.html" data-i18n="who_we_are">
-                                Who We Are
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="vision-mission.html" data-i18n="vision_mission">
-                                Vision & Mission
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="sectors.html" data-i18n="sectors">
-                                Sectors
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="insights.html" data-i18n="insights">
-                                Insights
-                            </a>
-                        </li>
-
-                    </ul>
-
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 68 H70"/>
+                            <path d="M18 68 V35 L42 23 V68"/>
+                            <path d="M42 68 V15 L64 25 V68"/>
+                            <path d="M27 43 H34"/>
+                            <path d="M27 51 H34"/>
+                            <path d="M49 34 H57"/>
+                            <path d="M49 43 H57"/>
+                            <path d="M49 52 H57"/>
+                        </svg>
+                    </div>
+                    <div class="value-content">
+                        <h3>ENDURING VALUE</h3>
+                        <p>We design and deliver with precision and care—creating outcomes that perform today and endure tomorrow.</p>
+                    </div>
                 </div>
-
-
-                <div>
-
-                    <h4 data-i18n="footer_contact">
-                        CONTACT
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            <a href="contact.html" data-i18n="contact">
-                                Contact Us
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="global-presence.html" data-i18n="global_presence">
-                                Global Presence
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
             </div>
+        </section>
 
-
+        <!-- =====================================================
+             FOOTER
+        ===================================================== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="img/888888888.jpg" alt="COREXION" class="footer-logo-img">
+                </div>
+                <div class="footer-right">
+                    <div class="footer-links-grid">
+                        <a href="company.html">Company</a>
+                        <a href="insights.html">Insights</a>
+                        <a href="expertise.html">Expertise</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
             <div class="footer-bottom">
-
-                <span data-i18n="footer_copyright">
-                    © 2026 COREXION. All Rights Reserved.
-                </span>
-
-                <span data-i18n="footer_privacy">
-                    Privacy Policy
-                </span>
-
+                <span>© 2026 COREXION. All rights reserved.</span>
             </div>
-
         </footer>
-
     </main>
-
-
 
     <!-- =====================================================
          JAVASCRIPT
     ===================================================== -->
-
     <script>
-
-        /* =====================================================
-           TRANSLATION DICTIONARY
-        ===================================================== */
-
-        const translations = {
-            en: {
-                // Navbar
-                who_we_are: "WHO WE ARE",
-                expertise: "EXPERTISE",
-                vision_mission: "VISION & MISSION",
-                sectors: "SECTORS",
-                insights: "INSIGHTS",
-                contact: "CONTACT",
-                leadership: "Leadership",
-                our_approach: "Our Approach",
-                global_presence: "Global Presence",
-                project_management: "Project Management",
-                consulting_engineering: "Consulting Engineering",
-                design: "Design",
-                cost_management: "Cost Management",
-                post_contract: "Post Contract",
-                tender_management: "Tender Management",
-                cost_management2: "Cost Management 2",
-                value_engineering: "Value Engineering",
-                schedule_management: "Schedule Management",
-                construction_project: "Construction Project",
-                contracts_arbitration: "Contracts & Arbitration",
-                // Hero
-                hero_title: "WE RAISE<br>STANDARDS",
-                hero_desc: "Integrated expertise for ambitious places.",
-                service_pm: "Project Management",
-                service_ce: "Consulting Engineering",
-                service_design: "Design",
-                explore_link: "Explore our capabilities",
-                global_title: "GLOBAL PRESENCE",
-                location_uk: "COREXION — UNITED KINGDOM",
-                location_usa: "COREXION — USA",
-                location_canada: "COREXION — CANADA",
-                location_malaysia: "COREXION ASIA PACIFIC — MALAYSIA",
-                location_saudi: "COREXION MIDDLE EAST — SAUDI ARABIA",
-                location_egypt: "COREXION — EGYPT",
-                // Expertise section
-                expertise_title: "BUILT ON<br>EXPERTISE.<br>DRIVEN BY<br>PURPOSE.",
-                expertise_desc: "We bring project leadership, engineering insight and design intelligence together.",
-                value1_title: "CONNECTED EXPERTISE",
-                value1_desc: "Collaborative by nature, we unite project management, engineering and design under one integrated approach.",
-                value2_title: "SHARED PURPOSE",
-                value2_desc: "We listen, challenge and co-create solutions that are grounded in context and tailored to each project's ambitions.",
-                value3_title: "ENDURING VALUE",
-                value3_desc: "We design and deliver with precision and care—creating outcomes that perform today and endure tomorrow.",
-                // Footer
-                footer_desc: "Integrated expertise in project management, consulting engineering and design.",
-                footer_expertise: "EXPERTISE",
-                footer_company: "COMPANY",
-                footer_contact: "CONTACT",
-                footer_copyright: "© 2026 COREXION. All Rights Reserved.",
-                footer_privacy: "Privacy Policy"
-            },
-            ar: {
-                // Navbar
-                who_we_are: "من نحن",
-                expertise: "الخبرات",
-                vision_mission: "الرؤية والرسالة",
-                sectors: "القطاعات",
-                insights: "الأفكار",
-                contact: "اتصل بنا",
-                leadership: "القيادة",
-                our_approach: "نهجنا",
-                global_presence: "التواجد العالمي",
-                project_management: "إدارة المشاريع",
-                consulting_engineering: "الهندسة الاستشارية",
-                design: "التصميم",
-                cost_management: "إدارة التكاليف",
-                post_contract: "ما بعد العقد",
-                tender_management: "إدارة المناقصات",
-                cost_management2: "إدارة التكاليف 2",
-                value_engineering: "الهندسة القيمية",
-                schedule_management: "إدارة الجداول الزمنية",
-                construction_project: "مشروع البناء",
-                contracts_arbitration: "العقود والتحكيم",
-                // Hero
-                hero_title: "نرفع<br>المعايير",
-                hero_desc: "خبرات متكاملة للأماكن الطموحة.",
-                service_pm: "إدارة المشاريع",
-                service_ce: "الهندسة الاستشارية",
-                service_design: "التصميم",
-                explore_link: "استكشف قدراتنا",
-                global_title: "التواجد العالمي",
-                location_uk: "كوركسيون — المملكة المتحدة",
-                location_usa: "كوركسيون — الولايات المتحدة",
-                location_canada: "كوركسيون — كندا",
-                location_malaysia: "كوركسيون آسيا والمحيط الهادئ — ماليزيا",
-                location_saudi: "كوركسيون الشرق الأوسط — المملكة العربية السعودية",
-                location_egypt: "كوركسيون — مصر",
-                // Expertise section
-                expertise_title: "مبنية على<br>الخبرة.<br>مدفوعة<br>بالهدف.",
-                expertise_desc: "نجمع بين القيادة المشروعية، والبصيرة الهندسية، وذكاء التصميم معاً.",
-                value1_title: "خبرات مترابطة",
-                value1_desc: "بطبيعة تعاونية، نوحد إدارة المشاريع والهندسة والتصميم تحت نهج متكامل واحد.",
-                value2_title: "هدف مشترك",
-                value2_desc: "نستمع، ونتحدى، ونشارك في خلق حلول قائمة على السياق ومصممة خصيصاً لطموحات كل مشروع.",
-                value3_title: "قيمة دائمة",
-                value3_desc: "نصمم ونسلم بدقة وعناية—نخلق نتائج تؤدي اليوم وتستمر غداً.",
-                // Footer
-                footer_desc: "خبرات متكاملة في إدارة المشاريع والهندسة الاستشارية والتصميم.",
-                footer_expertise: "الخبرات",
-                footer_company: "الشركة",
-                footer_contact: "اتصل بنا",
-                footer_copyright: "© 2026 كوركسيون. جميع الحقوق محفوظة.",
-                footer_privacy: "سياسة الخصوصية"
-            }
-        };
-
-        /* =====================================================
-           LANGUAGE SWITCHING LOGIC
-        ===================================================== */
-
-        let currentLang = 'en';
-
-        function setLanguage(lang) {
-            if (!translations[lang]) return;
-            currentLang = lang;
-
-            // Update all elements with data-i18n attribute
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key] !== undefined) {
-                    // For elements that may contain HTML (like hero_title with <br>), use innerHTML
-                    if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'A' || el.tagName === 'LI' || el.tagName === 'SPAN') {
-                        el.innerHTML = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
-                }
-            });
-
-            // Update active state on language switcher links
-            document.querySelectorAll('.language a[data-lang]').forEach(link => {
-                link.classList.toggle('active', link.getAttribute('data-lang') === lang);
-            });
-
-            // Set dir attribute for RTL support
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang;
-
-            // Store preference
-            localStorage.setItem('corexion-lang', lang);
-        }
-
-        /* =====================================================
-           DROPDOWN TOGGLES
-        ===================================================== */
-
         const toggleWho = document.getElementById('dropdownToggleWho');
         const menuWho = document.getElementById('dropdownMenuWho');
         const toggleExpertise = document.getElementById('dropdownToggleExpertise');
@@ -2377,7 +1594,6 @@
             });
         });
 
-        // Close dropdowns on outside click (desktop)
         document.addEventListener('click', function(e) {
             if (isMobile()) return;
             const isInsideWho = toggleWho.contains(e.target) || menuWho.contains(e.target);
@@ -2387,10 +1603,6 @@
             if (!isInsideExpertise) { menuExpertise.classList.remove('open');
                 toggleExpertise.classList.remove('open'); }
         });
-
-        /* =====================================================
-           MOBILE MENU TOGGLE
-        ===================================================== */
 
         const menuButton = document.getElementById('menuButton');
         const navMenu = document.getElementById('navMenu');
@@ -2410,7 +1622,6 @@
             menuButton.classList.remove('active');
             menuButton.setAttribute('aria-expanded', 'false');
             document.body.classList.remove('nav-open');
-            // close dropdowns too
             menuWho.classList.remove('open');
             toggleWho.classList.remove('open');
             menuExpertise.classList.remove('open');
@@ -2423,7 +1634,6 @@
 
         navOverlay.addEventListener('click', closeMobileMenu);
 
-        // Close panel when a real page link (not dropdown toggle) is tapped
         document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)').forEach(function(link) {
             link.addEventListener('click', function() {
                 if (isMobile()) { closeMobileMenu(); }
@@ -2438,50 +1648,44 @@
             if (e.key === 'Escape') closeMobileMenu();
         });
 
-        /* =====================================================
-           SERVICE ACTIVE STATE (hover)
-        ===================================================== */
-
-        const services =
-            document.querySelectorAll(".service");
-
-
-        services.forEach(function (service) {
-
-            service.addEventListener("mouseenter", function () {
-
-                services.forEach(function (item) {
-
+        const services = document.querySelectorAll(".service");
+        services.forEach(function(service) {
+            service.addEventListener("mouseenter", function() {
+                services.forEach(function(item) {
                     item.classList.remove("active");
-
                 });
-
                 service.classList.add("active");
-
-            });
-
-        });
-
-
-        /* =====================================================
-           LANGUAGE SWITCHER EVENT & INIT
-        ===================================================== */
-
-        document.querySelectorAll('.language a[data-lang]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
             });
         });
+          // generate floating gold dust particles
+  const dustEl = document.getElementById('dust');
+  const count = 26;
+  for(let i=0;i<count;i++){
+    const s = document.createElement('span');
+    const left = Math.random()*100;
+    const dur = 4 + Math.random()*5;
+    const delay = Math.random()*6;
+    const drift = (Math.random()*80-40)+'px';
+    const size = 2 + Math.random()*2.5;
+    s.style.left = left+'%';
+    s.style.width = size+'px';
+    s.style.height = size+'px';
+    s.style.animationDuration = dur+'s';
+    s.style.animationDelay = delay+'s';
+    s.style.setProperty('--drift', drift);
+    dustEl.appendChild(s);
+  }
 
-        // Restore saved language preference or default to 'en'
-        const savedLang = localStorage.getItem('corexion-lang');
-        if (savedLang && translations[savedLang]) {
-            setLanguage(savedLang);
-        } else {
-            setLanguage('en');
-        }
+  // اللودر يختفي أوتوماتيك بعد 4 ثواني بالظبط
+  const loaderEl = document.getElementById('loader');
+  setTimeout(function(){
+    loaderEl.classList.add('loader-hide');
+  }, 4000);
+
+  // (اختياري) شيل اللودر كليًا من الصفحة بعد ما التلاشي يخلص، عشان ميعملش عوائق
+  setTimeout(function(){
+    loaderEl.remove();
+  }, 4900);
 
     </script>
 
