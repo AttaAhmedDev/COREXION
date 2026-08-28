@@ -1,0 +1,163 @@
+{% load content_tags %}<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page-slug="cost_management2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COREXION — Cost Management</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/pages/expertise/cost-management-2.css">
+
+</head>
+<body>
+
+<header class="navbar">
+ <div class="nav-container">
+
+  <a class="logo" href="/" aria-label="COREXION">
+   <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="corexion-logo" id="siteLogo">
+  </a>
+
+  <ul class="nav-menu" id="navMenu">
+
+   <!-- WHO WE ARE – DROPDOWN -->
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">WHO WE ARE</a>
+    <ul class="dropdown-menu" id="dropdownMenuWho">
+     <li><a href="/about/leadership">Leadership</a></li>
+     <li><a href="/about/our-approach">Our Approach</a></li>
+     <li><a href="/about/global-presence">Global Presence</a></li>
+    </ul>
+   </li>
+
+   <!-- EXPERTISE – DROPDOWN -->
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">EXPERTISE</a>
+    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+     <li><a href="/expertise/project-management">Project Management</a></li>
+     <li><a href="/expertise/consulting-engineering">Consulting Engineering</a></li>
+     <li><a href="/expertise/design">Design</a></li>
+     <li><a href="/expertise/cost-management" class="active">Cost Management</a></li>
+     <li><a href="/expertise/post-contract">Post Contract</a></li>
+     <li><a href="/expertise/tender-management">Tender Management</a></li>
+     <li><a href="/expertise/cost-management-2">Cost Management 2</a></li>
+     <li><a href="/expertise/value-engineering">Value Engineering</a></li>
+     <li><a href="/expertise/schedule-management">Schedule Management</a></li>
+     <li><a href="/expertise/construction-project">Construction Project</a></li>
+     <li><a href="/expertise/contracts-arbitration">Contracts &amp; Arbitration</a></li>
+    </ul>
+   </li>
+
+   <li><a href="/about/vision-mission">VISION &amp; MISSION</a></li>
+   <li><a href="/sectors">SECTORS</a></li>
+   <li><a href="/insights">INSIGHTS</a></li>
+   <li><a href="/contact">CONTACT</a></li>
+
+  </ul>
+
+  <button class="menu-button" id="menuButton" aria-label="Open menu">
+   <span></span><span></span><span></span>
+  </button>
+
+ </div>
+ <div class="nav-overlay" id="navOverlay"></div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="copy">
+  <div class="breadcrumb">
+   <span class="gold">EXPERTISE</span><span>/</span><span>COST MANAGEMENT</span>
+  </div>
+
+  <h1 id="heroTitle">{% cms_text sections "hero" "heading" %}EVERY COST<br>CONTROLLED.<br>EVERY DECISION<br>INFORMED.{% endcms_text %}</h1>
+  <div class="gold-line"></div>
+
+  <p class="desc" id="heroDesc">{% cms_text sections "hero" "paragraph" %}Commercial insight that protects value throughout the project lifecycle.{% endcms_text %}</p>
+
+  <ul class="service-list" id="serviceList">
+   <li id="listItem0">COST PLANNING</li>
+   <li id="listItem1">ESTIMATING</li>
+   <li id="listItem2">BUDGET CONTROL</li>
+   <li id="listItem3">CASH FLOW FORECASTING</li>
+   <li id="listItem4">CHANGE VALUATION</li>
+  </ul>
+
+  <a class="explore" href="#services">Explore cost management <span>→</span></a>
+ </div>
+
+ <div class="hero-image">
+  <img src="{% cms_src sections 'hero' '../../assets/images/01_Cost_Management_Workspace.png' %}" alt="Cost management project planning" id="heroImage">
+ </div>
+</section>
+
+<section class="services" id="services">
+
+ <article class="service-card">
+  <div class="icon">◉</div>
+  <h2 id="serviceTitle0">COST<br>PLANNING</h2>
+  <div class="line"></div>
+  <p id="serviceDesc0">Strategic cost planning aligned with scope, design and delivery objectives.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">▦</div>
+  <h2 id="serviceTitle1">ESTIMATING</h2>
+  <div class="line"></div>
+  <p id="serviceDesc1">Accurate and reliable estimating to inform confident decisions at every stage.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">☷</div>
+  <h2 id="serviceTitle2">BUDGET<br>CONTROL</h2>
+  <div class="line"></div>
+  <p id="serviceDesc2">Active budget management to maintain alignment, transparency and discipline.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">⌁</div>
+  <h2 id="serviceTitle3">CASH FLOW<br>FORECASTING</h2>
+  <div class="line"></div>
+  <p id="serviceDesc3">Forward-looking cash flow forecasting to support liquidity and delivery certainty.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">✚</div>
+  <h2 id="serviceTitle4">CHANGE<br>VALUATION</h2>
+  <div class="line"></div>
+  <p id="serviceDesc4">Fair and defensible change valuation to protect value and keep projects on track.</p>
+ </article>
+
+</section>
+
+<!-- =========================
+     FOOTER (زي الأول بالظبط)
+========================= -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- الشعار -->
+        <div class="footer-logo">
+            <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="footer-logo-img">
+        </div>
+
+        <!-- الروابط (شبكة 2x2) -->
+        <div class="footer-right">
+            <div class="footer-links-grid">
+                <a href="/about/leadership">Company</a>
+                <a href="/insights">Insights</a>
+                <a href="/expertise">Expertise</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الجزء السفلي -->
+    <div class="footer-bottom">
+        <span>© 2026 COREXION. All rights reserved.</span>
+    </div>
+</footer>
+
+</main>
+
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

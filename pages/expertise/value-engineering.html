@@ -1,0 +1,119 @@
+{% load content_tags %}<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page-slug="value_engineering">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Engineering — Greater Value. Smarter Solutions.</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/pages/expertise/value-engineering.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo" aria-label="COREXION">
+                <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="corexion-logo">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">WHO WE ARE</a>
+                    <ul class="dropdown-menu" id="dropdownMenuWho">
+                        <li><a href="/about/leadership">Leadership</a></li>
+                        <li><a href="/about/our-approach">Our Approach</a></li>
+                        <li><a href="/about/global-presence">Global Presence</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">EXPERTISE</a>
+                    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+                        <li><a href="/expertise/project-management">Project Management</a></li>
+                        <li><a href="/expertise/consulting-engineering">Consulting Engineering</a></li>
+                        <li><a href="/expertise/design">Design</a></li>
+                        <li><a href="/expertise/cost-management">Cost Management</a></li>
+                        <li><a href="/expertise/post-contract">Post Contract</a></li>
+                        <li><a href="/expertise/tender-management">Tender Management</a></li>
+                        <li><a href="/expertise/cost-management-2">Cost Management 2</a></li>
+                        <li><a href="/expertise/value-engineering" class="active">Value Engineering</a></li>
+                        <li><a href="/expertise/schedule-management">Schedule Management</a></li>
+                        <li><a href="/expertise/construction-project">Construction Project</a></li>
+                        <li><a href="/expertise/contracts-arbitration">Contracts &amp; Arbitration</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about/vision-mission">VISION &amp; MISSION</a></li>
+                <li><a href="/sectors">SECTORS</a></li>
+                <li><a href="/insights">INSIGHTS</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+            </ul>
+            <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
+
+    <!-- =========================================
+         VALUE ENGINEERING MAIN PAGE
+    ========================================== -->
+    <main>
+        <div class="page-content">
+            <!-- TOP SECTION (HERO + VISUAL) -->
+            <div class="top-section">
+                <div class="hero">
+                    <div class="breadcrumb">
+                        <span>EXPERTISE</span>
+                        <span class="sep">/</span>
+                        <span>VALUE ENGINEERING</span>
+                    </div>
+                    <h1 id="heroTitle">{% cms_text sections "hero" "heading" %}GREATER<br>VALUE.<br>SMARTER<br>SOLUTIONS.{% endcms_text %}</h1>
+                    <div class="rule"></div>
+                    <p id="heroDesc">{% cms_text sections "hero" "paragraph" %}Optimising function, performance and whole-life value.{% endcms_text %}</p>
+                    <a class="cta" href="#">EXPLORE VALUE ENGINEERING
+                        <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+
+                <!-- ===== الصورة الكبيرة ===== -->
+                <div class="visual-wrap">
+                    <img id="heroImage" src="{% cms_src sections 'hero' '../../assets/images/03_Value_Engineering_Comparison_Visual.png' %}" alt="Value Engineering Comparison Visual">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="footer-logo-img">
+            </div>
+            <div class="footer-right">
+                <div class="footer-links-grid">
+                    <a href="/about/leadership">Company</a>
+                    <a href="/insights">Insights</a>
+                    <a href="/expertise">Expertise</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 COREXION. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+    
+
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

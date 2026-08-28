@@ -1,0 +1,177 @@
+{% load content_tags %}<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page-slug="contact">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COREXION — Contact</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/pages/contact.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+ <div class="nav-container">
+
+  <a href="/" class="logo" aria-label="COREXION">
+   <img src="../assets/images/corexion_logo_transparent.png" alt="COREXION" class="corexion-logo" id="siteLogo">
+  </a>
+
+  <ul class="nav-menu" id="navMenu">
+
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">WHO WE ARE</a>
+    <ul class="dropdown-menu" id="dropdownMenuWho">
+     <li><a href="/about/leadership">Leadership</a></li>
+     <li><a href="/about/our-approach">Our Approach</a></li>
+     <li><a href="/about/global-presence">Global Presence</a></li>
+    </ul>
+   </li>
+
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">EXPERTISE</a>
+    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+     <li><a href="/expertise/project-management">Project Management</a></li>
+     <li><a href="/expertise/consulting-engineering">Consulting Engineering</a></li>
+     <li><a href="/expertise/design">Design</a></li>
+     <li><a href="/expertise/cost-management">Cost Management</a></li>
+     <li><a href="/expertise/post-contract">Post Contract</a></li>
+     <li><a href="/expertise/tender-management">Tender Management</a></li>
+     <li><a href="/expertise/cost-management-2">Cost Management 2</a></li>
+     <li><a href="/expertise/value-engineering">Value Engineering</a></li>
+     <li><a href="/expertise/schedule-management">Schedule Management</a></li>
+     <li><a href="/expertise/construction-project">Construction Project</a></li>
+     <li><a href="/expertise/contracts-arbitration">Contracts &amp; Arbitration</a></li>
+    </ul>
+   </li>
+
+   <li><a href="/about/vision-mission">VISION &amp; MISSION</a></li>
+   <li><a href="/sectors">SECTORS</a></li>
+   <li><a href="/insights">INSIGHTS</a></li>
+   <li><a href="/contact" class="active">CONTACT</a></li>
+
+  </ul>
+
+  <button class="menu-button" id="menuButton" aria-label="Open menu">
+   <span></span><span></span><span></span>
+  </button>
+
+ </div>
+</header>
+
+<main>
+
+<section class="contact-hero">
+
+ <div class="form-side">
+  <h1 class="hero-title" id="heroTitle">{% cms_text sections "hero" "heading" %}LET'S BUILD<br>WHAT'S NEXT.{% endcms_text %}</h1>
+  <div class="gold-line"></div>
+  <p class="description" id="heroDesc">{% cms_text sections "hero" "paragraph" %}
+   Start a conversation with our project,<br>
+   engineering and design experts.
+  {% endcms_text %}</p>
+
+  <form class="contact-form" id="contactForm">
+
+   <div class="field">
+    <label for="name">NAME</label>
+    <input type="text" id="name" name="name" required>
+   </div>
+
+   <div class="field">
+    <label for="company">COMPANY</label>
+    <input type="text" id="company" name="company">
+   </div>
+
+   <div class="field">
+    <label for="email">EMAIL</label>
+    <input type="email" id="email" name="email" required>
+   </div>
+
+   <div class="field">
+    <label for="interest">AREA OF INTEREST</label>
+    <select id="interest" name="interest">
+     <option>PROJECT MANAGEMENT</option>
+     <option>CONSULTING ENGINEERING</option>
+     <option>DESIGN</option>
+     <option>OTHER</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="message">MESSAGE</label>
+    <textarea id="message" name="message" required></textarea>
+   </div>
+
+   <button class="submit-btn" type="submit">SEND ENQUIRY</button>
+   <div class="form-message" id="formMessage"></div>
+
+  </form>
+ </div>
+
+ <div class="hero-image">
+  <img src="{% cms_src sections 'hero' '../assets/images/15_Global_City_Office.png' %}" id="heroImage">
+ </div>
+
+</section>
+
+<section class="office-bar">
+ <div class="office-title">SELECT AN OFFICE</div>
+ <div class="office-line"></div>
+
+ <div class="offices" id="officesContainer">
+  <div class="office active" data-office="United Kingdom">UNITED KINGDOM</div>
+  <div class="office" data-office="USA">USA</div>
+  <div class="office" data-office="Canada">CANADA</div>
+  <div class="office" data-office="Malaysia">MALAYSIA</div>
+  <div class="office" data-office="Saudi Arabia">SAUDI ARABIA</div>
+  <div class="office" data-office="Egypt">EGYPT</div>
+ </div>
+</section>
+
+<section class="office-details" id="officeDetails">
+ <div class="detail">
+  <h3 id="officeName">COREXION — UNITED KINGDOM</h3>
+  <p id="officeAddress">United Kingdom office<br>Contact our team for project enquiries.</p>
+ </div>
+ <div class="detail">
+  <h3>EMAIL</h3>
+  <p><a href="mailto:info@corexion.com" id="officeEmail">info@corexion.com</a></p>
+ </div>
+ <div class="detail">
+  <h3 id="officeCtaTitle">START A CONVERSATION</h3>
+  <p id="officeCtaDesc">Tell us about your project and our experts will get back to you.</p>
+ </div>
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="../assets/images/corexion_logo_transparent.png" alt="COREXION" class="footer-logo-img">
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-links-grid">
+                <a href="/about/leadership">Company</a>
+                <a href="/insights">Insights</a>
+                <a href="/expertise">Expertise</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 COREXION. All rights reserved.</span>
+    </div>
+</footer>
+
+</main>
+
+    <script src="../assets/js/pages/contact.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

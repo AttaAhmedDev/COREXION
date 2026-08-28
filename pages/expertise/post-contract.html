@@ -1,0 +1,160 @@
+{% load content_tags %}<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page-slug="post_contract">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COREXION — Post-Contract Services</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/pages/expertise/post-contract.css">
+
+</head>
+<body>
+
+<header class="navbar">
+ <div class="nav-container">
+  <a class="logo" href="/" aria-label="COREXION">
+   <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="corexion-logo">
+  </a>
+
+  <ul class="nav-menu" id="navMenu">
+
+   <!-- WHO WE ARE – DROPDOWN -->
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">WHO WE ARE</a>
+    <ul class="dropdown-menu" id="dropdownMenuWho">
+     <li><a href="/about/leadership">Leadership</a></li>
+     <li><a href="/about/our-approach">Our Approach</a></li>
+     <li><a href="/about/global-presence">Global Presence</a></li>
+    </ul>
+   </li>
+
+   <!-- EXPERTISE – DROPDOWN -->
+   <li class="dropdown">
+    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">EXPERTISE</a>
+    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+     <li><a href="/expertise/project-management">Project Management</a></li>
+     <li><a href="/expertise/consulting-engineering">Consulting Engineering</a></li>
+     <li><a href="/expertise/design">Design</a></li>
+     <li><a href="/expertise/cost-management">Cost Management</a></li>
+     <li><a href="/expertise/post-contract" class="active">Post Contract</a></li>
+     <li><a href="/expertise/tender-management">Tender Management</a></li>
+     <li><a href="/expertise/cost-management-2">Cost Management 2</a></li>
+     <li><a href="/expertise/value-engineering">Value Engineering</a></li>
+     <li><a href="/expertise/schedule-management">Schedule Management</a></li>
+     <li><a href="/expertise/construction-project">Construction Project</a></li>
+     <li><a href="/expertise/contracts-arbitration">Contracts &amp; Arbitration</a></li>
+    </ul>
+   </li>
+
+   <li><a href="/about/vision-mission">VISION &amp; MISSION</a></li>
+   <li><a href="/sectors">SECTORS</a></li>
+   <li><a href="/insights">INSIGHTS</a></li>
+   <li><a href="/contact">CONTACT</a></li>
+
+  </ul>
+
+  <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">
+   <span></span><span></span><span></span>
+  </button>
+ </div>
+ <div class="nav-overlay" id="navOverlay"></div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="copy">
+  <div class="breadcrumb">
+   <span class="gold">EXPERTISE</span><span>/</span><span>POST-CONTRACT</span>
+  </div>
+
+  <h1 id="heroTitle">{% cms_text sections "hero" "heading" %}CONTROL<br>AFTER AWARD.<br>CERTAINTY<br>THROUGH<br>DELIVERY.{% endcms_text %}</h1>
+  <div class="gold-line"></div>
+
+  <p class="desc" id="heroDesc">{% cms_text sections "hero" "paragraph" %}Disciplined administration from<br>contract award to final closeout.{% endcms_text %}</p>
+
+  <a class="explore" href="#services">Explore post-contract services <span>→</span></a>
+ </div>
+
+ <div class="hero-image">
+  <img id="heroImage" src="{% cms_src sections 'hero' '../../assets/images/05_Post_Contract_Project_Controls.png' %}" alt="Post-contract services">
+ </div>
+</section>
+
+<section class="services" id="services">
+
+ <article class="service-card">
+  <div class="icon">
+   <img src="../../assets/images/sdsdsdsdsd.gif" alt="Contract Administration">
+  </div>
+  <h2>CONTRACT<br>ADMINISTRATION</h2>
+  <div class="line"></div>
+  <p>Structured administration and documentation from award through delivery.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">
+   <img src="../../assets/images/icon.gif" alt="Change Control">
+  </div>
+  <h2>CHANGE<br>CONTROL</h2>
+  <div class="line"></div>
+  <p>Clear evaluation and control of changes to protect scope, cost and time.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">
+   <img src="../../assets/images/icon3.gif" alt="Payment Assessment">
+  </div>
+  <h2>PAYMENT<br>ASSESSMENT</h2>
+  <div class="line"></div>
+  <p>Transparent assessment of payment applications against contractual obligations.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">
+   <img src="../../assets/images/icon4.gif" alt="Claims Management">
+  </div>
+  <h2>CLAIMS<br>MANAGEMENT</h2>
+  <div class="line"></div>
+  <p>Disciplined claims review and management to support fair project outcomes.</p>
+ </article>
+
+ <article class="service-card">
+  <div class="icon">
+   <img src="../../assets/images/icon5.gif" alt="Project Closeout">
+  </div>
+  <h2>PROJECT<br>CLOSEOUT</h2>
+  <div class="line"></div>
+  <p>Organized closeout processes supporting a complete and confident handover.</p>
+ </article>
+
+</section>
+</main>
+
+<!-- ========== FOOTER (زي الأول بالظبط) ========== -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- الشعار -->
+        <div class="footer-logo">
+            <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="footer-logo-img">
+        </div>
+
+        <!-- الروابط (شبكة 2x2) -->
+        <div class="footer-right">
+            <div class="footer-links-grid">
+                <a href="/about/leadership">Company</a>
+                <a href="/insights">Insights</a>
+                <a href="/expertise">Expertise</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الجزء السفلي -->
+    <div class="footer-bottom">
+        <span>© 2026 COREXION. All rights reserved.</span>
+    </div>
+</footer>
+
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

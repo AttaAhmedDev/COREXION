@@ -1,0 +1,319 @@
+{% load content_tags %}<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page-slug="tender-management">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tender Management | COREXION</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/pages/expertise/tender-management.css">
+
+    
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- LOGO -->
+            <a href="/" class="logo" aria-label="COREXION">
+                <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="corexion-logo">
+            </a>
+
+            <!-- NAVIGATION -->
+
+            <ul class="nav-menu" id="navMenu">
+
+                <!-- WHO WE ARE – DROPDOWN -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleWho">
+                        WHO WE ARE
+                    </a>
+                    <ul class="dropdown-menu" id="dropdownMenuWho">
+                        <li><a href="/about/leadership">Leadership</a></li>
+                        <li><a href="/about/our-approach">Our Approach</a></li>
+                        <li><a href="/about/global-presence">Global Presence</a></li>
+                    </ul>
+                </li>
+
+                <!-- EXPERTISE – DROPDOWN -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdownToggleExpertise">
+                        EXPERTISE
+                    </a>
+                    <ul class="dropdown-menu wide" id="dropdownMenuExpertise">
+                        <li><a href="/expertise/project-management">Project Management</a></li>
+                        <li><a href="/expertise/consulting-engineering">Consulting Engineering</a></li>
+                        <li><a href="/expertise/design">Design</a></li>
+                        <li><a href="/expertise/cost-management">Cost Management</a></li>
+                        <li><a href="/expertise/post-contract">Post Contract</a></li>
+                        <li><a href="/expertise/tender-management" class="active">Tender Management</a></li>
+                        <li><a href="/expertise/cost-management-2">Cost Management 2</a></li>
+                        <li><a href="/expertise/value-engineering">Value Engineering</a></li>
+                        <li><a href="/expertise/schedule-management">Schedule Management</a></li>
+                        <li><a href="/expertise/construction-project">Construction Project</a></li>
+                        <li><a href="/expertise/contracts-arbitration">Contracts &amp; Arbitration</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/about/vision-mission">
+                        VISION &amp; MISSION
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/sectors">
+                        SECTORS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/insights">
+                        INSIGHTS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/contact">
+                        CONTACT
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- MOBILE -->
+
+            <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+        <div class="nav-overlay" id="navOverlay"></div>
+
+    </header>
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main>
+
+        <!-- =====================================
+             HERO
+        ====================================== -->
+
+        <section class="hero">
+
+            <!-- LEFT -->
+
+            <div class="hero-content">
+
+                <!-- BREADCRUMB -->
+
+                <div class="breadcrumb">
+
+                    <span class="first">
+                        EXPERTISE
+                    </span>
+
+                    <span class="slash">
+                        /
+                    </span>
+
+                    <span>
+                        TENDER MANAGEMENT
+                    </span>
+
+                </div>
+
+                <!-- TITLE -->
+
+                <h1 class="hero-title" id="heroTitle">{% cms_text sections "hero" "heading" %}
+                    PREPARE WITH<br>
+                    CLARITY. PROCURE<br>
+                    WITH CONFIDENCE.
+                {% endcms_text %}</h1>
+
+                <div class="gold-line"></div>
+
+                <p class="hero-description" id="heroDesc">{% cms_text sections "hero" "paragraph" %}
+                    Structured tendering that turns
+                    requirements into informed
+                    appointments.
+                {% endcms_text %}</p>
+
+                <a href="#services" class="explore-link">
+
+                    <span>
+                        Explore tender management
+                    </span>
+
+                    <span class="explore-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- RIGHT IMAGE -->
+
+            <div class="hero-image">
+
+                <img
+                    id="heroImage"
+                    src="{% cms_src sections 'hero' '../../assets/images/07_Tender_Management_Workspace.png' %}"
+                    alt="Tender Management">
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             SERVICES
+        ====================================== -->
+
+        <section class="services" id="services">
+
+            <!-- 01. PROCUREMENT STRATEGY -->
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <img src="../../assets/images/22.gif" alt="Procurement Strategy">
+                </div>
+                <h2>
+                    PROCUREMENT<br>
+                    STRATEGY
+                </h2>
+                <div class="service-line"></div>
+                <p>
+                    Define procurement approach
+                    aligned with project objectives
+                    and delivery requirements.
+                </p>
+            </article>
+
+            <!-- 02. PREQUALIFICATION -->
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <img src="../../assets/images/icon10.gif" alt="Prequalification">
+                </div>
+                <h2>
+                    PREQUALIFICATION
+                </h2>
+                <div class="service-line"></div>
+                <p>
+                    Identify and assess capable
+                    bidders against clear
+                    qualification criteria.
+                </p>
+            </article>
+
+            <!-- 03. TENDER DOCUMENTATION -->
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <img src="../../assets/images/icon7.gif" alt="Tender Documentation">
+                </div>
+                <h2>
+                    TENDER<br>
+                    DOCUMENTATION
+                </h2>
+                <div class="service-line"></div>
+                <p>
+                    Prepare precise, coordinated
+                    tender documents and
+                    instructions.
+                </p>
+            </article>
+
+            <!-- 04. BID EVALUATION -->
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <img src="../../assets/images/66.gif" alt="Bid Evaluation">
+                </div>
+                <h2>
+                    BID<br>
+                    EVALUATION
+                </h2>
+                <div class="service-line"></div>
+                <p>
+                    Evaluate bids transparently
+                    against technical, commercial
+                    and compliance criteria.
+                </p>
+            </article>
+
+            <!-- 05. NEGOTIATION & AWARD -->
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <img src="../../assets/images/99.gif" alt="Negotiation & Award">
+                </div>
+                <h2>
+                    NEGOTIATION<br>
+                    &amp; AWARD
+                </h2>
+                <div class="service-line"></div>
+                <p>
+                    Lead negotiations and appoint
+                    the best overall team.
+                </p>
+            </article>
+
+        </section>
+
+        <!-- =====================================
+             FOOTER (زي الأول بالظبط)
+        ====================================== -->
+
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- الشعار -->
+                <div class="footer-logo">
+                    <img src="../../assets/images/corexion_logo_transparent.png" alt="COREXION" class="footer-logo-img">
+                </div>
+
+                <!-- الروابط (شبكة 2x2) -->
+                <div class="footer-right">
+                    <div class="footer-links-grid">
+                        <a href="/about/leadership">Company</a>
+                        <a href="/insights">Insights</a>
+                        <a href="/expertise">Expertise</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الجزء السفلي -->
+            <div class="footer-bottom">
+                <span>© 2026 COREXION. All rights reserved.</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    
+
+    <script src="../../assets/js/main.js"></script>
+</body>
+
+</html>
