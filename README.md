@@ -2,6 +2,12 @@
 
 Marketing site for COREXION, served by Django. Pages live as HTML templates in `pages/` and `index.html`. Copy and photos come from PostgreSQL (`PageSection`) and are rendered on the server.
 
+<p align="center">
+  <img src="docs/project-management.png" alt="Project Management page" width="48%">
+  &nbsp;
+  <img src="docs/construction-project-management.png" alt="Construction Project Management page" width="48%">
+</p>
+
 ## Requirements
 
 - Python 3.12+
