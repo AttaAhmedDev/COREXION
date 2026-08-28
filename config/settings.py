@@ -36,6 +36,10 @@ ALLOWED_HOSTS = os.environ.get(
     "DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]"
 ).split(",")
 
+# CMS login path. The production value lives in .env and must not be committed.
+_admin = os.environ.get("DJANGO_ADMIN_PATH", "cms").strip().strip("/")
+ADMIN_URL = _admin + "/"
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

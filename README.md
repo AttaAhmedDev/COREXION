@@ -43,11 +43,9 @@ Copy `.env.example` to `.env`. Never commit `.env`.
 | `DJANGO_ALLOWED_HOSTS` | Comma-separated hostnames |
 | `THROTTLE_*` | API rate limits |
 
-Admin is at `/staff-portal-fa2026/` (see `ADMIN_PATH` in `config/urls.py`).
-
 ## Content
 
-- Edit sections in Django admin. Each row is `page_slug` + `section_key`.
+- Edit sections in the private CMS. Each row is `page_slug` + `section_key`.
 - Replacing or deleting an image removes the file from disk unless another section still uses it.
 - Uploads go to `media/sections/` and are gitignored. Back them up with the database.
 - Public pages are listed in `config/pages.py`. Add a line there when you add a page.

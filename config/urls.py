@@ -18,8 +18,6 @@ from content.models import PageSection
 
 from .pages import SLUG_FOR_URL, TEMPLATE_FOR_URL, URL_FOR_TEMPLATE
 
-ADMIN_PATH = "staff-portal-fa2026/"
-
 
 def serve_page(request, page=""):
     key = page.strip("/")
@@ -47,7 +45,7 @@ def redirect_legacy_html(request, path):
 
 
 urlpatterns = [
-    path(ADMIN_PATH, admin.site.urls),
+    path(settings.ADMIN_URL, admin.site.urls),
     path("api/", include("content.urls")),
     re_path(
         r"^assets/(?P<path>.*)$",
