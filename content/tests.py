@@ -171,3 +171,17 @@ class CleanUrlTests(TestCase):
     def test_unknown_page_returns_404(self):
         response = self.client.get("/no-such-page")
         self.assertEqual(response.status_code, 404)
+
+    def test_cms_path_without_slash_redirects_to_admin(self):
+        from django.conf import settings as django_settings
+
+        prefix = django_settings.ADMIN_URL.strip("/")
+        response = self.client.get("/" + prefix)
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response["Location"], "/" + django_settings.ADMIN_URL)
+
+    def test_cms_login_is_reachable(self):
+        from django.conf import settings as django_settings
+
+        response = self.client.get("/" + django_settings.ADMIN_URL + "login/")
+        self.assertEqual(response.status_code, 200)

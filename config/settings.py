@@ -59,7 +59,7 @@ if vercel_url and vercel_url not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(vercel_url)
 
 # CMS login path. The production value lives in .env and must not be committed.
-_admin = os.environ.get("DJANGO_ADMIN_PATH", "cms").strip().strip("/")
+_admin = os.environ.get("DJANGO_ADMIN_PATH", "cms").strip().strip("/").strip("\"'")
 ADMIN_URL = _admin + "/"
 
 INSTALLED_APPS = [

@@ -20,8 +20,19 @@ from content.models import PageSection
 from .pages import SLUG_FOR_URL, TEMPLATE_FOR_URL, URL_FOR_TEMPLATE
 
 
+def redirect_admin_index(request):
+    return HttpResponsePermanentRedirect("/" + settings.ADMIN_URL)
+
+
 def serve_page(request, page=""):
     key = page.strip("/")
+    admin_prefix = settings.ADMIN_URL.strip("/")
+    if key == admin_prefix or key.startswith(admin_prefix + "/"):
+        remainder = key[len(admin_prefix) :].lstrip("/")
+        target = "/" + settings.ADMIN_URL + remainder
+        if remainder and not target.endswith("/"):
+            target += "/"
+        return HttpResponsePermanentRedirect(target)
     template_name = TEMPLATE_FOR_URL.get(key)
     if template_name is None:
         raise Http404("Unknown page")
@@ -49,6 +60,7 @@ def redirect_legacy_html(request, path):
 
 
 urlpatterns = [
+    path(settings.ADMIN_URL.strip("/"), redirect_admin_index),
     path(settings.ADMIN_URL, admin.site.urls),
     path("api/", include("content.urls")),
 ]
