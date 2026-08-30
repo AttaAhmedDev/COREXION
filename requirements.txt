@@ -4,3 +4,4 @@ django-cors-headers
 django-cleanup
 Pillow
 psycopg[binary]
+vercel_blob

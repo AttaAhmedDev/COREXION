@@ -59,3 +59,17 @@ Copy `.env.example` to `.env`. Never commit `.env`.
 ```bash
 python manage.py test content
 ```
+
+## Deploy on Vercel
+
+1. Import [AttaAhmedDev/COREXION](https://github.com/AttaAhmedDev/COREXION) at [vercel.com/new](https://vercel.com/new). The first deploy can succeed without a database (pages use the static HTML fallbacks).
+2. Add **Neon** (Storage) so `DATABASE_URL` is set, restore your local Postgres dump, then redeploy so migrations run.
+3. Add **Vercel Blob** so `BLOB_READ_WRITE_TOKEN` is set (CMS photo uploads).
+4. Set at least:
+   - `DJANGO_SECRET_KEY`
+   - `DJANGO_DEBUG=0`
+   - `DJANGO_ADMIN_PATH` (your private CMS path)
+   - `DJANGO_ALLOWED_HOSTS` (your production host; `.vercel.app` is added automatically)
+5. Design files under `/assets/` are collected to the CDN automatically.
+
+Do not rely on `media/sections/` on Vercel — that disk is temporary. Re-upload CMS images once Blob is connected, or keep using the static files already in `assets/`.

@@ -1,0 +1,19 @@
+[project]
+name = "corexion"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "Django>=5.2",
+    "djangorestframework",
+    "django-cors-headers",
+    "django-cleanup",
+    "Pillow",
+    "psycopg[binary]",
+    "vercel_blob",
+]
+
+[tool.vercel]
+entrypoint = "config.wsgi:application"
+
+[tool.vercel.scripts]
+build = "python build.py"

@@ -10,6 +10,9 @@ __pycache__/
 .venv/
 venv/
 
+# Vercel
+.vercel/
+
 # Django
 db.sqlite3
 *.sqlite3

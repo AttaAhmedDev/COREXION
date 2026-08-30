@@ -47,16 +47,23 @@ def redirect_legacy_html(request, path):
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path("api/", include("content.urls")),
-    re_path(
-        r"^assets/(?P<path>.*)$",
-        static_serve,
-        {"document_root": settings.BASE_DIR / "assets"},
-    ),
-    re_path(
-        r"^media/(?P<path>.*)$",
-        static_serve,
-        {"document_root": settings.MEDIA_ROOT},
-    ),
+]
+
+if settings.DEBUG:
+    urlpatterns += [
+        re_path(
+            r"^assets/(?P<path>.*)$",
+            static_serve,
+            {"document_root": settings.BASE_DIR / "assets"},
+        ),
+        re_path(
+            r"^media/(?P<path>.*)$",
+            static_serve,
+            {"document_root": settings.MEDIA_ROOT},
+        ),
+    ]
+
+urlpatterns += [
     re_path(r"^(?P<path>index\.html|pages/.+\.html)$", redirect_legacy_html),
     re_path(r"^(?P<page>[\w./-]*)/?$", serve_page),
 ]

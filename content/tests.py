@@ -1,9 +1,12 @@
+import os
 import shutil
 import tempfile
+from unittest.mock import patch
 
 from django.core.files.base import ContentFile
 from django.test import TestCase, override_settings
 
+from config.database import database_from_env, database_from_url
 from .models import PageSection
 
 PNG_BYTES = (
@@ -11,6 +14,26 @@ PNG_BYTES = (
     b"\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05"
     b"\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82"
 )
+
+
+class DatabaseUrlTests(TestCase):
+    def test_parses_neon_style_url(self):
+        config = database_from_url(
+            "postgres://app:p%40ss@ep-host.neon.tech:5432/corexion?sslmode=require"
+        )
+        self.assertEqual(config["NAME"], "corexion")
+        self.assertEqual(config["USER"], "app")
+        self.assertEqual(config["PASSWORD"], "p@ss")
+        self.assertEqual(config["HOST"], "ep-host.neon.tech")
+        self.assertEqual(config["OPTIONS"]["sslmode"], "require")
+
+    def test_vercel_without_database_url_uses_sqlite(self):
+        with patch.dict(
+            os.environ,
+            {"VERCEL": "1", "DATABASE_URL": "", "POSTGRES_HOST": ""},
+        ):
+            config = database_from_env()
+        self.assertEqual(config["ENGINE"], "django.db.backends.sqlite3")
 
 
 class SectionApiTests(TestCase):
