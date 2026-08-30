@@ -14,6 +14,12 @@ from django.utils.deconstruct import deconstructible
 
 @deconstructible
 class VercelBlobStorage(Storage):
+    def _open(self, name, mode="rb"):
+        from django.core.files.base import ContentFile
+
+        with urlopen(self.url(name), timeout=30) as response:
+            return ContentFile(response.read(), name=name)
+
     def _save(self, name, content):
         import vercel_blob
 
@@ -58,3 +64,6 @@ class VercelBlobStorage(Storage):
 
     def size(self, name):
         return 0
+
+    def listdir(self, path):
+        return [], []

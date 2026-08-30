@@ -138,6 +138,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+if ON_VERCEL:
+    MEDIA_ROOT = Path("/tmp/corexion-media")
+    MEDIA_ROOT.mkdir(parents=True, exist_ok=True)
+    FILE_UPLOAD_TEMP_DIR = "/tmp"
 
 default_file_backend = (
     "content.storage.VercelBlobStorage"

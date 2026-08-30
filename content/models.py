@@ -17,6 +17,7 @@ class PageSection(models.Model):
     paragraph = models.TextField(blank=True, null=True)
     image = models.ImageField(
         upload_to="sections/",
+        max_length=500,
         blank=True,
         null=True,
         help_text="Optional. Leave empty for text-only sections.",
