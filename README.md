@@ -1,6 +1,6 @@
 # COREXION
 
-Marketing site for COREXION, served by Django. Pages live as HTML templates in `pages/` and `index.html`. Copy and photos come from PostgreSQL (`PageSection`) and are rendered on the server.
+Marketing site for COREXION, served by Django. Pages live as HTML templates in `pages/` and `templates/`. Copy and photos come from PostgreSQL (`PageSection`) and are rendered on the server.
 
 <p align="center">
   <img src="docs/project-management.png" alt="Project Management page" width="48%">

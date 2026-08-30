@@ -22,7 +22,7 @@ def database_from_url(url):
         "CONN_MAX_AGE": 0,
         "OPTIONS": {"sslmode": sslmode},
     }
-    if pgbouncer:
+    if pgbouncer or "-pooler." in (parsed.hostname or ""):
         config["DISABLE_SERVER_SIDE_CURSORS"] = True
     return config
 

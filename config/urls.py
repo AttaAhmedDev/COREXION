@@ -7,6 +7,8 @@ so the response already contains the final copy. Legacy ".html" URLs redirect to
 their extensionless equivalent.
 """
 
+from pathlib import Path
+
 from django.conf import settings
 from django.contrib import admin
 from django.db import DatabaseError
@@ -52,7 +54,27 @@ def serve_page(request, page=""):
     )
 
 
+def serve_design_assets(request, path):
+    """Serve /assets/ from collectstatic output, then the repo assets/ folder."""
+    roots = []
+    static_root = Path(settings.STATIC_ROOT)
+    if static_root.is_dir():
+        roots.append(static_root)
+    roots.append(settings.BASE_DIR / "assets")
+    for root in roots:
+        full = (root / path).resolve()
+        try:
+            full.relative_to(root.resolve())
+        except ValueError:
+            continue
+        if full.is_file():
+            return static_serve(request, path, document_root=root)
+    raise Http404("Asset not found")
+
+
 def redirect_legacy_html(request, path):
+    if path == "index.html":
+        return HttpResponsePermanentRedirect("/")
     clean_url = URL_FOR_TEMPLATE.get(path)
     if clean_url is None:
         raise Http404("Unknown page")
@@ -63,15 +85,11 @@ urlpatterns = [
     path(settings.ADMIN_URL.strip("/"), redirect_admin_index),
     path(settings.ADMIN_URL, admin.site.urls),
     path("api/", include("content.urls")),
+    re_path(r"^assets/(?P<path>.*)$", serve_design_assets),
 ]
 
 if settings.DEBUG:
     urlpatterns += [
-        re_path(
-            r"^assets/(?P<path>.*)$",
-            static_serve,
-            {"document_root": settings.BASE_DIR / "assets"},
-        ),
         re_path(
             r"^media/(?P<path>.*)$",
             static_serve,

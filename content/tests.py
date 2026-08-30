@@ -185,3 +185,8 @@ class CleanUrlTests(TestCase):
 
         response = self.client.get("/" + django_settings.ADMIN_URL + "login/")
         self.assertEqual(response.status_code, 200)
+
+    def test_design_css_is_served(self):
+        response = self.client.get("/assets/css/base.css")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("text/css", response["Content-Type"])
