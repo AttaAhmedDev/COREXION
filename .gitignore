@@ -10,8 +10,9 @@ __pycache__/
 .venv/
 venv/
 
-# Vercel
+# Vercel build output
 .vercel/
+public/
 
 # Django
 db.sqlite3
