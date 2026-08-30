@@ -115,6 +115,6 @@ def cms_src(sections, key, default=""):
         try:
             if section.image.storage.exists(section.image.name):
                 return section.image.url
-        except (ValueError, OSError):
+        except Exception:
             return default
     return default

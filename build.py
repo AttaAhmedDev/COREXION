@@ -9,13 +9,12 @@ def main():
 
     django.setup()
     from django.core.management import call_command
+    from django.db.utils import DatabaseError
 
-    has_database = os.environ.get("DATABASE_URL") or os.environ.get("POSTGRES_HOST")
-    if not has_database:
-        print("No DATABASE_URL; skipping migrate. Add Neon, then redeploy.")
-        return
-
-    call_command("migrate", interactive=False)
+    try:
+        call_command("migrate", interactive=False)
+    except DatabaseError as exc:
+        print(f"migrate failed: {exc}")
 
 
 if __name__ == "__main__":

@@ -35,6 +35,21 @@ class DatabaseUrlTests(TestCase):
             config = database_from_env()
         self.assertEqual(config["ENGINE"], "django.db.backends.sqlite3")
 
+    def test_postgres_url_alias_and_pgbouncer(self):
+        with patch.dict(
+            os.environ,
+            {
+                "DATABASE_URL": "",
+                "POSTGRES_URL": (
+                    "postgres://app:secret@db.example:6432/corexion"
+                    "?sslmode=require&pgbouncer=true"
+                ),
+            },
+        ):
+            config = database_from_env()
+        self.assertTrue(config["DISABLE_SERVER_SIDE_CURSORS"])
+        self.assertEqual(config["PORT"], "6432")
+
 
 class SectionApiTests(TestCase):
     @classmethod

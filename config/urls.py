@@ -9,6 +9,7 @@ their extensionless equivalent.
 
 from django.conf import settings
 from django.contrib import admin
+from django.db import DatabaseError
 from django.http import Http404, HttpResponsePermanentRedirect
 from django.shortcuts import render
 from django.urls import include, path, re_path
@@ -26,10 +27,13 @@ def serve_page(request, page=""):
         raise Http404("Unknown page")
 
     page_slug = SLUG_FOR_URL[key]
-    sections = {
-        section.section_key: section
-        for section in PageSection.objects.filter(page_slug=page_slug)
-    }
+    try:
+        sections = {
+            section.section_key: section
+            for section in PageSection.objects.filter(page_slug=page_slug)
+        }
+    except DatabaseError:
+        sections = {}
     return render(
         request,
         template_name,
