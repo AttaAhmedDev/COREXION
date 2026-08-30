@@ -195,3 +195,14 @@ class CleanUrlTests(TestCase):
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.get("Location", ""), "//")
+
+    def test_uploaded_media_is_served(self):
+        root = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, root, ignore_errors=True)
+        folder = os.path.join(root, "sections")
+        os.makedirs(folder)
+        with open(os.path.join(folder, "hero.png"), "wb") as handle:
+            handle.write(PNG_BYTES)
+        with override_settings(MEDIA_ROOT=root):
+            response = self.client.get("/media/sections/hero.png")
+        self.assertEqual(response.status_code, 200)

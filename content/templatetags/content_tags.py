@@ -112,8 +112,11 @@ def cms_src(sections, key, default=""):
     """
     section = _section(sections, key)
     if section is not None and section.image:
+        name = section.image.name
         try:
-            if section.image.storage.exists(section.image.name):
+            if name.startswith("http://") or name.startswith("https://"):
+                return name
+            if section.image.storage.exists(name):
                 return section.image.url
         except Exception:
             return default

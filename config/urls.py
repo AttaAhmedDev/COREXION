@@ -54,6 +54,11 @@ def serve_page(request, page=""):
     )
 
 
+def serve_media(request, path):
+    """Serve CMS uploads. On Vercel these live under /tmp until Blob is used."""
+    return static_serve(request, path, document_root=settings.MEDIA_ROOT)
+
+
 def serve_design_assets(request, path):
     """Serve /assets/ from collectstatic output, then the repo assets/ folder."""
     roots = []
@@ -85,21 +90,13 @@ _admin_prefix = settings.ADMIN_URL.strip("/")
 urlpatterns = [
     path("api/", include("content.urls")),
     re_path(r"^assets/(?P<path>.*)$", serve_design_assets),
+    re_path(r"^media/(?P<path>.*)$", serve_media),
 ]
 if _admin_prefix:
     urlpatterns = [
         path(_admin_prefix, redirect_admin_index),
         path(settings.ADMIN_URL, admin.site.urls),
         *urlpatterns,
-    ]
-
-if settings.DEBUG:
-    urlpatterns += [
-        re_path(
-            r"^media/(?P<path>.*)$",
-            static_serve,
-            {"document_root": settings.MEDIA_ROOT},
-        ),
     ]
 
 urlpatterns += [
