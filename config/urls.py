@@ -81,12 +81,17 @@ def redirect_legacy_html(request, path):
     return HttpResponsePermanentRedirect("/" + clean_url)
 
 
+_admin_prefix = settings.ADMIN_URL.strip("/")
 urlpatterns = [
-    path(settings.ADMIN_URL.strip("/"), redirect_admin_index),
-    path(settings.ADMIN_URL, admin.site.urls),
     path("api/", include("content.urls")),
     re_path(r"^assets/(?P<path>.*)$", serve_design_assets),
 ]
+if _admin_prefix:
+    urlpatterns = [
+        path(_admin_prefix, redirect_admin_index),
+        path(settings.ADMIN_URL, admin.site.urls),
+        *urlpatterns,
+    ]
 
 if settings.DEBUG:
     urlpatterns += [

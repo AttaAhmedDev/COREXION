@@ -190,3 +190,8 @@ class CleanUrlTests(TestCase):
         response = self.client.get("/assets/css/base.css")
         self.assertEqual(response.status_code, 200)
         self.assertIn("text/css", response["Content-Type"])
+
+    def test_home_is_not_redirected_to_double_slash(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertNotEqual(response.get("Location", ""), "//")

@@ -59,7 +59,10 @@ if vercel_url and vercel_url not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(vercel_url)
 
 # CMS login path. The production value lives in .env and must not be committed.
+# An empty DJANGO_ADMIN_PATH would mount the CMS at "" and 301 the homepage to "//".
 _admin = os.environ.get("DJANGO_ADMIN_PATH", "cms").strip().strip("/").strip("\"'")
+if not _admin:
+    _admin = "cms"
 ADMIN_URL = _admin + "/"
 
 INSTALLED_APPS = [
