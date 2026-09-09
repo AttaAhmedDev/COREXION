@@ -9,9 +9,10 @@ their extensionless equivalent.
 
 from django.conf import settings
 from django.contrib import admin
-from django.http import Http404, HttpResponsePermanentRedirect
+from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.shortcuts import render
 from django.urls import include, path, re_path
+from django.views.generic import RedirectView
 from django.views.static import serve as static_serve
 
 from content.models import PageSection
@@ -44,7 +45,18 @@ def redirect_legacy_html(request, path):
     return HttpResponsePermanentRedirect("/" + clean_url)
 
 
+def healthz(_request):
+    return HttpResponse("ok")
+
+
 urlpatterns = [
+    path("healthz", healthz),
+    path("admin/", RedirectView.as_view(url="/" + settings.ADMIN_URL, permanent=False)),
+    path("admin", RedirectView.as_view(url="/" + settings.ADMIN_URL, permanent=False)),
+    path(
+        settings.ADMIN_URL.rstrip("/"),
+        RedirectView.as_view(url="/" + settings.ADMIN_URL, permanent=False),
+    ),
     path(settings.ADMIN_URL, admin.site.urls),
     path("api/", include("content.urls")),
     re_path(

@@ -2,5 +2,7 @@ Django>=5.2
 djangorestframework
 django-cors-headers
 django-cleanup
+gunicorn
+whitenoise
 Pillow
 psycopg[binary]

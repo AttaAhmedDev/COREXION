@@ -19,6 +19,9 @@ staticfiles/
 # Uploaded CMS images (restore from admin or a database dump)
 /media/sections/
 
+# One-off payload used to copy local CMS content to Railway
+/seed/
+
 # Editors / OS
 .vscode/
 .idea/
