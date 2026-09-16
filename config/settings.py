@@ -161,6 +161,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Public origin used in canonical URLs, Open Graph tags, robots.txt and sitemap.xml.
+SITE_URL = os.environ.get("PUBLIC_SITE_URL", "https://corexion.uk").rstrip("/")
+
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
