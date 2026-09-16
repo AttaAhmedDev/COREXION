@@ -7,6 +7,8 @@ so the response already contains the final copy. Legacy ".html" URLs redirect to
 their extensionless equivalent.
 """
 
+from xml.sax.saxutils import escape
+
 from django.conf import settings
 from django.contrib import admin
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
@@ -17,7 +19,7 @@ from django.views.static import serve as static_serve
 
 from content.models import PageSection
 
-from .pages import SLUG_FOR_URL, TEMPLATE_FOR_URL, URL_FOR_TEMPLATE
+from .pages import PAGES, SLUG_FOR_URL, TEMPLATE_FOR_URL, URL_FOR_TEMPLATE, canonical_url, seo_context
 
 
 def serve_page(request, page=""):
@@ -31,11 +33,9 @@ def serve_page(request, page=""):
         section.section_key: section
         for section in PageSection.objects.filter(page_slug=page_slug)
     }
-    return render(
-        request,
-        template_name,
-        {"page_slug": page_slug, "sections": sections},
-    )
+    context = {"page_slug": page_slug, "sections": sections}
+    context.update(seo_context(key, settings.SITE_URL))
+    return render(request, template_name, context)
 
 
 def redirect_legacy_html(request, path):
@@ -49,8 +49,31 @@ def healthz(_request):
     return HttpResponse("ok")
 
 
+def robots_txt(_request):
+    site = settings.SITE_URL.rstrip("/")
+    body = f"User-agent: *\nAllow: /\n\nSitemap: {site}/sitemap.xml\n"
+    return HttpResponse(body, content_type="text/plain; charset=utf-8")
+
+
+def sitemap_xml(_request):
+    site = settings.SITE_URL.rstrip("/")
+    entries = []
+    for url_key in PAGES:
+        loc = escape(canonical_url(url_key, site))
+        entries.append(f"    <url>\n        <loc>{loc}</loc>\n    </url>")
+    body = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\n'
+        + "\n\n".join(entries)
+        + "\n\n</urlset>\n"
+    )
+    return HttpResponse(body, content_type="application/xml; charset=utf-8")
+
+
 urlpatterns = [
     path("healthz", healthz),
+    path("robots.txt", robots_txt),
+    path("sitemap.xml", sitemap_xml),
     path("admin/", RedirectView.as_view(url="/" + settings.ADMIN_URL, permanent=False)),
     path("admin", RedirectView.as_view(url="/" + settings.ADMIN_URL, permanent=False)),
     path(

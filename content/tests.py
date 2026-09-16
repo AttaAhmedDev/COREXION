@@ -133,3 +133,48 @@ class CleanUrlTests(TestCase):
     def test_unknown_page_returns_404(self):
         response = self.client.get("/no-such-page")
         self.assertEqual(response.status_code, 404)
+
+
+class SeoTests(TestCase):
+    def test_robots_txt_allows_crawlers_and_points_to_sitemap(self):
+        response = self.client.get("/robots.txt")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("text/plain", response["Content-Type"])
+        body = response.content.decode()
+        self.assertIn("User-agent: *", body)
+        self.assertIn("Allow: /", body)
+        self.assertIn("Sitemap: https://corexion.uk/sitemap.xml", body)
+
+    def test_sitemap_lists_every_public_page(self):
+        from config.pages import PAGES, canonical_url
+
+        response = self.client.get("/sitemap.xml")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("xml", response["Content-Type"])
+        body = response.content.decode()
+        for url_key in PAGES:
+            self.assertIn(canonical_url(url_key, "https://corexion.uk"), body)
+
+    def test_home_has_unique_title_description_canonical_and_json_ld(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        html = response.content.decode()
+        self.assertEqual(html.count("<head>"), 1)
+        self.assertContains(response, "<title>COREXION | We Raise Standards</title>", html=False)
+        self.assertContains(
+            response,
+            'meta name="description"',
+            html=False,
+        )
+        self.assertContains(response, 'rel="canonical" href="https://corexion.uk/"')
+        self.assertContains(response, 'property="og:url" content="https://corexion.uk/"')
+        self.assertContains(response, 'rel="icon"')
+        self.assertContains(response, "application/ld+json")
+        self.assertContains(response, '"@type": "Organization"')
+
+    def test_inner_page_uses_its_own_canonical_and_title(self):
+        response = self.client.get("/contact")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "<title>Contact | COREXION</title>", html=False)
+        self.assertContains(response, 'rel="canonical" href="https://corexion.uk/contact"')
+        self.assertContains(response, 'property="og:url" content="https://corexion.uk/contact"')
