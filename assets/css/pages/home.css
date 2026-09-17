@@ -1135,67 +1135,28 @@ animation:ringSweep 2s cubic-bezier(.65,0,.35,1) infinite;
 100%{ stroke-dashoffset:-753; opacity:.3; }
 }
 
-/* the X letter itself */
+/* logo inside the loader ring */
 .x-letter{
 position:relative;
-font-family:'Playfair Display', serif;
-font-weight:900;
-font-size:180px;
-line-height:1;
-user-select:none;
+display:flex;
+align-items:center;
+justify-content:center;
+width:220px;
+height:220px;
 -webkit-user-select:none;
+user-select:none;
 }
 
-.x-base{
-color:transparent;
--webkit-text-stroke:1.5px rgba(232,169,51,0.35);
-filter:drop-shadow(0 0 10px rgba(138,90,18,0.35));
-}
-
-.x-fill{
-position:absolute;
-inset:0;
-background:linear-gradient(180deg, var(--gold-1) 0%, var(--gold-2) 35%, var(--gold-3) 65%, var(--gold-4) 100%);
-background-size:100% 220%;
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
+.loader-logo{
+display:block;
+width:190px;
+height:auto;
+object-fit:contain;
 filter:
-    drop-shadow(0 0 6px rgba(255,214,107,0.85))
-    drop-shadow(0 0 18px rgba(255,193,66,0.65))
-    drop-shadow(0 0 38px rgba(232,169,51,0.45));
-clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);
-animation:
-    fillUp 3.2s cubic-bezier(.65,0,.35,1) forwards,
-    shimmerMove 3.2s cubic-bezier(.65,0,.35,1) forwards,
-    breatheGlow 1.4s ease-in-out infinite;
-}
-
-/* liquid gold rising with a slightly wavy top edge */
-@keyframes fillUp{
-0%{
-    clip-path:polygon(0% 101%,100% 101%,100% 101%,0% 101%);
-}
-12%{
-    clip-path:polygon(0% 100%,100% 100%,100% 96%,0% 98%);
-}
-45%{
-    clip-path:polygon(0% 55%,100% 58%,100% 46%,0% 50%);
-}
-75%{
-    clip-path:polygon(0% 18%,100% 15%,100% 8%,0% 11%);
-}
-88%{
-    clip-path:polygon(0% -2%,100% -4%,100% -8%,0% -6%);
-}
-100%{
-    clip-path:polygon(0% -10%,100% -10%,100% -10%,0% -10%);
-}
-}
-
-@keyframes shimmerMove{
-0%{ background-position:0% 100%; }
-100%{ background-position:0% -40%; }
+    drop-shadow(0 0 4px rgba(255,214,107,0.6))
+    drop-shadow(0 0 14px rgba(255,193,66,0.45))
+    drop-shadow(0 0 30px rgba(232,169,51,0.3));
+animation:breatheGlow 1.4s ease-in-out infinite;
 }
 
 @keyframes breatheGlow{
@@ -1207,32 +1168,6 @@ animation:
     drop-shadow(0 0 10px rgba(255,214,107,1))
     drop-shadow(0 0 26px rgba(255,193,66,0.85))
     drop-shadow(0 0 55px rgba(232,169,51,0.6)); }
-}
-
-/* diagonal sweeping shine across the whole letter */
-.x-shine{
-position:absolute;
-inset:0;
-color:transparent;
-background:linear-gradient(115deg,
-    transparent 30%,
-    rgba(255,255,255,0.75) 48%,
-    rgba(255,255,255,0.95) 50%,
-    rgba(255,255,255,0.75) 52%,
-    transparent 70%);
-background-size:300% 300%;
--webkit-background-clip:text;
-background-clip:text;
-mix-blend-mode:screen;
-background-position:130% 0%;
-animation:sweep 2.6s ease-in-out infinite;
-}
-@keyframes sweep{
-0%{ background-position:160% 0%; opacity:0; }
-35%{ opacity:0; }
-45%{ opacity:.9; }
-60%{ opacity:0; }
-100%{ background-position:-60% 0%; opacity:0; }
 }
 
 /* name */
@@ -1291,6 +1226,7 @@ animation:dotPulse 1.4s ease-in-out infinite;
 
 @media (max-width:520px){
 .ring-wrap{ width:220px; height:220px; }
-.x-letter{ font-size:120px; }
+.x-letter{ width:160px; height:160px; }
+.loader-logo{ width:140px; }
 .name-title{ font-size:16px; letter-spacing:0.22em; }
 }

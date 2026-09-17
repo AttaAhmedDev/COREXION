@@ -28,3 +28,6 @@ staticfiles/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+#backup database and media files 
+backup/ 
