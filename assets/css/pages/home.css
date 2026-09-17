@@ -1091,7 +1091,7 @@ z-index:2;
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:28px;
+gap:22px;
 }
 
 /* ring around the X */
@@ -1135,21 +1135,22 @@ animation:ringSweep 2s cubic-bezier(.65,0,.35,1) infinite;
 100%{ stroke-dashoffset:-753; opacity:.3; }
 }
 
-/* logo inside the loader ring */
+/* full wordmark sized to sit inside the ring */
 .x-letter{
 position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
 width:220px;
-height:220px;
+max-width:70vw;
 -webkit-user-select:none;
 user-select:none;
 }
 
 .loader-logo{
 display:block;
-width:190px;
+width:220px;
+max-width:70vw;
 height:auto;
 object-fit:contain;
 filter:
@@ -1173,8 +1174,8 @@ animation:breatheGlow 1.4s ease-in-out infinite;
 /* name */
 .name-block{
 text-align:center;
-opacity:0;
-animation:nameIn 1.4s ease-out 0.4s forwards;
+opacity:1;
+animation:nameIn 1.4s ease-out 0.4s both;
 }
 
 @keyframes nameIn{
@@ -1188,13 +1189,13 @@ font-size:22px;
 font-weight:600;
 letter-spacing:0.32em;
 text-transform:uppercase;
+color:var(--gold-2);
 background:linear-gradient(90deg, var(--gold-4), var(--gold-1) 45%, var(--gold-2) 55%, var(--gold-4));
 background-size:220% 100%;
 -webkit-background-clip:text;
 background-clip:text;
-color:transparent;
+-webkit-text-fill-color:transparent;
 animation:nameShimmer 4s linear infinite;
-text-shadow:0 0 22px rgba(232,169,51,0.25);
 }
 
 @keyframes nameShimmer{
@@ -1203,11 +1204,11 @@ text-shadow:0 0 22px rgba(232,169,51,0.25);
 }
 
 .name-sub{
-margin-top:10px;
-font-size:12.5px;
-letter-spacing:0.5em;
+margin-top:6px;
+font-size:13px;
+letter-spacing:0.38em;
 text-transform:uppercase;
-color:rgba(232,169,51,0.5);
+color:rgba(232,169,51,0.8);
 font-family:'Cinzel', serif;
 }
 
@@ -1225,8 +1226,8 @@ animation:dotPulse 1.4s ease-in-out infinite;
 }
 
 @media (max-width:520px){
-.ring-wrap{ width:220px; height:220px; }
-.x-letter{ width:160px; height:160px; }
-.loader-logo{ width:140px; }
+.ring-wrap{ width:240px; height:240px; }
+.x-letter,
+.loader-logo{ width:180px; }
 .name-title{ font-size:16px; letter-spacing:0.22em; }
 }
